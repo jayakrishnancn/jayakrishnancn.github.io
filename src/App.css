@@ -12,3 +12,18 @@ a:hover,a.active{
     margin: 0;
     padding: 0;
 }
+.btn{
+    padding: .4rem .8rem;
+    border-radius: 3px;
+    border: 3px solid transparent;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.btn-primary{
+    color: #FFF;
+    background: #000;
+}
+.btn-primary:hover{
+    color: #FFF;
+    border-bottom-color: #dd4f39;
+}

@@ -5,9 +5,13 @@ body {
     sans-serif;
   */
   font-family: 'PT Mono', monospace;
-  color: #333;
+  color: #555;
   font-size: 20px;
   line-height: 30px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.f1{
+  font-family: sans-serif;
 }

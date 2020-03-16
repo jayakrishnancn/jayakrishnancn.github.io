@@ -9,7 +9,7 @@ function Project(params) {
         <div style={{marginTop:"3rem"}}>
             <Post post={post} />
             <Container>
-                <Link to="/projects">Back</Link>
+                <Link to="/projects" className="btn btn-primary">BACK</Link>
                 { /* <ul class="no-style breadcrumbs">
                         <li><a href="/blog">Blog</a></li>
                         <li><a href={post.url}>One</a></li>

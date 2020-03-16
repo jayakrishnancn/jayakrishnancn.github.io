@@ -12,7 +12,7 @@ class Blog extends Component{
             <div style={{marginTop:"3rem"}}>
                 <Post post={post} />
                 <Container>
-                    <Link to="/blog">Back</Link>
+                    <Link className="btn btn-primary" to="/blog">Back</Link>
                     { /* <ul class="no-style breadcrumbs">
                             <li><a href="/blog">Blog</a></li>
                             <li><a href={post.url}>One</a></li>
