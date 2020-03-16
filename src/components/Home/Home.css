@@ -1,27 +1,33 @@
 .home{
-    margin: 4% auto 0 auto;
-}
-.home .container{
+    margin: auto;
+    margin-top: 4%;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    width: 33%;
+    min-width: 200px;
 }
-.home .profile{
-    width: 150px;
-    height: 150px;
-    margin-right: 2rem;
-    background: #FFF;
-    border-radius: 50%;
-    overflow: hidden;
-    box-sizing: border-box;
-    padding: 2px;
-    border: 3px solid #000;
+.home .bio{
+    color: #888;
 }
-
-.m-1{
-    margin: 1rem
+.social-media{
+    margin-top: 2rem;
 }
-.mt-3{
-    margin-top: 3rem;
+.social-media a{
+    color: #222;
+    border-radius: 100%;
+    border: 1px solid #222;
+    display: inline-block;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 20px;
+    width: 20px;
+    height: 20px;
+}
+.social-media li{
+    display: inline-block;
+    margin: 5px ;
+}
+.social-media a:hover{
+    color: #36F;
+    border-color: #222;
 }

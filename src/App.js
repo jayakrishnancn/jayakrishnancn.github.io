@@ -7,6 +7,9 @@ import ProjectList from './components/ProjectList/ProjectList'
 import Container from './components/Container/Container'
 import 'normalize.css';
 import './App.css'
+import './util.css'
+import './topography.css'
+
 const Project = React.lazy( ()=>import('./components/Project/Project'))
 const Blog = React.lazy( ()=>import('./components/Blog/Blog'))
 
@@ -14,14 +17,16 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar/>
         <Route path="/" exact component={Home} />  
-        <Route path="/projects" exact component={ProjectList} />  
-        <Route path="/blog" exact component={BlogPosts} />  
-        <Suspense fallback={<Container>Loading</Container>}>
-          <Route path="/blog/:id" exact component={Blog} />  
-          <Route path="/projects/:id" exact component={Project} />  
-        </Suspense>
+{/*        
+
+      <Route path="/projects" exact component={ProjectList} />  
+      <Route path="/blog" exact component={BlogPosts} />  
+      <Suspense fallback={<Container>Loading</Container>}>
+        <Route path="/blog/:id" exact component={Blog} />  
+        <Route path="/projects/:id" exact component={Project} />  
+      </Suspense>
+*/}
       </BrowserRouter>
     </div>
   );
