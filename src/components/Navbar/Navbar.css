@@ -4,11 +4,11 @@
     justify-content: space-between;
     align-items: center;
 }
-.navbar .not-link:hover,
-.navbar .not-link:active,
-.navbar .not-link{
-    color: #000 !important;
-    border-color: transparent !important;
+.navbar div.logo a.not-link:hover,
+.navbar div.logo a.not-link{
+    color: #000;
+    border-color: transparent;
+    margin: 0;
 }
 .navbar .container a{
     border-color: transparent;
@@ -24,4 +24,11 @@
 .navbar .container a:hover{
     color: #36F;
     border-color: #36F;
+}
+
+.navbar div.logo{
+    font-size: 2rem;
+    padding: 1.5rem 0;
+    margin: 0;
+    color: #999 !important;
 }

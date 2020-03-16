@@ -8,7 +8,7 @@ export default function Navbar(){
     <nav className="navbar">
         <Container>
             <div className="navbar-left">
-                <h1><NavLink to="/" className="not-link" exact>Jayakrishnan</NavLink></h1>
+                <div className="logo"><NavLink to="/" className="not-link" exact>Jayakrishnan</NavLink></div>
             </div>
             <div className="navbar-right">
                 <NavLink to="/" exact>HOME</NavLink>

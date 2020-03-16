@@ -2,5 +2,13 @@ import React from 'react';
 import './Container.css'
 
 export default function Container(props){
-    return <div className={'container ' + (props.className?props.className: '' )} >{props.children}</div>
+    let c = ''
+    let {small,large} = props
+    if(small){
+        c = "small"
+    }else if(large){
+        c = "large"
+    }
+    
+    return <div className={'container' + (c? " "+c :"")} >{props.children}</div>
 }

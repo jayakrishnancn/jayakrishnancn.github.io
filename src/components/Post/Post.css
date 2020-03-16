@@ -1,0 +1,12 @@
+.capitalize{
+    text-transform: capitalize;
+}
+.jaw-drop::first-letter{
+    font-size: 3rem;
+    color: #DD4F39;
+    text-transform: uppercase;
+}
+
+.post-title,.post-body{
+    margin-bottom: 3rem;
+}

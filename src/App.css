@@ -7,3 +7,8 @@ a:hover,a.active{
     color: #dd4f39;
     border-bottom-color: #dd4f39;
 }
+.no-style,.no-style ul,.no-style li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

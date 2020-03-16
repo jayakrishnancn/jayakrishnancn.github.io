@@ -1,13 +1,19 @@
 import React from 'react';
-import {Link } from 'react-router-dom'
+import Container from '../Container/Container'
 
-function Post({title,body}){
-    if(!body || !title ) return <div className="warn">No Data Found</div>
+import './Post.css'
+
+function Post({post}){
+    let {title,body} = post 
+
+    if(!body || !title )return <Container><div className="warn">No Data Found</div></Container>
     
     return (              
         <div className="post">
-            <h1>{title}</h1>
-            <p>{body}</p>
+            <Container>
+                <h1 className="capitalize post-title">{title}</h1>
+                <p className="jaw-drop post-body">{body}</p>
+            </Container>
         </div>
     )       
 }
