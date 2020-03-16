@@ -1,0 +1,27 @@
+
+.navbar .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar .not-link:hover,
+.navbar .not-link:active,
+.navbar .not-link{
+    color: #000 !important;
+    border-color: transparent !important;
+}
+.navbar .container a{
+    border-color: transparent;
+    margin-left: 1rem;
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+}
+.navbar .navbar-right a.active{
+    color: #dd4f39 !important;
+    border-color: #dd4f39 !important;
+}
+.navbar .container a:hover{
+    color: #36F;
+    border-color: #36F;
+}

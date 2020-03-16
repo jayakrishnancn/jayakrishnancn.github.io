@@ -1,0 +1,11 @@
+.container{
+    max-width: 900px;
+    margin: auto;   
+    width: 96%;
+}
+.container.large{
+    max-width: 1200px;
+}
+.container.small{
+    max-width: 690px;
+}
