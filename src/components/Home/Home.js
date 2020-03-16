@@ -11,7 +11,7 @@ export default function Home(){
                 <div className="profile" style={{background:`url(${profilePic}) center center no-repeat`,backgroundSize:"cover"}}> </div>
                 <div className="right">
                  <h1>Jayakrishnan</h1>  
-                 <h4>Systems Engineer @ <a href="https://www.tcs.com" target="_blank">TCS</a></h4>
+                 <h4>Systems Engineer @ <a href="https://www.tcs.com" rel="noopener noreferrer" target="_blank">TCS</a></h4>
                 </div>
             </Container>
             <Container className="mt-3">
