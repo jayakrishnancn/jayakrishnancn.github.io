@@ -1,10 +1,9 @@
 .home{
     margin: auto;
-    margin-top: 4%;
     text-align: center;
-    position: relative;
-    width: 33%;
-    min-width: 200px;
+}
+.home .profile-pic{
+    display: inline-block;
 }
 .home .bio{
     color: #888;
@@ -28,6 +27,6 @@
     margin: 5px ;
 }
 .social-media a:hover{
-    color: #36F;
+    color: #00F;
     border-color: #222;
 }
