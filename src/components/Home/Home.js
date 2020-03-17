@@ -1,10 +1,9 @@
 import React,{Fragment} from 'react';
 import profilePic from './profile-pic-compressed.jpg'
-import Container from '../Container/Container'
-import './Home.css'
 import {NavLink} from 'react-router-dom' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faGithubAlt, faStackOverflow, faLinkedin, faCodepen} from '../../../node_modules/@fortawesome/free-brands-svg-icons/index.es'
+import {faGithubAlt, faStackOverflow, faLinkedin, faCodepen} from '@fortawesome/free-brands-svg-icons'
+import './Home.css'
 
 export default function Home(){
     return (
