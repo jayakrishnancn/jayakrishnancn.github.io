@@ -1,0 +1,25 @@
+.blog-list{
+    padding: .5rem 0;    
+}
+
+.blog-list li {
+    display: block;
+    width: 100%;
+}
+.blog-list li a {
+    display: block;
+}
+.blog-list .list-right{
+    float: right;    
+}
+.blog-list li a{
+    color: #777;   
+}
+.blog-list li a:hover {
+    color: #000;
+    border-bottom-color: transparent;
+}
+
+.blog-list li{
+    margin-bottom: 1rem;
+}

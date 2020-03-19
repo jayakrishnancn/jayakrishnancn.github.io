@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react';
+import React from 'react';
 import profilePic from './profile-pic-compressed.jpg'
 import {NavLink} from 'react-router-dom' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

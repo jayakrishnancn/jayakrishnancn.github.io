@@ -28,3 +28,16 @@ ul,li{
 .text-danger{
     color: orangered;
 }
+/* Flexbox */
+.d-flex{
+    display: flex;
+}
+.ai-center{
+    align-items: center;
+}
+.jc-between{
+    justify-content: space-between    ;
+}
+.jc-center{
+    justify-content: center;
+}
