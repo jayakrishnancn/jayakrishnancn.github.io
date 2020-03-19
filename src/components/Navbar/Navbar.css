@@ -16,7 +16,7 @@
 }
 
 .Navbar-after{
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .Navbar a:first-child{
@@ -30,5 +30,12 @@
         top: auto;
         bottom: 0;
         border-top: 1px solid #ccc;    
+        background: #37F;
+        color: #FFF;
+    }
+    .Navbar a:hover,
+    .Navbar a{
+        color: #FFF;
+        border-bottom: none;
     }
 }

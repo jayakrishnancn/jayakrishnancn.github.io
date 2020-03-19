@@ -1,10 +1,9 @@
 import React,{Component, Fragment} from 'react'
-import Container from '../Container/Container'
-import Navbar from '../Navbar/Navbar'
 import {NavLink} from 'react-router-dom'
-import './BlogPosts.css'
+import Navbar from '../Navbar/Navbar'
+import Container from '../Container/Container'
 
-class BlogPosts extends Component{
+class Projects extends Component{
     
     render(){
     
@@ -20,7 +19,7 @@ class BlogPosts extends Component{
             <Fragment> 
                 <Navbar />
                 <Container size="article">
-                <h1>BLOG ARTICLES</h1>
+                <h1>PROJECTS</h1>
                 <ul className="blog-list">
                     { 
                         articles.map( ({body,title,date,url},index) =>{
@@ -41,4 +40,4 @@ class BlogPosts extends Component{
     }
 }
 
-export default BlogPosts
+export default Projects
