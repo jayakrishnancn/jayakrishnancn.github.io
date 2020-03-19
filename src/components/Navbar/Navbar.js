@@ -1,7 +1,9 @@
 import React, {Fragment} from 'react';
-import {NavLink} from 'react-router-dom'
-import './Navbar.css'
+import {NavLink,Link} from 'react-router-dom'
 import Container from '../Container/Container'
+import {faHome} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import './Navbar.css'
 
 
 const Navbar = () => {
@@ -10,7 +12,7 @@ const Navbar = () => {
             <nav className="Navbar">
                 <Container className="d-flex ai-center jc-between ">
                     <ul>
-                        <NavLink to="/" exact >HOME</NavLink> 
+                        <li><NavLink to="/" exact >HOME</NavLink></li>
                     </ul>
                     <ul>
                         <li><NavLink to="/blog" exact >BLOG</NavLink> </li>
@@ -18,7 +20,13 @@ const Navbar = () => {
                     </ul>
                 </Container>
             </nav>
-            <div className="Navbar-after"></div>
+
+            <Container>
+                <Link to="/" className="sm btn Navbar-after">
+                    &nbsp;<FontAwesomeIcon icon={faHome}/>&nbsp;
+                </Link>
+                <div className="Navbar-gap"></div>
+            </Container>
         </Fragment>
 
     );

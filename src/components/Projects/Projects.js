@@ -1,7 +1,7 @@
 import React,{Component, Fragment} from 'react'
-import {NavLink} from 'react-router-dom'
-import Navbar from '../Navbar/Navbar'
 import Container from '../Container/Container'
+import Navbar from '../Navbar/Navbar'
+import {NavLink} from 'react-router-dom'
 
 class Projects extends Component{
     
@@ -19,15 +19,17 @@ class Projects extends Component{
             <Fragment> 
                 <Navbar />
                 <Container size="article no-select">
-                <h1>PROJECTS</h1>
+                <h1>BLOG ARTICLES</h1>
                 <ul className="blog-list">
                     { 
                         articles.map( ({body,title,date,url},index) =>{
                             return (
                                 <li key={index}>
                                     <NavLink to={url}> 
-                                        {title} 
-                                        <span className="read-more">READ MORE</span>
+                                        <div className="read-atricle">{title}</div>
+                                        <div className="read-more">
+                                            <button className="btn btn-primary">READ MORE</button>
+                                        </div>
                                     </NavLink>
                                 </li>
                             )                        
