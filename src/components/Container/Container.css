@@ -12,3 +12,7 @@
 .container.small{
     max-width: 700px;
 }
+.container.article{
+    max-width: 750px;
+}
+

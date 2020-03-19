@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{Component, Fragment} from 'react'
 import Container from '../Container/Container'
 import Navbar from '../Navbar/Navbar'
 import {NavLink} from 'react-router-dom'
@@ -19,17 +19,17 @@ class BlogPosts extends Component{
         let articles = [article,article,article]
         
         return (    
-            <Container> 
+            <Fragment> 
                 <Navbar />
+                <Container size="article">
                 <h1>BLOG ARTICLES</h1>
                 <ul className="blog-list">
                     { 
                         articles.map( ({body,title,date,url},index) =>{
                             return (
-                                <li key={index} className="clearfix">
+                                <li key={index}>
                                     <NavLink to={url}> 
                                         {title} 
-                                        <div className="f-r list-date">{date} <FontAwesomeIcon icon={faArrowCircleRight}/></div> 
                                         <span className="read-more">READ MORE...</span>
                                     </NavLink>
                                 </li>
@@ -37,7 +37,8 @@ class BlogPosts extends Component{
                         })
                     }
                 </ul>
-            </Container>
+                </Container>
+            </Fragment>
         )
     }
 }

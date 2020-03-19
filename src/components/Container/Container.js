@@ -1,6 +1,6 @@
 import React from 'react';
 import './Container.css'
-const SIZE = ['small','medium','large']
+const SIZE = ['small','medium','large','article']
 
 export default function Container(props){
     
