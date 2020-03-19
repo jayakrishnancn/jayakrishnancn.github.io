@@ -1,32 +1,32 @@
 import React,{Component} from 'react'
 import MiniPost from '../MiniPost/MiniPost'
+import API from '../../util/API'
 import './BlogPosts.css'
 
 class BlogPosts extends Component{
     state = {
-        articles: []
+        articles: [],
+        error: null
     }
+     
     componentDidMount(){
+        let url = '/blogposts.json'
 
-        fetch('/blogposts.json')
-            .then(response => response.json())
-                .then(({data}) => {
-                    const articles = data;
-                    if(articles && articles.length > 0){
-                        this.setState({articles})
-                    }   
-                });
+        API.get(url, (data) => {
+            // console.log("Data",data)            
+            this.setState({articles:data});
+        },error=>{
+            this.setState({error})
+        });
     }
 
     render(){
-
+        if(this.state.error){
+            return (<div>{this.state.error}</div>)
+        }
         return (    
-           <MiniPost articles={this.state.articles} type="blog"/>
+            <MiniPost articles={this.state.articles} type="blog"/>
         )
     }
 }
-function Loading(){
-    return <div> Loading...</div>
-}
-
 export default BlogPosts

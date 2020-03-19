@@ -6,11 +6,14 @@
     display: flex;
     text-align: center;
 }
+a{
+    color: #00F;
+}
 .home .profile-pic{
     display: inline-block;
 }
 .home .bio{
-    color: #888;
+    color: #444;
 }
 .social-media{
     margin-top: 2rem;

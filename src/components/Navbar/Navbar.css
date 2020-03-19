@@ -17,12 +17,17 @@
     margin: 0 .5rem;
     display: inline-block;
 }
-a.Navbar-after{
+a.Navbar-after,a.Navbar-after:hover{
     padding: .4rem 1.3rem;
     font-size: .8rem;
     line-height: 1.2rem;
     border-color: #CCC;
     background: #FFF;
+}
+a.Navbar-after:hover{
+    color: #FFF;
+    background: #36F;
+    border-color: transparent;
 }
 .Navbar a:first-child{
     padding-left: 0;
