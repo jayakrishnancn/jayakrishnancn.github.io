@@ -27,8 +27,10 @@ class BlogPosts extends Component{
                             return (
                                 <li key={index}>
                                     <NavLink to={url}> 
-                                        {title} 
-                                        <span className="read-more">READ MORE</span>
+                                        <div className="read-atricle">{title}</div>
+                                        <div className="read-more">
+                                            <button className="btn btn-primary">READ MORE</button>
+                                        </div>
                                     </NavLink>
                                 </li>
                             )                        

@@ -1,5 +1,5 @@
 .blog-list{
-    margin: .5rem 0;    
+    margin: .5rem 0 3rem 0;    
     margin: auto;
 }
 .blog-list li {
@@ -19,16 +19,6 @@
 .blog-list li a:hover {
     color: #000;
     border-bottom-color: transparent;
-}
-.read-more{
-    font-size: 11px;
-    color: #FFF;
-    background: #37F;
-    font-weight: bold;
-    padding: .2rem 1rem;
-    border-radius: 3rem;
-    display: inline-block;
-    margin-top: .8rem;
 }
 .blog-list::after{
     content: " ";

@@ -23,8 +23,8 @@ export default function Home(){
                 <nav className="menu mt-1">
                     <ul>
                         <li><NavLink to='/blog'>Blog</NavLink></li>
-                        <li><NavLink to='/blog'>Projects</NavLink></li>
-                        <li><NavLink to='/blog'>About me</NavLink></li>
+                        <li><NavLink to='/projects'>Projects</NavLink></li>
+                        <li><NavLink to='/about-me'>About me</NavLink></li>
                     </ul>
                 </nav>
                 <div className="social-media">
