@@ -8,7 +8,7 @@ import './Home.css'
 export default function Home(){
     return (
         <div className="home">
-            <Fragment>
+            <div>
                 <NavLink to="/" className="profile-pic">
                     <img src={profilePic} alt="avatar" height="100" width="100" intrinsicsize="100x100" className="rounded" />
                 </NavLink>
@@ -36,7 +36,7 @@ export default function Home(){
                     </ul>
 
                 </div>
-            </Fragment>
+            </div>
         </div>
     )
 }

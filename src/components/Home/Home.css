@@ -1,5 +1,9 @@
 .home{
     margin: auto;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
     text-align: center;
 }
 .home .profile-pic{
