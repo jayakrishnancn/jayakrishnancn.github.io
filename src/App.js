@@ -4,15 +4,15 @@ import Home from './components/Home/Home'
 import BlogPosts from './components/BlogPosts/BlogPosts'
 import Projects from './components/Projects/Projects'
 import UnderConstruction from './components/ErrorPages/UnderConstruction'
-import 'normalize.css';
+import 'normalize.css'
 import './App.css'
 import './util.css'
 import './topography.css'
 import './buttons.css'
 
-function App() {
+function App () {
   return (
-    <div className="App">
+    <div className="App  no-select">
       <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path="/" exact component={Home}/>

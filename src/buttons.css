@@ -1,13 +1,14 @@
-.btn{
+.btn,.btn:hover{
     color: #000;
     background: #CCC;
     display: inline-block;
     outline: none;
-    font-size: .7rem;
+    font-size: .6rem;
     line-height: 1rem;
     font-weight: bold;
     padding: .5rem 1rem;
     border-radius: 3rem;
+    cursor: pointer;
     margin-top: .8rem;
     text-align: center;
     border: 1px solid transparent;

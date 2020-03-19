@@ -1,7 +1,5 @@
-import React,{Component, Fragment} from 'react'
-import Container from '../Container/Container'
-import Navbar from '../Navbar/Navbar'
-import {NavLink} from 'react-router-dom'
+import React,{Component} from 'react'
+import MiniPost from '../MiniPost/MiniPost'
 import './BlogPosts.css'
 
 class BlogPosts extends Component{
@@ -17,28 +15,7 @@ class BlogPosts extends Component{
         let articles = [article,article,article]
         
         return (    
-            <Fragment> 
-                <Navbar />
-                <Container size="article no-select">
-                <h1>BLOG ARTICLES</h1>
-                <ul className="blog-list">
-                    { 
-                        articles.map( ({body,title,date,url},index) =>{
-                            return (
-                                <li key={index}>
-                                    <NavLink to={url}> 
-                                        <div className="read-atricle">{title}</div>
-                                        <div className="read-more">
-                                            <button className="btn btn-primary">READ MORE</button>
-                                        </div>
-                                    </NavLink>
-                                </li>
-                            )                        
-                        })
-                    }
-                </ul>
-                </Container>
-            </Fragment>
+           <MiniPost articles={articles} type="blog"/>
         )
     }
 }

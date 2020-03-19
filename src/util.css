@@ -56,3 +56,10 @@ a.profile-pic:hover{
 .sm{
     display: none !important;
 }
+.p-1{
+    padding: 1rem;
+}
+
+.text-right{
+    text-align: right;
+}

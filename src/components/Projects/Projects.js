@@ -1,45 +1,29 @@
-import React,{Component, Fragment} from 'react'
-import Container from '../Container/Container'
-import Navbar from '../Navbar/Navbar'
-import {NavLink} from 'react-router-dom'
+import React,{Component} from 'react'
 
+import MiniPost from '../MiniPost/MiniPost';
 class Projects extends Component{
-    
-    render(){
-    
-        let article = {
-            body: 'If I need a quick background pattern to spruce something up, I often think of the CSS3 Patterns Gallery. Some of those are pretty intense but remember they are easily editable because they are just CSS. That means you could take these bold zags and chill them out.…',
-            title:'A Few Background If I need a quick background pattern toA Few Background  A Few Background ss spruce something Patterns Sitess',
-            date:'2020 MAR 20',
-            url:'/blog/one'
-        }
-        let articles = [article,article,article]
+    state = {
+        articles: [] 
+    }
+
+    componentDidMount(){
         
+        fetch('/projects.json')
+            .then(response => response.json())
+            .then(({data}) => {
+                const articles = data;
+                if(articles && articles.length > 0){
+                    this.setState({articles})
+                }   
+            });
+    }
+
+    render(){
+             
         return (    
-            <Fragment> 
-                <Navbar />
-                <Container size="article no-select">
-                <h1>BLOG ARTICLES</h1>
-                <ul className="blog-list">
-                    { 
-                        articles.map( ({body,title,date,url},index) =>{
-                            return (
-                                <li key={index}>
-                                    <NavLink to={url}> 
-                                        <div className="read-atricle">{title}</div>
-                                        <div className="read-more">
-                                            <button className="btn btn-primary">READ MORE</button>
-                                        </div>
-                                    </NavLink>
-                                </li>
-                            )                        
-                        })
-                    }
-                </ul>
-                </Container>
-            </Fragment>
+                <MiniPost articles={this.state.articles} />
         )
     }
 }
 
-export default Projects
+export default Projects;
