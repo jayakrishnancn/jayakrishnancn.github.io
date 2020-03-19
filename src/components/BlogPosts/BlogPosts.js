@@ -19,7 +19,7 @@ class BlogPosts extends Component{
         return (    
             <Fragment> 
                 <Navbar />
-                <Container size="article">
+                <Container size="article no-select">
                 <h1>BLOG ARTICLES</h1>
                 <ul className="blog-list">
                     { 
@@ -28,7 +28,7 @@ class BlogPosts extends Component{
                                 <li key={index}>
                                     <NavLink to={url}> 
                                         {title} 
-                                        <span className="read-more">READ MORE...</span>
+                                        <span className="read-more">READ MORE</span>
                                     </NavLink>
                                 </li>
                             )                        

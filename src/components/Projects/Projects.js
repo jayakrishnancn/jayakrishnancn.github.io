@@ -18,7 +18,7 @@ class Projects extends Component{
         return (    
             <Fragment> 
                 <Navbar />
-                <Container size="article">
+                <Container size="article no-select">
                 <h1>PROJECTS</h1>
                 <ul className="blog-list">
                     { 
@@ -27,7 +27,7 @@ class Projects extends Component{
                                 <li key={index}>
                                     <NavLink to={url}> 
                                         {title} 
-                                        <span className="read-more">READ MORE...</span>
+                                        <span className="read-more">READ MORE</span>
                                     </NavLink>
                                 </li>
                             )                        
