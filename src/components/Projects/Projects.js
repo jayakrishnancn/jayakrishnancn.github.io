@@ -1,21 +1,20 @@
 import React,{Component} from 'react'
-
+import API from '../../util/API'
 import MiniPost from '../MiniPost/MiniPost';
 class Projects extends Component{
     state = {
-        articles: [] 
+        articles: [] ,
+        error:null
     }
-
     componentDidMount(){
-        
-        fetch('/projects.json')
-            .then(response => response.json())
-            .then(({data}) => {
-                const articles = data;
-                if(articles && articles.length > 0){
-                    this.setState({articles})
-                }   
-            });
+        let url = '/projects.json'
+
+        API.get(url, (data) => {
+            // console.log("Data",data)            
+            this.setState({articles:data});
+        },error=>{
+            this.setState({error})
+        });
     }
 
     render(){

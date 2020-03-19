@@ -8,7 +8,7 @@ const get = (url, fn,error) => {
     let cachedData = getValidCache(url); // returns data part of LcoalStorage / cache
     
     if(!cachedData){
-       // console.log(`fetching data for ${url} from server`)
+       console.log(`fetching data for ${url} from server`)
         fetch(url)
         .then(result=>result.json())
         .then(({data})=>{
@@ -19,7 +19,7 @@ const get = (url, fn,error) => {
         .then(fn)
         .catch(error)
     }else{
-        // console.log(`serving ${url} from localCache data`)
+        console.log(`serving ${url} from localCache data`)
         fn(cachedData)
     }
 }
