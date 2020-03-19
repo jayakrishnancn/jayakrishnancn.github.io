@@ -3,21 +3,30 @@ import MiniPost from '../MiniPost/MiniPost'
 import './BlogPosts.css'
 
 class BlogPosts extends Component{
-    
+    state = {
+        articles: []
+    }
+    componentDidMount(){
+
+        fetch('/blogposts.json')
+            .then(response => response.json())
+                .then(({data}) => {
+                    const articles = data;
+                    if(articles && articles.length > 0){
+                        this.setState({articles})
+                    }   
+                });
+    }
+
     render(){
-    
-        let article = {
-            body: 'If I need a quick background pattern to spruce something up, I often think of the CSS3 Patterns Gallery. Some of those are pretty intense but remember they are easily editable because they are just CSS. That means you could take these bold zags and chill them out.…',
-            title:'A Few Background If I need a quick background pattern toA Few Background  A Few Background ss spruce something Patterns Sitess',
-            date:'2020 MAR 20',
-            url:'/blog/one'
-        }
-        let articles = [article,article,article]
-        
+
         return (    
-           <MiniPost articles={articles} type="blog"/>
+           <MiniPost articles={this.state.articles} type="blog"/>
         )
     }
+}
+function Loading(){
+    return <div> Loading...</div>
 }
 
 export default BlogPosts
