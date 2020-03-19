@@ -1,28 +1,20 @@
 .rounded{
     border-radius: 100%;
 }
-
-a{
-    color: #00F;
-    transition: .3s ease-in-out;
-    border-bottom: 1px solid transparent;
-    text-decoration: none;
-    outline: none;
-}
-a:hover{
-    color: #00F;
-    border-bottom: 1px solid #00F;
-}
 a.profile-pic:hover{
     border-bottom: 1px solid transparent;
 }
-ul,li{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 .text-center{
     text-align: center;
+}
+.mt-1{
+    margin-top: 1rem;
+}
+.mt-2{
+    margin-top: 2rem;
+}
+.mt-3{
+    margin-top: 3rem;
 }
 
 .text-danger{
@@ -40,4 +32,10 @@ ul,li{
 }
 .jc-center{
     justify-content: center;
+}
+.f-r{
+    float: right;
+}
+.fg-1{
+    flex-grow: 1;
 }

@@ -23,8 +23,9 @@
     padding: .3rem;
     font-size: 1.2rem;
     line-height: 2rem;
-    width: 2rem;
-    height: 2rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    text-align: center;
 }
 .social-media li{
     display: inline-block;
@@ -33,4 +34,13 @@
 .social-media a:hover{
     color: #00F;
     border-color: #222;
+}
+.home .menu a{
+    min-width: 100px;
+}
+
+@media (max-width: 600px){
+    .home .menu li{
+        margin-bottom: 1rem;
+    }
 }

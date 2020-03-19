@@ -4,8 +4,9 @@ const SIZE = ['small','medium','large']
 
 export default function Container(props){
     
-    let {size} = props
+    let {size,className} = props
     size = SIZE.indexOf(size) >= 0 ? size: 'medium'
-    
-    return <div className={'container' + (size? " "+size :"")} >{props.children}</div>
+    let classes = 'container ' + (size?  size :"")
+    classes = className ? classes + " "+className : classes 
+    return <div className={classes} >{props.children}</div>
 }

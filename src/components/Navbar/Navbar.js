@@ -1,17 +1,25 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {NavLink} from 'react-router-dom'
 import './Navbar.css'
+import Container from '../Container/Container'
+
+
 const Navbar = () => {
     return (
-        <nav className="d-flex ai-center jc-between Navbar">
-            <div>
-                <NavLink to="/" exact >HOME</NavLink> 
-            </div>
-            <div>
-                <NavLink to="/blog" exact >BLOG</NavLink> 
-                <NavLink to="/blog" exact >PROJECTS</NavLink> 
-            </div>
-        </nav>
+        <Fragment>
+            <nav className="Navbar">
+                <Container className="d-flex ai-center jc-between ">
+                    <ul>
+                        <NavLink to="/" exact >HOME</NavLink> 
+                    </ul>
+                    <ul>
+                        <li><NavLink to="/blog" exact >BLOG</NavLink> </li>
+                        <li><NavLink to="/blog" exact >PROJECTS</NavLink> </li>
+                    </ul>
+                </Container>
+            </nav>
+            <div className="Navbar-after"></div>
+        </Fragment>
 
     );
 }

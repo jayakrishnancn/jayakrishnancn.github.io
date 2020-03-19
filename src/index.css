@@ -13,7 +13,27 @@ html,body{
   font-size: 20px;
   line-height: 1.7rem;
 }
-
+.link,a{
+  color: #00F;
+  transition: .3s ease-in-out;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  outline: none;
+  padding: 0 .5rem;
+}
+.link{
+  display: inline;
+  cursor: pointer;
+}
+.link:hover,a:hover{
+  color: #00F;
+  border-bottom: 1px solid #00F;
+}
+ul,li{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 @media screen and (max-width: 900px) {
   html,body{
     font-size: 18px;
@@ -23,16 +43,5 @@ html,body{
 @media screen and (max-width: 600px) {
   html,body{
     font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  html,body{
-    font-size: 14px;
-  }
-}
-@media screen and (max-width: 300px) {
-  html,body{
-    font-size: 12px;
   }
 }
