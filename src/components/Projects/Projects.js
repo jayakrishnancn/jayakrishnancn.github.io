@@ -3,6 +3,7 @@ import API from '../../util/API'
 import MiniPost from '../MiniPost/MiniPost';
 import LoadingPage from '../sub_components/LoadingPage/LoadingPage'
 import ErrorLoadingPage from '../ErrorPages/ErrorLoadingPage'
+import endpoints from '../../util/endpoints'
 class Projects extends Component{
     state = {
         articles: [] ,
@@ -10,7 +11,7 @@ class Projects extends Component{
         loading: true
     }
     componentDidMount(){
-        let url = '/projects.json'
+        let url = endpoints.PROJECT_LIST
 
         API.get(url, (data) => {
             // console.log("Data",data)            

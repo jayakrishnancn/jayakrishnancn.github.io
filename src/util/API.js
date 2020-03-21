@@ -1,6 +1,20 @@
 // in milli-seconds
 const CACHE_TIME = 5*60*1000
-const CACHE_ENABLED = true
+const CACHE_ENABLED = false
+
+// flushAll/  clear key
+const clear = key => {
+    if(!key){
+        try{
+            localStorage.clear()
+        }catch(e){}
+    }else{
+        try{
+            localStorage.removeItem(key);
+        }catch(e){}
+    }
+}
+
 // get 
 const get = (url, fn,error) => {
     // setTimeout(() => {
@@ -12,13 +26,14 @@ const get = (url, fn,error) => {
         let cachedData = getValidCache(url); // returns data part of LcoalStorage / cache
         
         if(!cachedData){
-        console.log(`fetching data for ${url} from server`)
+            console.log(`fetching data for ${url} from server`)
             fetch(url)
             .then(result=>result.json())
-            .then(({data})=>{
-                    // console.log(`saving to localStorge ${url}`)
-                setValidCache(url,data);
-                return data
+            .then(res=>{
+                // console.log(res,"res")
+                // console.log(`saving to localStorge ${url}`)
+                setValidCache(url,res.data);
+                return res.data
             })
             .then(fn)
             .catch(error)
@@ -75,5 +90,6 @@ const getValidCache = key => {
 export default {
     getValidCache,
     setValidCache,
-    get
+    get,
+    clear,
 }
