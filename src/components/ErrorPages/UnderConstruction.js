@@ -1,14 +1,10 @@
-import React,{Component} from 'react'
+import React,{Component} from 'react';
 import Container from '../Container/Container'
-import {NavLink} from 'react-router-dom'
 import {faExclamationTriangle} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import HomeAndBack from '../sub_components/HomeAndBack/HomeAndBack'
 
 class PageUnderConstruction extends Component{
-
-    backButtonHandler = () =>{
-        this.props.history.goBack();
-    }
 
     render(){
 
@@ -16,15 +12,11 @@ class PageUnderConstruction extends Component{
             <Container className="text-center mt-3" size="small">
                 <h1><FontAwesomeIcon className="text-danger" icon={faExclamationTriangle} /></h1>
                 <h3>Page Under Construction</h3>
-                <NavLink to="/">Home</NavLink>
-                { this.props.history ? (
-                    <div className="link" onClick={this.backButtonHandler}>Back</div>
-                ): null}
+                <HomeAndBack {...this.props}/>
             </Container>
 
         )
     } 
-}
-
+} 
 
 export default  PageUnderConstruction

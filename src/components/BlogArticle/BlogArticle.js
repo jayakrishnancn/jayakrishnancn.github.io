@@ -19,10 +19,11 @@ export class BlogArticle extends Component {
         });
     }
     render() {
+
         if(this.state.error){
             return <ErrorLoadingPage {...this.props}/>
         }
-        return <Post article={this.state.article} />
+        return <Post {...this.props} article={this.state.article} />
     }
 }
 

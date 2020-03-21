@@ -3,12 +3,12 @@ import Container from '../Container/Container'
 import Navbar from '../Navbar/Navbar'
 import {NavLink} from 'react-router-dom'
 
-export default function MiniPost({isBlogPosts,articles}){
+export default function MiniPost({type,articles}){
     return (
         <React.Fragment> 
             <Navbar />
             <Container size="article">
-                <h1>{isBlogPosts?'BLOG POSTS':'PROJECTS'}</h1>
+                <h1>{type && type === 'blog'?'BLOG POSTS':'PROJECTS'}</h1>
                 <ul className="blog-list">
                     { articles && articles.map( ({body,title,date,url},index) =>{
                             return (

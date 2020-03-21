@@ -6,7 +6,9 @@ body {
 }
 h1,h2,h3,h4,h5{
   color: #000;
+  line-height: 1.35em;
 }
+
 html,body,#root,.App{
   height: 100%;
   color: #656565;
@@ -21,7 +23,7 @@ html,body{
   border-bottom: 1px solid transparent;
   text-decoration: none;
   outline: none;
-  padding: 0 .5rem;
+  padding: 0;
 }
 .link{
   display: inline;
