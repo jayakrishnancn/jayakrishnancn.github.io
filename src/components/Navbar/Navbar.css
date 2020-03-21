@@ -37,7 +37,7 @@ a.Navbar-after:hover{
     padding-right: 0;
 }
 .Navbar-gap{
-    margin-bottom: 6rem;
+    height: 6rem;
 }
 .read-more{
     text-align: right;
@@ -49,6 +49,9 @@ a.Navbar-after:hover{
     transform: scale(1.1);
 }
 @media (max-width:700px) and (min-width: 300px){
+    .App{
+        padding-bottom: 4rem;
+    }
     .Navbar{
         top: auto;
         bottom: 0;
@@ -68,7 +71,7 @@ a.Navbar-after:hover{
         display: inline-block !important;
     }
     .Navbar-gap{
-        margin-bottom: 2rem;
+        height: 2rem;
     } 
 }
 @media (max-width: 500px){

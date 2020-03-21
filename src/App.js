@@ -13,7 +13,7 @@ import './buttons.css'
 
 function App () {
   return (
-    <div className="App  no-select">
+    <div className="App">
       <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path="/" exact component={Home}/>

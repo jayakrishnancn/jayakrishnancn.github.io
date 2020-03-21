@@ -9,14 +9,14 @@ const serverDataChanged = ()=>{
 
             if (checksum){
                 let cache_date = localStorage.getItem('api.lastUpdate');
-                console.log('getting lastUpdate',checksum)
+                // console.log('getting lastUpdate',checksum)
                 if(cache_date && checksum === cache_date){
                     return false
                 }
             }
             clear()
             localStorage.setItem("api.lastUpdate",checksum)
-            console.log("checksum",checksum)
+            // console.log("checksum",checksum)
             window.location.reload(); 
         })
         .catch(e=>{console.error("cant fetch last Update date from server",e)})

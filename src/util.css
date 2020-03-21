@@ -47,10 +47,6 @@ a.profile-pic:hover{
 .fg-1{
     flex-grow: 1;
 }
-
-.no-select{
-    user-select: none;
-}
 .sm{
     display: none !important;
 }

@@ -1,6 +1,7 @@
 
 .App{
     min-height: 100%;
+    width: 100%;
 }
 *{
     outline: 1px dotted transparent;
