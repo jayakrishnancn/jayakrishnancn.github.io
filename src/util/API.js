@@ -1,10 +1,13 @@
 // in milli-seconds
 const CACHE_TIME = 5*60*1000
+const CACHE_ENABLED = false
 // get 
 const get = (url, fn,error) => {
+
     if(!error){
         error = function (){}
     }
+
     let cachedData = getValidCache(url); // returns data part of LcoalStorage / cache
     
     if(!cachedData){
@@ -23,12 +26,16 @@ const get = (url, fn,error) => {
         fn(cachedData)
     }
 }
+
+
 // set valid cache
 const setValidCache = (key,data) => {
-    if(window.localStorage === undefined){
+
+    if(!CACHE_ENABLED || window.localStorage === undefined){
         // console.error('localStorage is not supported')
         return false;
     }
+
     try{
         let time = Date.now();
         localStorage.setItem(key,JSON.stringify({data,time}));
@@ -41,7 +48,7 @@ const setValidCache = (key,data) => {
 
 const getValidCache = key => {
 
-    if(window.localStorage === undefined){
+    if(!CACHE_ENABLED || window.localStorage === undefined){
         return false;
     }
 

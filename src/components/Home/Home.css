@@ -38,8 +38,8 @@ a{
     color: #00F;
     border-color: #222;
 }
-.home .menu a{
-    min-width: 100px;
+.home a{
+    padding: 0;
 }
 
 @media (max-width: 600px){
