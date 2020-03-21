@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route,Switch } from 'react-router-dom';
 import Home from './components/Home/Home'
 import BlogPosts from './components/BlogPosts/BlogPosts'
-import BlogArticle from './components/BlogArticle/BlogArticle'
+import Article from './components/Article/Article'
 import Projects from './components/Projects/Projects'
 import UnderConstruction from './components/ErrorPages/UnderConstruction'
 import 'normalize.css'
@@ -19,7 +19,8 @@ function App () {
         <Route path="/" exact component={Home}/>
         <Route path="/blog" exact component={BlogPosts}/>
         <Route path="/projects" exact component={Projects}/>
-        <Route path="/blog/:id" exact component={BlogArticle}/>
+        <Route path="/projects/:id" exact render={props => <Article {...props} type="PROJECT"/>}/>
+        <Route path="/blog/:id" exact render={props => <Article {...props} type="BLOG"/>}/>
         <Route component={UnderConstruction} />
       </Switch>
       </BrowserRouter>

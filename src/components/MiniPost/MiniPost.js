@@ -3,7 +3,7 @@ import Container from '../Container/Container'
 import Navbar from '../Navbar/Navbar'
 import {NavLink} from 'react-router-dom'
 import ErrorLoadingPage from '../ErrorPages/ErrorLoadingPage'
-
+import './MiniPost.css'
 export default function MiniPost({type,articles}){
     if ( !articles || articles.length <= 1) return <ErrorLoadingPage />
 

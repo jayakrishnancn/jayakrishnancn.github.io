@@ -5,10 +5,10 @@ import ErrorPage from '../sub_components/ErrorPage/ErrorPage'
 const faExclamationTriangleIcon = <FontAwesomeIcon className="text-danger" icon={faExclamationTriangle} />
 
 const ErrorLoadingPage = props => {
-
+    let message = props.message || 'Error Loading Page'
     return (
         <Fragment>
-                <ErrorPage heading={faExclamationTriangleIcon} message="Error Loading Page" {...props}/>
+                <ErrorPage heading={faExclamationTriangleIcon} message={message} {...props}/>
         </Fragment>
     )
 } 
