@@ -8,13 +8,16 @@ h1,h2,h3,h4,h5{
   color: #000;
   line-height: 1.35em;
 }
-
-html,body,#root,.App{
+html,body,#root{
   height: 100%;
+}
+html,body,#root,.App{
+  min-height: 100%;
   color: #656565;
 }
 html,body{
   font-size: 18px;
+  height: 100%;
   line-height: 1.7rem;
 }
 .link,a{

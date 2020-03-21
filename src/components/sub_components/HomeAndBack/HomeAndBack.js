@@ -17,7 +17,7 @@ export default class HomeAndBack extends React.Component{
             <Container className="mt-3 jc-between home-and-back d-flex">
                 { this.props.history ? (
                     <a href="/" 
-                        className="btn" 
+                        className="btn btn-primary" 
                         style={{marginRight:"2rem"}} 
                         onClick={e=>this.backButtonHandler(e)}>
                         <FontAwesomeIcon icon={faArrowCircleLeft}/> BACK
@@ -26,7 +26,7 @@ export default class HomeAndBack extends React.Component{
                 <NavLink 
                 to="/" 
                 exact 
-                className="btn"
+                className="btn btn-primary"
                 >
                     <FontAwesomeIcon icon={faHome} /> HOME
                 </NavLink>

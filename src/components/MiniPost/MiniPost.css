@@ -8,13 +8,3 @@
     transition: .3s ease-in-out;
     border: 1px solid #ccc;
 } 
-.blog-list li .btn{
-    background: #000;
-    color: #FFF;
-    border: none;
-} 
-.blog-list li .btn:hover{
-    color: #FFF;
-    background: #36F;
-    border: none;
-}

@@ -6,6 +6,7 @@ let PROJECT_LIST   =  BASE_URL + '/projects.json';
 let BLOG_POSTS  =  BASE_URL + '/blogposts.json';
 let PROJECT     =  BASE_URL + '/project.json';
 let BLOG_ARTICLE=  BASE_URL + '/article.json';
+let DATA_CHANGED =  BASE_URL + '/lastUpdated.json';
 
 
 const endpoints ={
@@ -13,6 +14,7 @@ const endpoints ={
     BLOG_POSTS,
     PROJECT,
     BLOG_ARTICLE,
+    DATA_CHANGED,
     getEndpoint(type,id){
         if(type === 'BLOG'){
             return BASE_URL + '/article/' + id + '.json';

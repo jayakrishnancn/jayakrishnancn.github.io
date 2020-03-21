@@ -1,6 +1,26 @@
+import endpoints from './endpoints'
 // in milli-seconds
-const CACHE_TIME = 5*60*1000
-const CACHE_ENABLED = false
+const CACHE_TIME = 15*60*1000
+const CACHE_ENABLED = true
+const serverDataChanged = ()=>{
+    fetch(endpoints.DATA_CHANGED)
+        .then(response => response.json())
+        .then( ({checksum}) =>{
+
+            if (checksum){
+                let cache_date = localStorage.getItem('api.lastUpdate');
+                console.log('getting lastUpdate',checksum)
+                if(cache_date && checksum === cache_date){
+                    return false
+                }
+            }
+            clear()
+            localStorage.setItem("api.lastUpdate",checksum)
+            console.log("checksum",checksum)
+            window.location.reload(); 
+        })
+        .catch(e=>{console.error("cant fetch last Update date from server",e)})
+}
 
 // flushAll/  clear key
 const clear = key => {
@@ -44,7 +64,6 @@ const get = (url, fn,error) => {
     // },0);
 }
 
-
 // set valid cache
 const setValidCache = (key,data) => {
 
@@ -69,6 +88,7 @@ const getValidCache = key => {
         return false;
     }
 
+    setTimeout(serverDataChanged,0)
     try{
         let {data,time} = JSON.parse(localStorage.getItem(key));
         if(!time) {

@@ -13,8 +13,19 @@
     text-align: center;
     border: 1px solid transparent;
 }
-.btn-primary{
+.btn-secondary{
     color: #FFF;
     background: #37F;
     border: 1px solid #37F;
+}
+
+.btn.btn-primary{
+    background: #333;
+    color: #FFF;
+    border: none;
+} 
+.btn.btn-primary:hover{
+    color: #FFF;
+    background: #36F;
+    border: none;
 }
