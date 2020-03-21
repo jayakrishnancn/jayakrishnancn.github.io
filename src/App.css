@@ -2,3 +2,27 @@
 .App{
     min-height: 100%;
 }
+*{
+    outline: 1px dotted transparent;
+    outline-offset: 2px;
+}
+*:focus{
+    outline: 1px dotted #555;
+}
+
+a:focus{
+    animation: focus .5s forwards ease-in-out;
+}
+
+a:hover:focus,.btn:hover:focus,.key-focus:hover:focus{
+    animation: none !important;
+    transform: scale(1) !important;
+}
+@keyframes focus {
+    0%,100%{
+        transform: scale(1);
+    }
+    20%{
+        transform: scale(1.1);
+    }
+}

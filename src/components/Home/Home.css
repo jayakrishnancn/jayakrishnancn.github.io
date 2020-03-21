@@ -26,11 +26,11 @@ a{
     border-radius: 100%;
     border: 1px solid #222;
     display: inline-block;
-    padding: .3rem;
-    font-size: 1.3rem;
+    padding: .15rem;
+    font-size: 1.1rem;
     line-height: 2.5rem;
-    width: 2.6rem;
-    height: 2.6rem;
+    width: 2.5rem;
+    height: 2.5rem;
     text-align: center;
 }
 .social-media li{

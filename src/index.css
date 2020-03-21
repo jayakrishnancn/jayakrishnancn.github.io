@@ -19,13 +19,14 @@ html,body{
   font-size: 18px;
   height: 100%;
   line-height: 1.7rem;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .link,a{
   color: #37F;
   transition: .3s ease-in-out;
   border-bottom: 1px solid transparent;
   text-decoration: none;
-  outline: none;
   padding: 0;
 }
 .link{

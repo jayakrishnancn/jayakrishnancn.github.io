@@ -10,7 +10,7 @@ export default function Home(){
         <div className="home">
             <div>
                 <NavLink to="/" className="profile-pic">
-                    <img src={profilePic} alt="avatar" height="100" width="100" intrinsicsize="100x100" className="rounded" />
+                    <img src={profilePic} alt="my cute pic" height="100" width="100" intrinsicsize="100x100" className="rounded" />
                 </NavLink>
                 <h1>Jayakrishnan</h1>
                 <div className="bio">

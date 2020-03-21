@@ -10,14 +10,16 @@ const Navbar = () => {
     return (
         <Fragment>
             <nav className="Navbar">
-                <Container className="d-flex ai-center jc-between ">
-                    <ul>
-                        <li><NavLink to="/" exact >HOME</NavLink></li>
-                    </ul>
-                    <ul>
-                        <li><NavLink to="/blog" exact >BLOG</NavLink> </li>
-                        <li><NavLink to="/projects" exact >PROJECTS</NavLink> </li>
-                    </ul>
+                <Container>
+                    <div  className="d-flex navbar-inner ai-center jc-between">
+                        <ul>
+                            <li><NavLink tabIndex="0" to="/" exact >HOME</NavLink></li>
+                        </ul>
+                        <ul>
+                            <li><NavLink to="/blog" exact >BLOG</NavLink> </li>
+                            <li><NavLink to="/projects" exact >PROJECTS</NavLink> </li>
+                        </ul>
+                    </div>
                 </Container>
             </nav>
 
