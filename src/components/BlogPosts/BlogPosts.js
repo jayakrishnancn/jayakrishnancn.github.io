@@ -2,11 +2,14 @@ import React,{Component} from 'react'
 import MiniPost from '../MiniPost/MiniPost'
 import API from '../../util/API'
 import './BlogPosts.css'
+import LoadingPage from '../sub_components/LoadingPage/LoadingPage'
+import ErrorLoadingPage from '../ErrorPages/ErrorLoadingPage'
 
 class BlogPosts extends Component{
     state = {
         articles: [],
-        error: null
+        error: null,
+        loading: true
     }
      
     componentDidMount(){
@@ -14,19 +17,17 @@ class BlogPosts extends Component{
 
         API.get(url, (data) => {
             // console.log("Data",data)            
-            this.setState({articles:data});
+            this.setState({articles:data,loading: false});
         },error=>{
-            this.setState({error})
+            this.setState({error,loading: false})
         });
     }
 
     render(){
-        if(this.state.error){
-            return (<div>{this.state.error}</div>)
-        }
-        return (    
-            <MiniPost articles={this.state.articles} type="blog"/>
-        )
+        let {articles, loading, error} = this.state
+        if(loading) return <LoadingPage message="loading projects" />
+        if(error) return <ErrorLoadingPage {...this.props}/>
+        return <MiniPost articles={articles} type="blog"/>
     }
 }
 export default BlogPosts

@@ -4,6 +4,7 @@ import Container from '../../Container/Container'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faArrowCircleLeft, faHome} from '@fortawesome/free-solid-svg-icons'
 import "./HomeAndBack.css";
+
 export default class HomeAndBack extends React.Component{
     
     backButtonHandler = e =>{

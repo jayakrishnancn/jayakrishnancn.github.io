@@ -1,13 +1,15 @@
-import React from 'react'
-import Container from '../Container/Container'
-import {NavLink} from 'react-router-dom'
-export default function PageNotFound(){
-    return (
-        <Container className="text-center mt-5">
-        
-            <h1>Page Not Found</h1>
-            <NavLink to="/">Home</NavLink>
-        </Container>
+import React,{Fragment} from 'react'
+import {faExclamationTriangle} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import ErrorPage from '../sub_components/ErrorPage/ErrorPage'
+const faExclamationTriangleIcon = <FontAwesomeIcon className="text-danger" icon={faExclamationTriangle} />
 
+const PageNotFound = props => {
+
+    return (
+        <Fragment>
+                <ErrorPage heading={faExclamationTriangleIcon} message="Page Not Found" {...props}/>
+        </Fragment>
     )
-}
+} 
+export default  PageNotFound

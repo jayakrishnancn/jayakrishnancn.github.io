@@ -1,22 +1,15 @@
-import React,{Component} from 'react';
-import Container from '../Container/Container'
+import React,{Fragment} from 'react'
 import {faExclamationTriangle} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import HomeAndBack from '../sub_components/HomeAndBack/HomeAndBack'
+import ErrorPage from '../sub_components/ErrorPage/ErrorPage'
+const faExclamationTriangleIcon = <FontAwesomeIcon className="text-danger" icon={faExclamationTriangle} />
 
-class PageUnderConstruction extends Component{
+const PageNotFound = props => {
 
-    render(){
-
-        return (
-            <Container className="text-center mt-3" size="small">
-                <h1><FontAwesomeIcon className="text-danger" icon={faExclamationTriangle} /></h1>
-                <h3>Page Under Construction</h3>
-                <HomeAndBack {...this.props}/>
-            </Container>
-
-        )
-    } 
+    return (
+        <Fragment>
+                <ErrorPage heading={faExclamationTriangleIcon} message="Page Under Construction" {...props}/>
+        </Fragment>
+    )
 } 
-
-export default  PageUnderConstruction
+export default  PageNotFound
