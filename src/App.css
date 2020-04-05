@@ -27,3 +27,59 @@ a:hover:focus,.btn:hover:focus,.key-focus:hover:focus{
         transform: scale(1.1);
     }
 }
+
+/* theme black */
+
+.dark{
+    background: #222;
+    color: #ccc;
+}
+.dark a{
+    color: #ffc107;
+}
+.dark a:hover,
+.dark a:active{
+    border-color: #ffc107;
+}
+.dark .Navbar{
+    background-color: #222;
+    border-bottom-color: #333;
+}
+.dark h1,.dark h2,.dark h3,.dark h4,.dark h5{
+    color: #ccc;
+}
+.dark .home .bio{
+    color: #ccc;
+}
+.dark .home .social-media a{
+    color: #999;
+    border-color: #444;
+}
+.dark .home .social-media a:hover{
+    color: #ffc107;
+    border-color: #ffc107;
+}
+.dark .blog-list li{
+    border-color: #444;
+}
+.dark .btn.btn-primary:hover{
+    background: #ffc107;
+    color: #333;
+}
+.theme{
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    cursor: pointer;
+    padding: .5rem;
+    font-size: 16px;
+    color: #222;
+    border-radius: 100%;
+}
+.dark .theme{
+    color: #FFF;
+}
+html, body,#root
+{
+    height: 100%;
+}

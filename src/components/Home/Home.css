@@ -39,7 +39,7 @@ a{
 }
 .social-media a:hover{
     color: #00F;
-    border-color: #222;
+    border-color: #00F;
 }
 @media (max-width: 600px){
     .home .menu li{
