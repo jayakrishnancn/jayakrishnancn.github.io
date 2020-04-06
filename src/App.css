@@ -1,4 +1,7 @@
-
+html, body,#root
+{
+    height: 100%;
+}
 .App{
     min-height: 100%;
     width: 100%;
@@ -26,6 +29,63 @@ a:hover:focus,.btn:hover:focus,.key-focus:hover:focus{
     20%{
         transform: scale(1.1);
     }
+}
+.home-and-back a:hover{
+    color:#00F
+}
+.container{
+    max-width: 800px;
+    margin: auto;   
+    width: 100%;
+    padding-left: 1.5rem ;
+    padding-right: 1.5rem ;
+    box-sizing: border-box;
+}
+.container.large{
+    max-width: 1200px;
+}
+.container.small{
+    max-width: 700px;
+}
+.container.article{
+    max-width: 750px;
+}
+
+.theme{
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    cursor: pointer;
+    padding: 0;
+    font-size: 12px; 
+    border-radius: 30px; 
+    color: #00F; 
+    background: #e0e0e0;
+    text-align: center;
+}
+.theme::after{
+    content: " ";
+    left: 5px;
+    top: 5px;
+    display: inline-block;
+    position: absolute;
+    border-radius: 30px;
+    width: 40px;
+    height: 30px;
+    z-index: -1;
+    background: #fff;
+    border: none;
+    transition: 0.3s;
+    
+}
+.dark .theme::after{
+    left: 40px
+}
+.theme-icon{
+    width: 35px;
+    padding: 5px;
+    display: inline-block;
+    height: 30px;
 }
 
 /* theme black */
@@ -66,20 +126,6 @@ a:hover:focus,.btn:hover:focus,.key-focus:hover:focus{
     background: #ffc107;
     color: #333;
 }
-.theme{
-    position: fixed;
-    bottom: 1%;
-    right: 1%;
-    cursor: pointer;
-    padding: .5rem;
-    font-size: 16px;
-    color: #222;
-    border-radius: 100%;
-}
 .dark .theme{
-    color: #FFF;
-}
-html, body,#root
-{
-    height: 100%;
+    color: #ff9800;
 }

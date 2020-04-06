@@ -3,8 +3,6 @@ import {NavLink,Link} from 'react-router-dom'
 import Container from '../Container/Container'
 import {faHome} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import './Navbar.css'
-
 
 const Navbar = () => {
     return (

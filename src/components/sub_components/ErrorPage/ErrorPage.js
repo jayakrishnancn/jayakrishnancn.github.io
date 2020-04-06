@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from '../../Container/Container'
 import HomeAndBack from '../../sub_components/HomeAndBack/HomeAndBack'
-import './ErrorPage.css'
 
 const ErrorPage = props => {
     let {heading,message} = props

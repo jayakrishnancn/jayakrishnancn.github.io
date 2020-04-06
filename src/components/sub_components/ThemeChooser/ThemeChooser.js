@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
-import './ThemeChooser.css'
+import React, { Component } from 'react'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faCloudSun } from '@fortawesome/free-solid-svg-icons';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 class ThemeChooser extends Component{
     render(){
-        let {darkTheme} = this.props;
+        
         return (
-        <div className="theme cursor" onClick={this.props.onClick}>
-            { !darkTheme ? 
-                <FontAwesomeIcon icon={faMoon} /> :
-                <FontAwesomeIcon icon={faCloudSun} /> 
-            }
-        </div>
+            <div className="theme cursor" onClick={this.props.onClick}>
+                <span className="theme-icon"><FontAwesomeIcon icon={faMoon} /></span>
+                <span className="theme-icon"><FontAwesomeIcon icon={faSun} /> </span>
+
+            </div>
         )
     }
 }

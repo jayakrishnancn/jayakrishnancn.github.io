@@ -3,7 +3,6 @@ import profilePic from './profile-pic-compressed.jpg'
 import {NavLink} from 'react-router-dom' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faGithubAlt, faStackOverflow, faLinkedin, faCodepen} from '@fortawesome/free-brands-svg-icons'
-import './Home.css'
 
 export default function Home(){
     return (
