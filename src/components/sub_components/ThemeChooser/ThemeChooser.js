@@ -7,8 +7,8 @@ class ThemeChooser extends Component{
         
         return (
             <div className="theme cursor" onClick={this.props.onClick}>
-                <span className="theme-icon"><FontAwesomeIcon icon={faMoon} /></span>
                 <span className="theme-icon"><FontAwesomeIcon icon={faSun} /> </span>
+                <span className="theme-icon"><FontAwesomeIcon icon={faMoon} /></span>
 
             </div>
         )
