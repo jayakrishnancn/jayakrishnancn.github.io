@@ -1,0 +1,60 @@
+.profilePic{
+    width: 100px;
+    height: 100px;
+    margin: 1rem auto;
+    display: block;
+    border-radius: 100%;
+}
+
+.social-links{
+    display: flex;
+    justify-content: space-between;
+    max-width: 200px;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.social-links .img:hover{
+    background: #ccc;
+}
+
+.social-links .img{
+    width: 40px;
+    height: 40px;
+    background: #e0e0e0;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    color:#333;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.social-links .img svg{
+    color:#333;
+}
+
+.theme{
+    min-height: 100vh;
+}
+
+.theme-toggle{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 2;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.theme-icon{
+    color: #ffc107;
+}
+.theme-icon.sun{
+    color: #ff5722
+}
+/* article , about page*/
+
+.article{
+    max-width: 700px;
+    margin: auto;
+}
