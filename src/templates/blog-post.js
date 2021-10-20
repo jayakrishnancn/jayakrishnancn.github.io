@@ -4,8 +4,8 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Img from "gatsby-image"
 import { getChaiTime } from "../utils/timeCalc"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -14,7 +14,7 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
 
   const featuredImgFluid =
-    post.frontmatter.featuredImage?.childImageSharp?.fluid
+    post.frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
 
   return (
     <Layout location={location} title={siteTitle} siteUrl={siteUrl}>
@@ -27,9 +27,8 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        {featuredImgFluid && (
-          <Img className="featuredImg" fluid={featuredImgFluid} />
-        )}
+        {/** <Img className="featuredImg" fluid={featuredImgFluid} />  */}
+        {featuredImgFluid && <GatsbyImage image={featuredImgFluid} />}
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>
@@ -101,9 +100,7 @@ export const pageQuery = graphql`
         featuredImageAlt
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }
