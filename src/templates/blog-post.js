@@ -46,15 +46,7 @@ const BlogPostTemplate = ({ data, location }) => {
         </footer>
       </article>
       <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <ul className="blog-post-nav-ul">
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">

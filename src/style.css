@@ -84,6 +84,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  font-display: swap;
 }
 
 .common-footer {
@@ -113,6 +114,7 @@ h6 {
   margin-bottom: var(--spacing-6);
   line-height: var(--lineHeight-tight);
   letter-spacing: -0.025em;
+  font-display: swap;
 }
 
 h2,
@@ -293,6 +295,7 @@ a:focus {
   font-family: var(--font-heading);
   text-decoration: none;
   font-size: var(--fontSize-2);
+  font-display: swap;
 }
 
 .bio {
@@ -324,6 +327,7 @@ a:focus {
 .blog-post header p {
   font-size: var(--fontSize-2);
   font-family: var(--font-heading);
+  font-display: swap;
 }
 .blog-post p {
   text-align: justify;
@@ -404,4 +408,19 @@ ul.social-links {
 }
 .m-1 {
   margin: var(--spacing-4) !important;
+}
+
+.no-list-style {
+  list-style: none !important;
+}
+
+ul.blog-post-nav-ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+}
+.pl-5 {
+  padding-left: 5px;
 }

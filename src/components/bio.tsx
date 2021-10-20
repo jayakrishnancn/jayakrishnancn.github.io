@@ -50,8 +50,7 @@ const Bio = () => {
         />
       </Link>{" "}
       Personal blog by{" "}
-      <Link to="/portfolio" style={{ paddingLeft: 5 }}>
-        {" "}
+      <Link to="/portfolio" className="pl-5">
         Jayakrishnan
       </Link>
     </div>

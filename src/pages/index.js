@@ -13,10 +13,10 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle} siteUrl={siteUrl}>
-      <Seo title="All posts" />
+      <Seo title="Blog" />
       <Bio />
       {posts.length > 0 ? (
-        <ol style={{ listStyle: `none` }}>
+        <ol className="no-list-style">
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
 
