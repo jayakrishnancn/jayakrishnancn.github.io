@@ -21,14 +21,14 @@ interface BioProps {
 
 const Bio = ({ location }: BioProps) => {
   return (
-    <div className={"shadow-md mx-auto my-4 max-w-sm flex rounded"}>
+    <div className={"mx-auto my-4 mb-10 max-w-sm flex rounded"}>
       <Link to="/portfolio">
         <StaticImage
-          className="rounded-l-md h-auto"
+          className="rounded-full h-auto"
           layout="constrained"
           formats={["auto", "webp", "avif"]}
           src="../images/selfi.jpg"
-          width={130}
+          width={150}
           height={150}
           quality={95}
           alt="Profile picture"

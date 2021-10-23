@@ -40,7 +40,7 @@ const BlogPostTemplate = ({ data, location }) => {
           </p>
         </header>
         <section
-          className="text-gray-600"
+          className="text-gray-500"
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
