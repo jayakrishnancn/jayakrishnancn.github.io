@@ -21,7 +21,7 @@ interface BioProps {
 
 const Bio = ({ location }: BioProps) => {
   return (
-    <div className={" shadow-md mx-auto my-4 max-w-sm flex rounded"}>
+    <div className={"shadow-md mx-auto my-4 max-w-sm flex rounded"}>
       <Link to="/portfolio">
         <StaticImage
           className="rounded-l-md h-auto"
@@ -29,19 +29,25 @@ const Bio = ({ location }: BioProps) => {
           formats={["auto", "webp", "avif"]}
           src="../images/selfi.jpg"
           width={130}
-          height={148}
+          height={150}
           quality={95}
           alt="Profile picture"
         />
       </Link>
-      <div className="my-auto p-4">
+      <div className="my-auto px-4 py-2 group flex-1 ">
         <div>
           <Link to="/portfolio" className="font-bold ml-0">
             Jayakrishnan
           </Link>
         </div>
-        <div className="text-muted mt-5">Fullstack developer</div>
+        <div className="text-muted mt-1">Fullstack developer</div>
         <SocialLinks />
+        <Link to="/portfolio" className="text-right text-xs inline-block">
+          View portfolio
+          <span className="transform transition-all -translate-x-1 absolute opacity-0 group-hover:opacity-100 group-hover:translate-x-1">
+            ➞
+          </span>
+        </Link>
       </div>
     </div>
   )
