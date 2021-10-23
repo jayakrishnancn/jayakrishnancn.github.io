@@ -5,6 +5,7 @@
 html,
 body {
   @apply font-serif leading-6;
+  scroll-behavior: smooth;
 }
 html {
   height: 100%;
@@ -39,4 +40,11 @@ a {
 
 .btn-secondary {
   @apply btn text-gray-700 bg-gray-100 hover:text-blue-800 border-gray-200 hover:bg-gray-200;
+}
+
+.pagination-item {
+  @apply bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium;
+}
+.pagination-active {
+  @apply z-10 bg-red-100 border-red-500 text-red-600;
 }
