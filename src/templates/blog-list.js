@@ -26,14 +26,14 @@ const BlogIndex = ({ data, location, pageContext }) => {
             return (
               <article
                 key={post.fields.slug}
-                className="flex shadow-md rounded mb-5"
+                className="flex shadow-md rounded-md mb-5"
                 itemScope
                 itemType="http://schema.org/Article"
               >
                 {featuredImgFluid && (
                   <GatsbyImage
                     alt={post.frontmatter.featuredImageAlt || title}
-                    className="rounded-l h-auto"
+                    className="rounded-l-md h-auto"
                     image={featuredImgFluid}
                   />
                 )}

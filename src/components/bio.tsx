@@ -34,7 +34,7 @@ const Bio = ({ location }: BioProps) => {
           alt="Profile picture"
         />
       </Link>
-      <div className="my-auto px-4 py-2 group flex-1 ">
+      <div className="my-auto px-4 py-2 flex-1 ">
         <div>
           <Link to="/portfolio" className="font-bold ml-0">
             Jayakrishnan
@@ -42,7 +42,10 @@ const Bio = ({ location }: BioProps) => {
         </div>
         <div className="text-muted mt-1">Fullstack developer</div>
         <SocialLinks />
-        <Link to="/portfolio" className="text-right text-xs inline-block">
+        <Link
+          to="/portfolio"
+          className="text-right group  text-xs inline-block"
+        >
           View portfolio
           <span className="transform transition-all -translate-x-1 absolute opacity-0 group-hover:opacity-100 group-hover:translate-x-1">
             ➞
