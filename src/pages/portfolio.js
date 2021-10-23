@@ -34,7 +34,7 @@ const Portfolio = ({ data }) => {
           </Link>
         </div>
         <div className="mt-4">
-          <SocialLinks />
+          <SocialLinks size="2x" />
         </div>
       </main>
       <Footer />

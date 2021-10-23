@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { getChaiTime } from "../utils/timeCalc"
 import { GatsbyImage } from "gatsby-plugin-image"
-import Pagination from "../components/pagination"
+import Pagination from "../components/Pagination"
 
 const BlogIndex = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`

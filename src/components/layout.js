@@ -8,7 +8,7 @@ const Layout = ({ title, children, siteUrl }) => {
       {title && (
         <header>
           <Link
-            className="font-semibold text-xl block pt-2 pb-4 text-primary"
+            className="font-semibold text-2xl block pt-2 pb-4 text-primary"
             to="/"
           >
             {title}
