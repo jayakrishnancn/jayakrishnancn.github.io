@@ -22,21 +22,25 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        {/** <Img className="featuredImg" fluid={featuredImgFluid} />  */}
-        {featuredImgFluid && <GatsbyImage image={featuredImgFluid} />}
+      <article itemScope itemType="http://schema.org/Article">
+        {featuredImgFluid && (
+          <GatsbyImage
+            alt="cover image"
+            className="rounded my-5"
+            image={featuredImgFluid}
+          />
+        )}
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>
+          <h1 itemProp="headline" className="text-2xl font-bold text-primary">
+            {post.frontmatter.title}
+          </h1>
+          <p className="text-muted">
             <small>{post.frontmatter.date}</small>
             <small> &#8226; {getChaiTime(post?.timeToRead)}</small>
           </p>
         </header>
         <section
+          className="text-gray-600"
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />

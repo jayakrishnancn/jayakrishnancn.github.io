@@ -1,34 +1,22 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Footer from "./Footer"
 
-const Layout = ({ location, title, children, siteUrl }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
-
-  let header
-
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
-
+const Layout = ({ title, children, siteUrl }) => {
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+    <div className="max-w-screen-sm	container">
+      {title && (
+        <header>
+          <Link
+            className="font-semibold text-xl block my-2 text-primary"
+            to="/"
+          >
+            {title}
+          </Link>
+        </header>
+      )}
       <main>{children}</main>
-      <footer className="common-footer">
-        © {new Date().getFullYear()},{` `}
-        {title && <a href={siteUrl ?? "#"}>{title}</a>}
-      </footer>
+      <Footer siteUrl={siteUrl} />
     </div>
   )
 }

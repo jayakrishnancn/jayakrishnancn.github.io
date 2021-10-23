@@ -6,53 +6,43 @@
  */
 
 import * as React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import SocialLinks from "./SocialLinks"
 
-type SummaryProps = {
-  author: {
-    title: string
-    summary: string
-  }
+interface BioClasses {
+  wrapper?: any
+  image?: any
+}
+interface BioProps {
+  location?: string
+  classes?: BioClasses
 }
 
-const Bio = () => {
-  const data = useStaticQuery(graphql`
-    query BioQuery {
-      site {
-        siteMetadata {
-          author {
-            name
-            summary
-          }
-          social {
-            twitter
-          }
-        }
-      }
-    }
-  `)
-
-  // Set these values by editing "siteMetadata" in gatsby-config.js
-  const author: any = data.site.siteMetadata?.author
+const Bio = ({ location }: BioProps) => {
   return (
-    <div className="bio">
+    <div className={" shadow-md mx-auto my-4 max-w-sm flex rounded"}>
       <Link to="/portfolio">
         <StaticImage
-          className="bio-avatar"
-          layout="fixed"
+          className="rounded-l-md h-auto"
+          layout="constrained"
           formats={["auto", "webp", "avif"]}
           src="../images/selfi.jpg"
-          width={50}
-          height={50}
+          width={130}
+          height={148}
           quality={95}
           alt="Profile picture"
         />
-      </Link>{" "}
-      Personal blog by{" "}
-      <Link to="/portfolio" className="pl-5">
-        Jayakrishnan
       </Link>
+      <div className="my-auto p-4">
+        <div>
+          <Link to="/portfolio" className="font-bold ml-0">
+            Jayakrishnan
+          </Link>
+        </div>
+        <div className="text-muted mt-5">Fullstack developer</div>
+        <SocialLinks />
+      </div>
     </div>
   )
 }
