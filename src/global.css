@@ -7,7 +7,8 @@ body {
   @apply font-serif leading-6;
   scroll-behavior: smooth;
 }
-html {
+html,
+#___gatsby {
   height: 100%;
 }
 body {

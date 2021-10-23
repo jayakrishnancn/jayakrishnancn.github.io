@@ -37,7 +37,7 @@ const BlogIndex = ({ data, location, pageContext }) => {
                     image={featuredImgFluid}
                   />
                 )}
-                <div className="p-5 text-center md:text-left space-y-4">
+                <div className="p-5  md:text-left space-y-4">
                   <header>
                     <h1
                       itemProp="headline"
