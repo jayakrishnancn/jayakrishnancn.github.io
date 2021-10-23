@@ -49,3 +49,6 @@ a {
 .pagination-active {
   @apply z-10 bg-red-100 border-red-500 text-red-600;
 }
+.container {
+  @apply p-4;
+}

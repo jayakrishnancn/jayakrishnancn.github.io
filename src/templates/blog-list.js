@@ -33,7 +33,7 @@ const BlogIndex = ({ data, location, pageContext }) => {
                 {featuredImgFluid && (
                   <GatsbyImage
                     alt={post.frontmatter.featuredImageAlt || title}
-                    className="rounded-l-md h-auto"
+                    className="rounded-l-md h-auto hidden sm:block"
                     image={featuredImgFluid}
                   />
                 )}
