@@ -10,16 +10,7 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import SocialLinks from "./SocialLinks"
 
-interface BioClasses {
-  wrapper?: any
-  image?: any
-}
-interface BioProps {
-  location?: string
-  classes?: BioClasses
-}
-
-const Bio = ({ location }: BioProps) => {
+const Bio = () => {
   return (
     <div className={"mx-auto my-4 mb-10 max-w-sm flex rounded"}>
       <Link to="/portfolio">

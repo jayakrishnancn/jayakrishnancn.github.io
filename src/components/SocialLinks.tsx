@@ -2,7 +2,11 @@ import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SOCIALLINKS from "../configs/socialLinks"
 
-const SocialLinks = ({ size }) => {
+interface SocialLinksProps {
+  size?: any
+}
+
+const SocialLinks = ({ size }: SocialLinksProps) => {
   return (
     <ul className="flex mt-1">
       {SOCIALLINKS &&

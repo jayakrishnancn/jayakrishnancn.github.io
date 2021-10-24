@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 import { getChaiTime } from "../utils/timeCalc"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-const BlogPostTemplate = ({ data, location }) => {
+const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const siteUrl = data.site.siteMetadata?.siteUrl || `Title`
@@ -17,7 +17,7 @@ const BlogPostTemplate = ({ data, location }) => {
     post.frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
 
   return (
-    <Layout location={location} title={siteTitle} siteUrl={siteUrl}>
+    <Layout title={siteTitle} siteUrl={siteUrl}>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}

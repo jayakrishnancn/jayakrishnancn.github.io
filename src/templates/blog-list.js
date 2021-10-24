@@ -8,13 +8,13 @@ import { getChaiTime } from "../utils/timeCalc"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Pagination from "../components/Pagination"
 
-const BlogIndex = ({ data, location, pageContext }) => {
+const BlogIndex = ({ data, pageContext }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const siteUrl = data.site.siteMetadata?.siteUrl || `#`
   const posts = data.allMarkdownRemark.nodes || []
   console.log(pageContext)
   return (
-    <Layout location={location} title={siteTitle} siteUrl={siteUrl}>
+    <Layout title={siteTitle} siteUrl={siteUrl}>
       <>
         <Seo title="Blog" />
         <Bio />
