@@ -4,7 +4,7 @@ description: A short self introduction which includes what i do, did and want to
 featuredImage: ./cover-skydiving.jpg
 featuredImageAlt: Sky Diving
 date: 2020-10-19
-tags: General
+tags: ["general"]
 ---
 
 Hello Sapiens,

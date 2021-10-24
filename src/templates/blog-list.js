@@ -7,36 +7,56 @@ import Seo from "../components/seo"
 import { getChaiTime } from "../utils/timeCalc"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Pagination from "../components/Pagination"
+import pathUrils from "../utils/pathUrils"
 
 const BlogIndex = ({ data, pageContext }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const siteUrl = data.site.siteMetadata?.siteUrl || `#`
   const posts = data.allMarkdownRemark.nodes || []
-  console.log(pageContext)
+  const { tag: activeTag } = pageContext || {}
+
   return (
-    <Layout title={siteTitle} siteUrl={siteUrl}>
+    <Layout>
       <>
         <Seo title="Blog" />
         <Bio />
+        {activeTag && (
+          <div className="flex justify-end">
+            <Link to="/" className="active-tag">
+              {activeTag} ✖
+            </Link>
+          </div>
+        )}
         {posts.length > 0 ? (
           posts.map(post => {
-            const title =
-              post.frontmatter.title ||
-              post.fields.slug?.replace(/-/g, " ")?.replace(/\//g, "")
-            const featuredImgFluid =
-              post.frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
+            let {
+              frontmatter: {
+                date,
+                tags,
+                title,
+                description,
+                featuredImageAlt,
+                featuredImage,
+              } = {},
+              fields: { slug = "" } = {},
+              timeToRead,
+              excerpt,
+            } = post || {}
+            const { childImageSharp: { gatsbyImageData } = {} } =
+              featuredImage || {}
+
+            title = title || slug?.replace(/-/g, " ")?.replace(/\//g, "")
+
             return (
               <article
-                key={post.fields.slug}
+                key={slug}
                 className="flex shadow-md rounded-md mb-5"
                 itemScope
                 itemType="http://schema.org/Article"
               >
-                {featuredImgFluid && (
+                {gatsbyImageData && (
                   <GatsbyImage
-                    alt={post.frontmatter.featuredImageAlt || title}
+                    alt={featuredImageAlt || title}
                     className="rounded-l-md h-auto hidden sm:block"
-                    image={featuredImgFluid}
+                    image={gatsbyImageData}
                   />
                 )}
                 <div className="p-5  md:text-left space-y-4">
@@ -45,31 +65,50 @@ const BlogIndex = ({ data, pageContext }) => {
                       itemProp="headline"
                       className="text-2xl text-primary font-semibold"
                     >
-                      <Link to={post.fields.slug}>{title}</Link>
+                      <Link to={slug}>{title}</Link>
                     </h1>
                     <p className="text-muted mb-2">
-                      <small>{post.frontmatter.date}</small>
-                      <small> &#8226; {getChaiTime(post?.timeToRead)}</small>
+                      <small>{date}</small>
+                      <small> &#8226; {getChaiTime(timeToRead)}</small>
                     </p>
                   </header>
                   <section>
                     <p
                       className="text-gray-600 p-0 m-0"
                       dangerouslySetInnerHTML={{
-                        __html: post.frontmatter.description || post.excerpt,
+                        __html: description || excerpt,
                       }}
                       itemProp="description"
                     />
                   </section>
-                  <Link
-                    to={post.fields.slug}
-                    className="group text-xs inline-block"
-                  >
-                    Read more
-                    <span className="transform transition-all -translate-x-1 absolute opacity-0 group-hover:opacity-100 group-hover:translate-x-1">
-                      ➞
-                    </span>
-                  </Link>
+                  <div className="flex justify-between">
+                    <div>
+                      <Link
+                        to={post.fields.slug}
+                        className="group text-xs inline-block"
+                      >
+                        Read more
+                        <span className="transform transition-all -translate-x-1 absolute opacity-0 group-hover:opacity-100 group-hover:translate-x-1">
+                          ➞
+                        </span>
+                      </Link>
+                    </div>
+                    <div>
+                      {tags.map(tag => (
+                        <Link
+                          key={"search-tag-" + tag}
+                          className={
+                            activeTag && tag === activeTag
+                              ? "active-tag hover:active-tag"
+                              : "inactive-tag hover:active-tag"
+                          }
+                          to={pathUrils.getTagPath(tag)}
+                        >
+                          {tag}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </article>
             )
@@ -87,12 +126,6 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query ($skip: Int!, $limit: Int!) {
-    site {
-      siteMetadata {
-        title
-        siteUrl
-      }
-    }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
@@ -100,15 +133,14 @@ export const pageQuery = graphql`
     ) {
       nodes {
         excerpt
+        timeToRead
         fields {
           slug
-        }
-        wordCount {
-          words
         }
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
+          tags
           description
           featuredImageAlt
           featuredImage {

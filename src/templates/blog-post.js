@@ -5,28 +5,37 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { getChaiTime } from "../utils/timeCalc"
 import { GatsbyImage } from "gatsby-plugin-image"
+import pathUrils from "../utils/pathUrils"
 
-const BlogPostTemplate = ({ data }) => {
+const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const siteUrl = data.site.siteMetadata?.siteUrl
   const { previous, next } = data
+  const {
+    frontmatter: {
+      tags,
+      title,
+      description,
+      date,
+      featuredImage = {},
+      featuredImageAlt,
+    },
+    excerpt,
+    timeToRead,
+    html,
+  } = post || {}
 
-  const featuredImgFluid =
-    post.frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
-
+  const { childImageSharp: { gatsbyImageData } = {} } = featuredImage || {}
   return (
     <Layout title={siteTitle} siteUrl={siteUrl} showBio>
-      <Seo
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+      <Seo title={title} description={description || excerpt} />
       <article itemScope itemType="http://schema.org/Article">
-        {featuredImgFluid && (
+        {gatsbyImageData && (
           <GatsbyImage
-            alt="cover image"
+            alt={featuredImageAlt ?? "cover image"}
             className="rounded my-5"
-            image={featuredImgFluid}
+            image={gatsbyImageData}
           />
         )}
         <header>
@@ -35,21 +44,34 @@ const BlogPostTemplate = ({ data }) => {
             itemProp="headline"
             className="text-3xl font-extrabold text-primary"
           >
-            {post.frontmatter.title}
+            {title}
           </h1>
           <p className="text-muted">
-            <small>{post.frontmatter.date}</small>
-            <small> &#8226; {getChaiTime(post?.timeToRead)}</small>
+            <small>{date}</small>
+            <small> &#8226; {getChaiTime(timeToRead)}</small>
           </p>
         </header>
         <div id="page-content"></div>
         <section
           className="text-gray-500 article-body"
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          dangerouslySetInnerHTML={{ __html: html }}
           itemProp="articleBody"
         />
         <div id="page-footer"></div>
       </article>
+      <div className="flex justify-end">
+        {tags &&
+          tags.length > 0 &&
+          tags.map(tag => (
+            <Link
+              key={"search-tag-" + tag}
+              className={"inactive-tag hover:active-tag"}
+              to={pathUrils.getTagPath(tag)}
+            >
+              {tag}
+            </Link>
+          ))}
+      </div>
       <hr />
       <nav className=" border-b border-gray-200 py-4 mb-5">
         <div id="page-bottom-nav"></div>
@@ -57,7 +79,7 @@ const BlogPostTemplate = ({ data }) => {
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+                ← {title}
               </Link>
             )}
           </li>
@@ -97,6 +119,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
         featuredImageAlt
         featuredImage {
           childImageSharp {
