@@ -16,7 +16,7 @@ body {
 }
 p,
 .gatsby-highlight {
-  @apply mb-5 leading-5;
+  @apply mb-5 leading-7;
 }
 
 .heading {
@@ -45,7 +45,7 @@ h6 {
 }
 
 a {
-  @apply no-underline text-red-600 hover:text-red-400 inline-block transition-all;
+  @apply no-underline text-red-600 hover:text-red-400 inline-block transition-all hover:underline;
 }
 
 .text-primary {

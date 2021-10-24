@@ -54,7 +54,7 @@ const BlogIndex = ({ data, pageContext }) => {
                   </header>
                   <section>
                     <p
-                      className="text-gray-500 p-0 m-0"
+                      className="text-gray-600 p-0 m-0"
                       dangerouslySetInnerHTML={{
                         __html: post.frontmatter.description || post.excerpt,
                       }}
