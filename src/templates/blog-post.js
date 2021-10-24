@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { getChaiTime } from "../utils/timeCalc"
 import { GatsbyImage } from "gatsby-plugin-image"
-import pathUrils from "../utils/pathUrils"
+import Tag from "../components/tag"
 
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
@@ -59,19 +59,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
         />
         <div id="page-footer"></div>
       </article>
-      <div className="flex justify-end">
-        {tags &&
-          tags.length > 0 &&
-          tags.map(tag => (
-            <Link
-              key={"search-tag-" + tag}
-              className={"inactive-tag hover:active-tag"}
-              to={pathUrils.getTagPath(tag)}
-            >
-              {tag}
-            </Link>
-          ))}
-      </div>
+      <Tag tags={tags} />
       <hr />
       <nav className=" border-b border-gray-200 py-4 mb-5">
         <div id="page-bottom-nav"></div>

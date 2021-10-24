@@ -56,7 +56,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
 
-      console.log(post.frontmatter?.tags, "ost.frontmatter?.tags")
       post.frontmatter?.tags && tagsSet.push(...post.frontmatter?.tags)
 
       createPage({
@@ -71,7 +70,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   }
 
-  console.log("tagsSet", tagsSet)
   if (tagsSet.length > 0) {
     Array.from(new Set(tagsSet), (item = "missing") => {
       createPage({

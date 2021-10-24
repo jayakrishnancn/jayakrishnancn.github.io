@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 import { getChaiTime } from "../utils/timeCalc"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Pagination from "../components/Pagination"
-import pathUrils from "../utils/pathUrils"
+import Tag from "../components/tag"
 
 const BlogIndex = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.nodes || []
@@ -19,11 +19,7 @@ const BlogIndex = ({ data, pageContext }) => {
         <Seo title="Blog" />
         <Bio />
         {activeTag && (
-          <div className="flex justify-end">
-            <Link to="/" className="active-tag">
-              {activeTag} ✖
-            </Link>
-          </div>
+          <Tag activeTag={activeTag} clearTag={true} tags={[activeTag]} />
         )}
         {posts.length > 0 ? (
           posts.map(post => {
@@ -93,21 +89,7 @@ const BlogIndex = ({ data, pageContext }) => {
                         </span>
                       </Link>
                     </div>
-                    <div>
-                      {tags.map(tag => (
-                        <Link
-                          key={"search-tag-" + tag}
-                          className={
-                            activeTag && tag === activeTag
-                              ? "active-tag hover:active-tag"
-                              : "inactive-tag hover:active-tag"
-                          }
-                          to={pathUrils.getTagPath(tag)}
-                        >
-                          {tag}
-                        </Link>
-                      ))}
-                    </div>
+                    <Tag tags={tags} activeTag={activeTag} />
                   </div>
                 </div>
               </article>

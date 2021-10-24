@@ -8,7 +8,6 @@ const Pagination = ({ pageContext }) => {
   const prevPage = currentPage <= 2 ? "/" : "/" + (currentPage - 1)
   const nextPage =
     "/" + (currentPage + 1 > numPages ? numPages : (currentPage + 1).toString())
-  console.log(isFirst ? " rounded-l-md" : "", isFirst, currentPage, numPages)
   return (
     <div className="text-center">
       <div className="flex-1 flex justify-between sm:hidden">
