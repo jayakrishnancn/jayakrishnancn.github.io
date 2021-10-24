@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { getChaiTime } from "../utils/timeCalc"
 import { GatsbyImage } from "gatsby-plugin-image"
-import Tag from "../components/tag"
+import Tag from "../components/Tag"
 
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark

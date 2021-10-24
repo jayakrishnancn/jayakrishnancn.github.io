@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 import { getChaiTime } from "../utils/timeCalc"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Pagination from "../components/Pagination"
-import Tag from "../components/tag"
+import Tag from "../components/Tag"
 
 const BlogIndex = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.nodes || []
