@@ -59,14 +59,14 @@ a {
   @apply text-gray-400;
 }
 .btn {
-  @apply no-underline shadow-sm rounded py-2 px-5 mx-2 transition-all inline-block  border;
+  @apply no-underline hover:no-underline shadow-sm rounded py-2 px-5 mx-2 transition-all inline-block  border;
 }
 .btn-primary {
   @apply btn text-red-700 bg-red-100 hover:text-red-800  border-red-200 hover:border-red-800 hover:bg-red-200;
 }
 
 .btn-secondary {
-  @apply btn text-gray-700 bg-gray-100 hover:text-red-800 border-gray-200 hover:bg-gray-200;
+  @apply btn text-gray-700 bg-gray-100 hover:text-gray-800  border-gray-200 hover:border-gray-800 hover:bg-gray-200;
 }
 
 .pagination-item {
