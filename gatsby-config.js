@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Jayakrishnan`,
+    title: `Jayakrishnan C N`,
     author: {
-      name: `Jayakrishnan`,
-      summary: `Personal blog by Jayakrishnan`,
+      name: `Jayakrishnan C N`,
+      summary: `Personal blog by Jayakrishnan C N`,
     },
     description: `A simple journal through a developers mind`,
     siteUrl: `https://jayakrishnancn.netlify.app/`,
@@ -113,7 +113,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `JayakrishnanCN`,
-        short_name: `Jayakrishnan`,
+        short_name: `JayakrishnanCN`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website

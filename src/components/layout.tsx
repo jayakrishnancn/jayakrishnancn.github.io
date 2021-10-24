@@ -17,7 +17,7 @@ const Layout = ({ children, siteUrl, showBio = false }: LayoutProps) => {
         <Link className="text-primary" to="/">
           Jayakrishnan
         </Link>
-        <Link className="text-primary uppercase" to="/">
+        <Link className="text-primary" to="/">
           Articles
         </Link>
       </header>
