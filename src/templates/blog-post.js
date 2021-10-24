@@ -42,7 +42,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
           <div id="page-header"></div>
           <h1
             itemProp="headline"
-            className="text-3xl font-extrabold text-primary"
+            className="text-3xl font-extrabold text-gray-900"
           >
             {title}
           </h1>
@@ -61,20 +61,20 @@ const BlogPostTemplate = ({ data, pageContext }) => {
       </article>
       <Tag tags={tags} />
       <hr />
-      <nav className=" border-b border-gray-200 py-4 mb-5">
+      <nav className="border-gray-200 py-4 mb-5">
         <div id="page-bottom-nav"></div>
         <ul className="flex justify-between">
           <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {title}
+            {next && (
+              <Link to={next.fields.slug} rel="next">
+                ← {next.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+            {previous && (
+              <Link to={previous.fields.slug} rel="prev">
+                {previous.frontmatter.title} →
               </Link>
             )}
           </li>
