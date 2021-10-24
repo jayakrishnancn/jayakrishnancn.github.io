@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "jayakrishnan",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Personal blog by Jayakrishnan",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "Jayakrishnan C N <jayakrishnancn@gmail.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
@@ -45,15 +42,14 @@
   "devDependencies": {
     "prettier": "2.4.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/jayakrishnancn/jayakrishnancn.github.io",
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/jayakrishnancn/jayakrishnancn.github.io.git"
   },
   "scripts": {
     "build": "gatsby build",
