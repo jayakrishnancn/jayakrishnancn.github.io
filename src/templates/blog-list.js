@@ -20,7 +20,9 @@ const BlogIndex = ({ data, pageContext }) => {
         <Bio />
         {posts.length > 0 ? (
           posts.map(post => {
-            const title = post.frontmatter.title || post.fields.slug
+            const title =
+              post.frontmatter.title ||
+              post.fields.slug?.replace(/-/g, " ")?.replace(/\//g, "")
             const featuredImgFluid =
               post.frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
             return (

@@ -22,6 +22,7 @@ const BlogPostTemplate = ({ data }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+      <div id="page-top"></div>
       <article itemScope itemType="http://schema.org/Article">
         {featuredImgFluid && (
           <GatsbyImage
@@ -31,6 +32,7 @@ const BlogPostTemplate = ({ data }) => {
           />
         )}
         <header>
+          <div id="page-header"></div>
           <h1 itemProp="headline" className="text-2xl font-bold text-primary">
             {post.frontmatter.title}
           </h1>
@@ -39,17 +41,20 @@ const BlogPostTemplate = ({ data }) => {
             <small> &#8226; {getChaiTime(post?.timeToRead)}</small>
           </p>
         </header>
+        <div id="page-content"></div>
         <section
-          className="text-gray-500"
+          className="text-gray-500 article-body"
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
         <hr />
         <footer>
+          <div id="page-footer"></div>
           <Bio />
         </footer>
       </article>
       <nav className="blog-post-nav">
+        <div id="page-bottom-nav"></div>
         <ul className="blog-post-nav-ul">
           <li>
             {previous && (
@@ -67,6 +72,7 @@ const BlogPostTemplate = ({ data }) => {
           </li>
         </ul>
       </nav>
+      <div id="page-bottom"></div>
     </Layout>
   )
 }

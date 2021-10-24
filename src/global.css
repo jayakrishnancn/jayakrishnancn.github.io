@@ -14,8 +14,34 @@ html,
 body {
   min-height: 100%;
 }
-p {
-  @apply leading-7 mb-8;
+p,
+.gatsby-highlight {
+  @apply mb-5 leading-5;
+}
+
+.heading {
+  @apply text-gray-800 mb-4 leading-4 font-bold;
+}
+
+h1 {
+  @apply heading text-2xl;
+}
+h2 {
+  @apply heading text-xl;
+}
+h3 {
+  @apply heading text-lg;
+}
+
+h4 {
+  @apply heading text-base;
+}
+
+h5 {
+  @apply heading text-sm;
+}
+h6 {
+  @apply heading text-xs;
 }
 
 a {
@@ -51,4 +77,13 @@ a {
 }
 .container {
   @apply p-4;
+}
+
+.article-body li,
+.article-body ol {
+  @apply mb-10;
+}
+
+.article-body {
+  @apply mt-8;
 }
