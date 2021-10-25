@@ -5,7 +5,7 @@ import Seo from "../components/seo"
 
 const NotFoundPage = ({ data }) => {
   return (
-    <div className="p-10 pt-28 container max-w-lg">
+    <div className="container max-w-lg fixed h-2/4 m-auto inset-0">
       <Seo title="Page Not Found" />
       <h1 className="text-3xl font-bold">Page not found</h1>
       <p className="mt-4">

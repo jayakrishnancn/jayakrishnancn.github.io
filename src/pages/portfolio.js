@@ -17,7 +17,7 @@ const Portfolio = ({ data }) => {
           className="rounded-full mb-4 mt-10"
         />
         <h1 className="lg:text-4xl md:text-3xl sm:text-2xl text-xl font-extrabold font-sans-serif">
-          Jayakrishnan
+          Jayakrishnan C N
         </h1>
         <p className="text-gray-500 mt-5">Fullstack Developer</p>
         <div>

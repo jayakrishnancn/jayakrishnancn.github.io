@@ -8,6 +8,7 @@ import { getChaiTime } from "../utils/timeCalc"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Pagination from "../components/Pagination"
 import Tag from "../components/Tag"
+import ArrowSlide from "../components/ArrowSlide"
 
 const BlogIndex = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.nodes || []
@@ -83,10 +84,7 @@ const BlogIndex = ({ data, pageContext }) => {
                         to={post.fields.slug}
                         className="group text-xs inline-block"
                       >
-                        Read more
-                        <span className="transform transition-all -translate-x-1 absolute opacity-0 group-hover:opacity-100 group-hover:translate-x-1">
-                          ➞
-                        </span>
+                        <ArrowSlide>Read more</ArrowSlide>
                       </Link>
                     </div>
                     <Tag tags={tags} activeTag={activeTag} />

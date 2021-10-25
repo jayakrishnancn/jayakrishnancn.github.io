@@ -13,8 +13,8 @@ const Layout = ({ children, showBio = false }: LayoutProps) => {
     <div className="max-w-screen-sm	container">
       <div id="page-top"></div>
       <header className="flex justify-between py-8">
-        <Link className="text-primary" to="/">
-          Jayakrishnan
+        <Link className="text-primary" to="/portfolio">
+          Jayakrishnan C N
         </Link>
         <Link className="text-primary" to="/">
           Articles

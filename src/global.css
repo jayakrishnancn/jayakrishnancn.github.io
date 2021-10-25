@@ -45,7 +45,7 @@ h6 {
 }
 
 a {
-  @apply no-underline text-red-600 hover:text-red-400 inline-block transition-all hover:underline;
+  @apply no-underline text-red-600 inline-block transition-all hover:underline;
 }
 
 .text-primary {

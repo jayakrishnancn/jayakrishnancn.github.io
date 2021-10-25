@@ -9,6 +9,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import SocialLinks from "./SocialLinks"
+import ArrowSlide from "./ArrowSlide"
 
 const Bio = () => {
   return (
@@ -28,7 +29,7 @@ const Bio = () => {
       <div className="my-auto px-4 py-2 flex-1 ">
         <div>
           <Link to="/portfolio" className="font-bold ml-0">
-            Jayakrishnan
+            Jayakrishnan C N
           </Link>
         </div>
         <div className="text-muted mt-1">Fullstack developer</div>
@@ -37,10 +38,7 @@ const Bio = () => {
           to="/portfolio"
           className="text-right group  text-xs inline-block"
         >
-          View portfolio
-          <span className="transform transition-all -translate-x-1 absolute opacity-0 group-hover:opacity-100 group-hover:translate-x-1">
-            ➞
-          </span>
+          <ArrowSlide>View portfolio</ArrowSlide>
         </Link>
       </div>
     </div>

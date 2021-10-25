@@ -14,7 +14,7 @@ const SocialLinks = ({ size }: SocialLinksProps) => {
           <li key={link}>
             <a
               href={link}
-              className="p-2 mr-2 hover:shadow rounded text-gray-700"
+              className="p-2 mr-2 hover:shadow hover:text-red-600 rounded text-gray-700"
               rel="noopener noreferrer"
               target="_blank"
             >
