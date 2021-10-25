@@ -1,6 +1,6 @@
 ---
 title: Possible ways to create objects in JavaScript
-tags: ["javascript", "back-to-basics", "basics", "general"]
+tags: ["javascript", "back-to-basics", "basics"]
 description: Possible ways to create objects in javascript
 date: 2021-10-24
 ---
