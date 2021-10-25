@@ -10,7 +10,6 @@ import Tag from "../components/Tag"
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const siteUrl = data.site.siteMetadata?.siteUrl
   const { previous, next } = data
   const {
     frontmatter: {
@@ -28,7 +27,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
   const { childImageSharp: { gatsbyImageData } = {} } = featuredImage || {}
   return (
-    <Layout title={siteTitle} siteUrl={siteUrl} showBio>
+    <Layout title={siteTitle} showBio>
       <Seo title={title} description={description || excerpt} />
       <article itemScope itemType="http://schema.org/Article">
         {gatsbyImageData && (

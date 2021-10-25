@@ -99,7 +99,7 @@ a {
 }
 
 .article-body table {
-  @apply mb-5 rounded-md border divide-y divide-gray-400;
+  @apply mb-12 rounded-md border divide-y divide-gray-400;
 }
 
 .article-body tr td,
