@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-blog-search-js",
     "path": "/tag/back-to-basics",
-    "result": {"data":{"allMarkdownRemark":{"nodes":[{"excerpt":"Content ES6 Class syntax Object constructor Object’s create method Object literal syntax Function constructor Function constructor with…","timeToRead":1,"fields":{"slug":"/possible-ways-to-create-objects-in-javascript/"},"frontmatter":{"date":"October 24, 2021","title":"Possible ways to create objects in JavaScript","tags":["javascript","back-to-basics","basics","general"],"description":"Possible ways to create objects in javascript","featuredImageAlt":null,"featuredImage":null}}]}},"pageContext":{"tag":"back-to-basics"}},
+    "result": {"data":{"allMarkdownRemark":{"nodes":[{"excerpt":"Content ES6 Class syntax Object constructor Object’s create method Object literal syntax Function constructor Function constructor with…","timeToRead":1,"fields":{"slug":"/possible-ways-to-create-objects-in-javascript/"},"frontmatter":{"date":"October 24, 2021","title":"Possible ways to create objects in JavaScript","tags":["javascript","back-to-basics","basics"],"description":"Possible ways to create objects in javascript","featuredImageAlt":null,"featuredImage":null}}]}},"pageContext":{"tag":"back-to-basics"}},
     "staticQueryHashes": ["2841359383"]}
