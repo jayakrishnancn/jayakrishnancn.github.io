@@ -5,11 +5,10 @@ import Bio from "./bio"
 
 interface LayoutProps {
   children: any
-  siteUrl?: string
   showBio?: boolean
 }
 
-const Layout = ({ children, siteUrl, showBio = false }: LayoutProps) => {
+const Layout = ({ children, showBio = false }: LayoutProps) => {
   return (
     <div className="max-w-screen-sm	container">
       <div id="page-top"></div>
@@ -30,7 +29,7 @@ const Layout = ({ children, siteUrl, showBio = false }: LayoutProps) => {
       </p>
 
       {showBio && <Bio />}
-      <Footer siteUrl={siteUrl} />
+      <Footer />
     </div>
   )
 }
