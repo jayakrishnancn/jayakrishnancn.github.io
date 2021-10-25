@@ -13,7 +13,7 @@ const Tag = ({ tags = [], activeTag, clearTag = false }: TagProps) => {
     return null
   }
   return (
-    <div className="flex justify-end">
+    <div className="flex justify-end items-start flex-wrap">
       {tags.map(tag => (
         <Link
           key={"search-tag-" + tag}

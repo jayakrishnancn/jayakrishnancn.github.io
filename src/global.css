@@ -85,7 +85,7 @@ a {
 }
 
 .article-body {
-  @apply mt-8;
+  @apply mt-8 text-justify;
 }
 
 .tag {
