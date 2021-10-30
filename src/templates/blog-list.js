@@ -17,7 +17,7 @@ const BlogIndex = ({ data, pageContext }) => {
   return (
     <Layout>
       <>
-        <Seo title="Blog" />
+        <Seo title={activeTag ?? "Blog"} />
         <Bio />
         {activeTag && (
           <Tag activeTag={activeTag} clearTag={true} tags={[activeTag]} />

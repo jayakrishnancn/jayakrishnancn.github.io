@@ -106,3 +106,7 @@ a {
 .article-body tr th {
   @apply p-2 rounded-md border divide-y divide-gray-400;
 }
+
+.social-links {
+  height: 55px;
+}

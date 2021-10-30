@@ -8,7 +8,7 @@ interface SocialLinksProps {
 
 const SocialLinks = ({ size }: SocialLinksProps) => {
   return (
-    <ul className="flex mt-1">
+    <ul className="flex mt-1 social-links">
       {SOCIALLINKS &&
         SOCIALLINKS.map(({ link, ...rest }) => (
           <li key={link}>
