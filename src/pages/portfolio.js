@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
-import Achievements from "../components/Achievements"
 import Experience from "../components/Experience"
 import Footer from "../components/Footer"
 import Projects from "../components/Projects"
