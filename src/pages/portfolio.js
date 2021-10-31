@@ -4,6 +4,8 @@ import Footer from "../components/Footer"
 import Seo from "../components/seo"
 import { Link } from "gatsby"
 import SocialLinks from "../components/SocialLinks"
+import Experience from "../components/Experience"
+import Projects from "../components/Projects"
 
 const Portfolio = ({ data }) => {
   return (
@@ -14,6 +16,7 @@ const Portfolio = ({ data }) => {
           src="../images/selfi.jpg"
           width={150}
           height={150}
+          alt="profile pic"
           className="rounded-full mb-4 mt-10"
         />
         <h1 className="lg:text-4xl md:text-3xl sm:text-2xl text-xl font-extrabold font-sans-serif">
@@ -36,6 +39,8 @@ const Portfolio = ({ data }) => {
         <div className="mt-4">
           <SocialLinks size="2x" />
         </div>
+        <Experience />
+        <Projects />
       </main>
       <Footer />
     </div>
