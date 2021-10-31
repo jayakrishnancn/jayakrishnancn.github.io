@@ -1,11 +1,12 @@
-import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
-import Footer from "../components/Footer"
-import Seo from "../components/seo"
 import { Link } from "gatsby"
-import SocialLinks from "../components/SocialLinks"
+import { StaticImage } from "gatsby-plugin-image"
+import * as React from "react"
+import Achievements from "../components/Achievements"
 import Experience from "../components/Experience"
+import Footer from "../components/Footer"
 import Projects from "../components/Projects"
+import Seo from "../components/seo"
+import SocialLinks from "../components/SocialLinks"
 
 const Portfolio = ({ data }) => {
   return (
@@ -37,10 +38,11 @@ const Portfolio = ({ data }) => {
           </Link>
         </div>
         <div className="mt-4">
-          <SocialLinks size="2x" />
+          <SocialLinks size="2em" />
         </div>
         <Experience />
         <Projects />
+        <Achievements />
       </main>
       <Footer />
     </div>

@@ -1,5 +1,4 @@
 import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SOCIALLINKS from "../configs/socialLinks"
 
 interface SocialLinksProps {
@@ -10,7 +9,7 @@ const SocialLinks = ({ size }: SocialLinksProps) => {
   return (
     <ul className="flex mt-1 social-links">
       {SOCIALLINKS &&
-        SOCIALLINKS.map(({ link, ...rest }) => (
+        SOCIALLINKS.map(({ link, Icon }) => (
           <li key={link}>
             <a
               href={link}
@@ -18,7 +17,7 @@ const SocialLinks = ({ size }: SocialLinksProps) => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <FontAwesomeIcon {...rest} size={size ?? rest?.size ?? "1x"} />
+              <Icon size={size ?? "1em"} />
             </a>
           </li>
         ))}
