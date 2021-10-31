@@ -42,7 +42,6 @@ const Portfolio = ({ data }) => {
         </div>
         <Experience />
         <Projects />
-        <Achievements />
       </main>
       <Footer />
     </div>
