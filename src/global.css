@@ -110,3 +110,7 @@ a {
 .social-links {
   height: 55px;
 }
+.max-icon-size-2x {
+  max-width: 50px;
+  max-height: 50px;
+}
