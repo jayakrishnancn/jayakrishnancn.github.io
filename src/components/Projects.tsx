@@ -65,7 +65,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="mt-28 grid sm:grid-cols-2 md:grid-cols-3 gap-3 "
+      className="mt-28 grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-justify"
     >
       {PROJECTS.sort((a, b) => b.year - a.year).map(project => {
         let { title, year, link, github, content, tags = [] } = project
