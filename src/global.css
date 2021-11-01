@@ -114,3 +114,25 @@ a {
   max-width: 50px;
   max-height: 50px;
 }
+
+.exp {
+  position: relative;
+}
+.exp::after {
+  content: " ";
+  width: 3px;
+  height: 100%;
+  top: 0;
+  left: -20px;
+  @apply hidden md:block bg-gray-200 absolute;
+}
+.exp::before {
+  content: " ";
+  top: 0;
+  left: -23px;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  z-index: 1;
+  @apply hidden md:block bg-red-500 absolute;
+}
