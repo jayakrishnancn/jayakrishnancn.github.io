@@ -116,7 +116,10 @@ a {
 }
 
 .exp {
-  position: relative;
+  @apply pb-10 relative;
+}
+.exp:last-child {
+  padding-bottom: 0;
 }
 .exp::after {
   content: " ";
