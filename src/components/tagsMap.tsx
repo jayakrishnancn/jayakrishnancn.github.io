@@ -1,11 +1,3 @@
-import {
-  faBootstrap,
-  faGulp,
-  faPhp,
-  faSass,
-  faStripeS,
-  faWordpress,
-} from "@fortawesome/free-brands-svg-icons"
 import { FaRobot } from "@react-icons/all-files/fa/FaRobot"
 import { GrMysql } from "@react-icons/all-files/gr/GrMysql"
 import { IoLogoFirebase } from "@react-icons/all-files/io5/IoLogoFirebase"
@@ -32,17 +24,17 @@ const Tag = ({
   size = "1em",
   children,
   color,
-  img,
 }: {
   tag: string
   Icon?: any
   size?: string | number
   children?: any
   color?: string
-  img?: string
 }) => (
   <span
-    className={`text-muted group-hover:` + (color ? color : "text-gray-600")}
+    className={
+      `text-muted ` + (color ? `group-hover:${color}` : "text-gray-600")
+    }
   >
     {tag} {Icon && <Icon className="inline-block" size={size} />}
     {children}
