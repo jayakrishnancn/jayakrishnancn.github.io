@@ -20,7 +20,13 @@ module.exports = {
   },
   plugins: [],
   purge: {
-    content: ["./public/**/*.html"],
+    content: [
+      "./public/**/*.html",
+      "./src/**/*.tsx",
+      "./src/**/*.jsx",
+      "./src/**/*.js",
+      "./src/**/*.ts",
+    ],
     safelist: [
       "group-hover:text-blue-400",
       "text-blue-400",
