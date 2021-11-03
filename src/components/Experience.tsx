@@ -8,9 +8,6 @@ const Experience = () => {
       <div className="exp">
         <h2 className="mb-2">Envestnet</h2>
         <span className="font-bold text-gray-500">Senior Engineer</span>
-        <span className="font-bold text-gray-400 ml-2 pl-2 text-sm border-l-2">
-          Jun 2020 - Present
-        </span>
         <p className="text-sm my-1 text-justify text-gray-400">
           Full stack developer for leading Asset Management platform. Experience
           in React, Typescript, Javascript, Java, Spring, Spring boot, AWS.
@@ -19,9 +16,6 @@ const Experience = () => {
       <div className="exp">
         <h2 className="mt-0 mb-2">Tata Consultancy Services</h2>
         <span className="font-bold text-gray-500">Systems Engineer</span>
-        <span className="font-bold text-gray-400 ml-2 pl-2 text-sm border-l-2">
-          DEC 2017 - JUN 2020
-        </span>
         <p className="text-sm my-1 text-justify text-gray-400">
           Worked on modernization of policy Administration system for a leading
           insurance company based in South Africa.Had an onsite exposure to work
@@ -32,12 +26,9 @@ const Experience = () => {
       </div>
       <div className="exp">
         <h2 className="mt-0 mb-2">Logidots</h2>
-        <span className="font-bold text-gray-500">Intern</span>
-        <span className="font-bold text-gray-400 ml-2 pl-2 text-sm border-l-2">
-          JAN 2016 - JUL 2016
-        </span>
+        <span className="font-bold text-gray-500">Intern & Developer</span>
         <p className="text-sm my-1 text-justify text-gray-400">
-          Worked on web application based on React, PHP and MySQL, Bootstrap
+          Worked on web applications based on React, PHP and MySQL, Bootstrap
           etc.
         </p>
       </div>
