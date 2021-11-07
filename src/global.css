@@ -139,3 +139,11 @@ a {
   z-index: 1;
   @apply hidden md:block bg-red-500 absolute;
 }
+
+blockquote {
+  @apply bg-gray-100 border-l-4 border-gray-500 p-4 my-4 ml-4;
+}
+
+thead tr th {
+  text-align: center;
+}
