@@ -26,7 +26,7 @@ const Portfolio = ({ data }) => {
         <div>
           <a
             download
-            href="/Resume - Jayakrishnan [Full Stack-4Y] 7_NOV_2021.pdf"
+            href="/Jayakrishnan-CN-Fullstack-4Y-Resume.pdf"
             target="_blank"
             className="btn-secondary"
           >
