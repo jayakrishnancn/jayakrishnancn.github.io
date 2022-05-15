@@ -46,7 +46,7 @@ const Projects = () => {
       image: { src: proxyIcon, alt: "Proxy Cache API icon" },
       links: [
         {
-          to: "{https://github.com/jayakrishnancn/proxy-cache-api",
+          to: "https://github.com/jayakrishnancn/proxy-cache-api",
           content: (
             <>
               <AiFillGithub /> &nbsp;GitHub
@@ -129,7 +129,7 @@ const Projects = () => {
       image: { src: homeIcon, alt: "Achayans homestay icon" },
       links: [
         {
-          to: "http://www.achayanshomestay.com/",
+          to: "https://www.achayanshomestay.com/",
           content: (
             <>
               <FiExternalLink /> &nbsp;Live
@@ -145,7 +145,11 @@ const Projects = () => {
         const imageSrc = project.image.src
         return (
           <Card
-            link={project.links[0].to}
+            link={
+              project.links && project.links.length > 0
+                ? project.links[project.links.length - 1].to
+                : null
+            }
             key={project.title}
             title={project.title}
             image={

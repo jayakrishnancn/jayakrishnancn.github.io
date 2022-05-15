@@ -47,7 +47,7 @@ const PROJECTS = [
   {
     title: "Achayans Homestay",
     year: 2015,
-    link: "http://www.achayanshomestay.com/",
+    link: "https://www.achayanshomestay.com/",
     content:
       "Homestay website for Achayans homestay. Design and Develop responsive website for Homestay based on Alappuzha (Kerala).",
     tags: [Tags.Javascript, Tags.JQuery, Tags.Gulp, Tags.Bootstrap, Tags.Sass],
