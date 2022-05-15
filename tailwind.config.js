@@ -18,7 +18,12 @@ module.exports = {
     extend: {},
     translate: ["active", "group-hover", "hover"],
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [
+    require("flowbite/plugin"),
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+  ],
   purge: {
     content: [
       "./public/**/*.html",
