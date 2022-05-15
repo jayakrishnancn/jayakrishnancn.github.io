@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import * as React from "react"
 import Footer from "./Footer"
-
+import { GrLinkTop } from "@react-icons/all-files/gr/GrLinkTop"
 interface LayoutProps {
   children: any
   hideToTop?: boolean
@@ -29,7 +29,7 @@ const Layout = ({
                 className="btn"
                 activeClassName="selected-nav"
               >
-                Home
+                About
               </Link>
               <Link
                 to="/projects"
@@ -55,7 +55,11 @@ const Layout = ({
       {!hideToTop && (
         <p className="text-center mt-11 text-sm">
           <strong>
-            <a href="#page-top">⬆ Back to Top</a>
+            <a href="#page-top">
+              <div className="flex items-center justify-center">
+                <GrLinkTop /> <span className="pl-3">Back to Top</span>
+              </div>
+            </a>
           </strong>
         </p>
       )}
