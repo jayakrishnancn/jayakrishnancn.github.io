@@ -19,12 +19,13 @@ const Card = (props: React.PropsWithChildren<Props>) => {
             {image}
           </div>
         )}
-        <div className="px-5 flex-1 flex flex-col">
+        <div className="pl-5 flex-1 flex flex-col">
           {title && <h2 className="font-bold mb-3">{title}</h2>}
-          {content ?? <div className="flex-1"> {props.children} </div> ?? ""}
-          {footer}
+          {content ?? <div className="flex-1 flex"> {props.children} </div> ??
+            ""}
         </div>
       </div>
+      {footer}
     </div>
   )
 }

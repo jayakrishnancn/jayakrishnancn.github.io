@@ -27,7 +27,7 @@ export const pageQuery = graphql`
           featuredImageAlt
           featuredImage {
             childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED, width: 200, height: 200)
+              gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
             }
           }
         }

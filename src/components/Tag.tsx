@@ -1,14 +1,13 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { getTagPath, getTagString } from "../utils/tagUrils"
-
+import { FaWindowClose } from "@react-icons/all-files/fa/FaWindowClose"
 interface TagProps {
   tags: any[]
   activeTag?: string
-  clearTag?: boolean
 }
 
-const Tag = ({ tags = [], activeTag, clearTag = false }: TagProps) => {
+const Tag = ({ tags = [], activeTag }: TagProps) => {
   if (!tags || tags.length === 0) {
     return null
   }
@@ -19,13 +18,13 @@ const Tag = ({ tags = [], activeTag, clearTag = false }: TagProps) => {
           key={"search-tag-" + tag}
           className={
             activeTag && tag === activeTag
-              ? "active-tag hover:active-tag"
-              : "inactive-tag hover:active-tag"
+              ? "flex items-center active-tag hover:active-tag"
+              : "flex items-center inactive-tag hover:active-tag"
           }
-          to={clearTag ? "/" : getTagPath(tag)}
+          to={activeTag && tag === activeTag ? "/blog" : getTagPath(tag)}
         >
-          {getTagString(tag)}
-          {clearTag && " ✖"}
+          {activeTag && tag === activeTag && <FaWindowClose />}
+          <span> &nbsp;{getTagString(tag)}</span>
         </Link>
       ))}
     </div>

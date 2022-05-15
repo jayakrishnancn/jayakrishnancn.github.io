@@ -148,7 +148,7 @@ const Projects = () => {
             key={project.title}
             footer={
               <div className="flex justify-end" role="group">
-                <div className="inline-flex rounded-md shadow-sm">
+                <div className="btn-grp">
                   {project.links.map(({ to, content }, index) => (
                     <a
                       key={to}
@@ -156,16 +156,7 @@ const Projects = () => {
                       rel="noreferrer"
                       href={to}
                       type="button"
-                      className={
-                        "btn " +
-                        (project.links.length > 1
-                          ? index === project.links.length - 1
-                            ? "border-l-0 rounded-r-lg"
-                            : index === 0
-                            ? "border-r-0 rounded-l-lg"
-                            : ""
-                          : "rounded-lg")
-                      }
+                      className="btn"
                     >
                       {content}
                     </a>

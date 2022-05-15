@@ -22,11 +22,11 @@ const Layout = ({
       <main className={isStacked ? "relative -mt-40" : ""}>
         {narbar && (
           <div className="flex justify-end max-content-w mx-auto mb-3">
-            <div className="inline-flex  rounded-md shadow-sm" role="group">
+            <div className="btn-grp" role="group">
               <Link
                 to="/"
                 type="button"
-                className="border-r-0 rounded-l-lg btn"
+                className="btn"
                 activeClassName="selected-nav"
               >
                 Home
@@ -34,15 +34,15 @@ const Layout = ({
               <Link
                 to="/projects"
                 type="button"
-                className="border-0 btn"
+                className="btn"
                 activeClassName="selected-nav"
               >
                 Projects
               </Link>
               <Link
-                to="/"
+                to="/blog"
                 type="button"
-                className="border-l-0 rounded-r-lg btn"
+                className="btn"
                 activeClassName="selected-nav"
               >
                 Blog

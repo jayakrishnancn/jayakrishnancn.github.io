@@ -10,7 +10,7 @@ const Home = () => {
       <Card
         footer={
           <div className="text-center">
-            <div className="inline-flex rounded-md shadow-sm" role="group">
+            <div className="btn-grp" role="group">
               <Link
                 to="/projects"
                 type="button"
