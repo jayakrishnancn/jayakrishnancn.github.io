@@ -37,7 +37,7 @@ const BlogIndex = ({ data, pageContext }) => {
           title = title || slug?.replace(/-/g, " ")?.replace(/\//g, "")
 
           const content = (
-            <article className="w-full flex flex-col justify-between md:text-left">
+            <article className="w-full max-content-w flex flex-col justify-between md:text-left">
               <header>
                 <h2 className="font-bold mb-3 ">
                   {slug ? (

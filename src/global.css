@@ -24,10 +24,6 @@ a.selected-nav {
   width: 90%;
   margin: auto;
 }
-main {
-  max-width: 90%;
-  margin: auto;
-}
 .max-content-w {
   @apply max-w-4xl mx-auto;
 }
