@@ -23,9 +23,9 @@ const Card = (props: React.PropsWithChildren<Props>) => {
           {title && (
             <h2 className="font-bold mb-3 ">
               {link ? (
-                <Link className="hover:text-blue-600" to={link}>
+                <a target="_blank" className="hover:text-blue-600" href={link}>
                   {title}
-                </Link>
+                </a>
               ) : (
                 title
               )}

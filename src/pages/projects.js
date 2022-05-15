@@ -23,7 +23,7 @@ const Projects = () => {
       image: { src: timeZoneImage, alt: "Timezone icon" },
       links: [
         {
-          to: "https://GitHub.com/jayakrishnancn/timezones",
+          to: "https://github.com/jayakrishnancn/timezones",
           content: (
             <>
               <AiFillGithub /> &nbsp;GitHub
@@ -34,7 +34,7 @@ const Projects = () => {
           to: "https://jayakrishnancn.GitHub.io/timezones",
           content: (
             <>
-              <FiExternalLink /> &nbsp;Live Demo
+              <FiExternalLink /> &nbsp;Live
             </>
           ),
         },
@@ -46,7 +46,7 @@ const Projects = () => {
       image: { src: proxyIcon, alt: "Proxy Cache API icon" },
       links: [
         {
-          to: "{https://GitHub.com/jayakrishnancn/proxy-cache-api",
+          to: "{https://github.com/jayakrishnancn/proxy-cache-api",
           content: (
             <>
               <AiFillGithub /> &nbsp;GitHub
@@ -61,7 +61,7 @@ const Projects = () => {
       image: { src: keepIcon, alt: "Keep Notes icon" },
       links: [
         {
-          to: "https://GitHub.com/jayakrishnancn/keep-notes",
+          to: "https://github.com/jayakrishnancn/keep-notes",
           content: (
             <>
               <AiFillGithub /> &nbsp;GitHub
@@ -72,7 +72,7 @@ const Projects = () => {
           to: "https://keep-notes-web.netlify.app/",
           content: (
             <>
-              <FiExternalLink /> &nbsp;Live Demo
+              <FiExternalLink /> &nbsp;Live
             </>
           ),
         },
@@ -99,7 +99,7 @@ const Projects = () => {
       image: { src: clgIcon, alt: "Keep Notes icon" },
       links: [
         {
-          to: "https://GitHub.com/jayakrishnancn/College-Management-System",
+          to: "https://github.com/jayakrishnancn/College-Management-System",
           content: (
             <>
               <AiFillGithub /> &nbsp;GitHub
@@ -132,7 +132,7 @@ const Projects = () => {
           to: "http://www.achayanshomestay.com/",
           content: (
             <>
-              <FiExternalLink /> &nbsp;Link
+              <FiExternalLink /> &nbsp;Live
             </>
           ),
         },
@@ -160,8 +160,8 @@ const Projects = () => {
               />
             }
           >
-            <div>
-              <p>{project.content}</p>
+            <div className="flex-1 flex flex-col">
+              <p className="text-gray-600 flex-1">{project.content}</p>
               <div className="flex justify-end" role="group">
                 <div className="btn-grp">
                   {project.links.map(({ to, content }) => (

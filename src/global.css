@@ -21,10 +21,15 @@ a.selected-nav {
   @apply text-blue-700;
 }
 .max-content-w-inner {
-  @apply max-w-3xl;
+  width: 90%;
+  margin: auto;
+}
+main {
+  max-width: 90%;
+  margin: auto;
 }
 .max-content-w {
-  @apply max-w-4xl;
+  @apply max-w-4xl mx-auto;
 }
 .btn-grp {
   @apply inline-flex  rounded-md shadow-sm;
@@ -67,7 +72,7 @@ h6 {
 }
 p,
 .gatsby-highlight {
-  @apply mb-3 leading-7;
+  @apply mb-3 leading-6;
 }
 .inactive-tag {
   @apply bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded;
