@@ -19,7 +19,7 @@ const Home = () => {
                 Projects
               </Link>
               <Link
-                to="/"
+                to="/blog"
                 type="button"
                 className="border-l-0 rounded-r-lg btn"
               >
