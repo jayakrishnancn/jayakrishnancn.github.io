@@ -20,6 +20,9 @@ body {
 a.selected-nav {
   @apply text-blue-700;
 }
+.max-content-w-inner {
+  @apply max-w-3xl;
+}
 .max-content-w {
   @apply max-w-4xl;
 }
@@ -72,6 +75,24 @@ p,
 .active-tag {
   @apply bg-blue-100 hover:bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 dark:hover:bg-blue-300;
 }
+
+table {
+  @apply border relative overflow-x-auto shadow-md sm:rounded-lg mb-5  w-full text-sm text-left text-gray-500 dark:text-gray-400;
+}
+table thead {
+  @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+}
+.post a {
+  @apply font-medium text-blue-600 dark:text-blue-500 hover:underline cursor-pointer;
+}
+table th,
+table td {
+  @apply px-6 py-3;
+}
+table tr {
+  @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700;
+}
+
 /* 
 .btn,
 a.btn {

@@ -6,10 +6,11 @@ import Seo from "../components/seo"
 import { getChaiTime } from "../utils/timeCalc"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Tag from "../components/Tag"
+import Card from "../components/Card"
 
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  // const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
   const {
     frontmatter: {
@@ -27,59 +28,68 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
   const { childImageSharp: { gatsbyImageData } = {} } = featuredImage || {}
   return (
-    <Layout title={siteTitle} showBio>
+    <Layout>
       <Seo title={title} description={description || excerpt} />
-      <article itemScope itemType="http://schema.org/Article">
-        {gatsbyImageData && (
-          <GatsbyImage
-            alt={featuredImageAlt ?? "cover image"}
-            className="rounded my-5"
-            image={gatsbyImageData}
-          />
-        )}
-        <header>
-          <div id="page-header"></div>
-          <h1
-            itemProp="headline"
-            className="text-3xl font-extrabold text-gray-900"
+      <Card>
+        <div>
+          <article
+            className="post pr-5"
+            itemScope
+            itemType="http://schema.org/Article"
           >
-            {title}
-          </h1>
-          <p className="text-muted">
-            <small>{date}</small>
-            <small> &#8226; {getChaiTime(timeToRead)}</small>
-          </p>
-        </header>
-        <div id="page-content"></div>
-        <section
-          className="text-gray-500 article-body"
-          dangerouslySetInnerHTML={{ __html: html }}
-          itemProp="articleBody"
-        />
-        <div id="page-footer"></div>
-      </article>
-      <Tag tags={tags} />
-      <hr />
-      <nav className="border-gray-200 py-4 mb-5">
-        <div id="page-bottom-nav"></div>
-        <ul className="flex justify-between">
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                ← {next.frontmatter.title}
-              </Link>
+            {gatsbyImageData && (
+              <GatsbyImage
+                alt={featuredImageAlt ?? "cover image"}
+                className="rounded my-5 max-w-2xl mx-auto "
+                image={gatsbyImageData}
+              />
             )}
-          </li>
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                {previous.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
-      <div id="page-bottom"></div>
+            <header>
+              <div id="page-header"></div>
+              <h1
+                itemProp="headline"
+                className="text-3xl my-5 mt-14 font-extrabold text-gray-900"
+              >
+                {title}
+              </h1>
+              <p className="text-muted">
+                <small>{date}</small>
+                <small> &#8226; {getChaiTime(timeToRead)}</small>
+              </p>
+            </header>
+            <div id="page-content"></div>
+            <section
+              className="text-gray-500 article-body"
+              dangerouslySetInnerHTML={{ __html: html }}
+              itemProp="articleBody"
+            />
+            <div id="page-footer"></div>
+          </article>
+          <div className="py-5">
+            <Tag tags={tags} />
+          </div>
+          <hr />
+          <nav className="border-gray-200 py-4 mb-5">
+            <div id="page-bottom-nav"></div>
+            <ul className="flex justify-between">
+              <li>
+                {next && (
+                  <Link to={next.fields.slug} rel="next">
+                    ← {next.frontmatter.title}
+                  </Link>
+                )}
+              </li>
+              <li>
+                {previous && (
+                  <Link to={previous.fields.slug} rel="prev">
+                    {previous.frontmatter.title} →
+                  </Link>
+                )}
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </Card>
     </Layout>
   )
 }

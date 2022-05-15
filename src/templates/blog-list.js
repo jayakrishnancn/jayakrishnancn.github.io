@@ -15,6 +15,7 @@ const BlogIndex = ({ data, pageContext }) => {
   return (
     <Layout>
       <Seo title={activeTag ?? "Blog"} />
+
       {posts.length > 0 ? (
         posts.map(post => {
           let {
@@ -38,9 +39,16 @@ const BlogIndex = ({ data, pageContext }) => {
           const content = (
             <article className="w-full flex flex-col justify-between md:text-left">
               <header>
-                <h2 itemProp="headline">
-                  <Link to={slug}>{title}</Link>
+                <h2 className="font-bold mb-3 ">
+                  {slug ? (
+                    <Link className="hover:text-blue-600" to={slug}>
+                      {title}
+                    </Link>
+                  ) : (
+                    title
+                  )}
                 </h2>
+
                 <p className="text-gray-600">
                   <small>{date}</small>
                   <small> &#8226; {getChaiTime(timeToRead)}</small>

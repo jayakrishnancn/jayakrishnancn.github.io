@@ -14,7 +14,7 @@ import ezFood from "../images/food2.png"
 const Projects = () => {
   const projects = [
     {
-      title: "Time Zones",
+      title: "Time Zones (2022)",
       content: `Time Zones is a convenient world clock, a time zone converter, and
       an online meeting scheduler. It's one of the best online
       productivity tools for those often finding themselves traveling,
@@ -41,7 +41,7 @@ const Projects = () => {
       ],
     },
     {
-      title: "Proxy Cache API",
+      title: "Proxy Cache API (2022)",
       content: `NodeJS  application which acts like a proxy server and caches the responses from the server. Useful in the early development phase of projects where servers are not stable or have frequent downtime.`,
       image: { src: proxyIcon, alt: "Proxy Cache API icon" },
       links: [
@@ -56,7 +56,7 @@ const Projects = () => {
       ],
     },
     {
-      title: "Keep Notes",
+      title: "Keep Notes (2021)",
       content: `Note keeping app. created using reactjs and firebase. used reCaptch for spam blocking. deployed via netlify and version control using git (GitHub)`,
       image: { src: keepIcon, alt: "Keep Notes icon" },
       links: [
@@ -145,25 +145,8 @@ const Projects = () => {
         const imageSrc = project.image.src
         return (
           <Card
+            link={project.links[0].to}
             key={project.title}
-            footer={
-              <div className="flex justify-end" role="group">
-                <div className="btn-grp">
-                  {project.links.map(({ to, content }, index) => (
-                    <a
-                      key={to}
-                      target="_blank"
-                      rel="noreferrer"
-                      href={to}
-                      type="button"
-                      className="btn"
-                    >
-                      {content}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            }
             title={project.title}
             image={
               <img
@@ -177,7 +160,25 @@ const Projects = () => {
               />
             }
           >
-            <p>{project.content}</p>
+            <div>
+              <p>{project.content}</p>
+              <div className="flex justify-end" role="group">
+                <div className="btn-grp">
+                  {project.links.map(({ to, content }) => (
+                    <a
+                      key={to}
+                      target="_blank"
+                      rel="noreferrer"
+                      href={to}
+                      type="button"
+                      className="btn"
+                    >
+                      {content}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
           </Card>
         )
       })}

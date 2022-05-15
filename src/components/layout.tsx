@@ -19,7 +19,7 @@ const Layout = ({
     <div className="min-h-screen flex flex-col justify-between">
       <div id="page-top"></div>
       <div className="bg-blue-600 relative h-64 w-full"></div>
-      <main className={isStacked ? "relative -mt-40" : ""}>
+      <main className={isStacked ? "relative -mt-52" : ""}>
         {narbar && (
           <div className="flex justify-end max-content-w mx-auto mb-3">
             <div className="btn-grp" role="group">
