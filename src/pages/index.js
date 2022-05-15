@@ -9,20 +9,26 @@ const Home = () => {
     <Layout hideToTop={true}>
       <Card
         footer={
-          <div className="inline-flex rounded-md shadow-sm" role="group">
-            <Link
-              to="/projects"
-              type="button"
-              className="border-r-0 rounded-l-lg btn"
-            >
-              Projects
-            </Link>
-            <Link to="/" type="button" className="border-l-0 rounded-r-lg btn">
-              Blog
-            </Link>
+          <div className="text-center">
+            <div className="inline-flex rounded-md shadow-sm" role="group">
+              <Link
+                to="/projects"
+                type="button"
+                className="border-r-0 rounded-l-lg btn"
+              >
+                Projects
+              </Link>
+              <Link
+                to="/"
+                type="button"
+                className="border-l-0 rounded-r-lg btn"
+              >
+                Blog
+              </Link>
+            </div>
           </div>
         }
-        title="Jayakrishnan C N"
+        heading="Jayakrishnan C N"
         image={
           <StaticImage
             src="../images/selfi.jpg"
