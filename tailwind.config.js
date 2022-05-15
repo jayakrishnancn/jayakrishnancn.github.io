@@ -1,6 +1,6 @@
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     fontFamily: {
       serif: ["Merriweather", "Georgia", "serif"],
@@ -18,7 +18,7 @@ module.exports = {
     extend: {},
     translate: ["active", "group-hover", "hover"],
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
   purge: {
     content: [
       "./public/**/*.html",
@@ -26,6 +26,7 @@ module.exports = {
       "./src/**/*.jsx",
       "./src/**/*.js",
       "./src/**/*.ts",
+      "./node_modules/flowbite/**/*.js",
     ],
     safelist: [
       "group-hover:text-blue-400",

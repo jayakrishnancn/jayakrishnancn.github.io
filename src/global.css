@@ -1,47 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./assets/styles/typography.css";
 
 html,
 body {
-  @apply font-serif leading-6;
+  @apply bg-gray-200;
   scroll-behavior: smooth;
+  font-size: 14px;
 }
 html,
 #___gatsby {
   height: 100%;
+  min-height: 100vh;
 }
 body {
   min-height: 100%;
 }
-p,
-.gatsby-highlight {
-  @apply mb-5 leading-7;
-}
 
+.btn {
+  @apply py-2 px-4 text-sm font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white;
+}
 .heading {
-  @apply text-gray-800 mb-4 leading-4 font-bold;
+  @apply dark:text-white;
 }
-
 h1 {
-  @apply heading text-2xl;
+  @apply heading text-4xl;
 }
 h2 {
-  @apply heading text-xl;
+  @apply heading text-2xl;
 }
 h3 {
-  @apply heading text-lg;
+  @apply heading text-xl;
 }
-
 h4 {
   @apply heading text-base;
 }
-
 h5 {
   @apply heading text-sm;
 }
 h6 {
   @apply heading text-xs;
+}
+
+p,
+.gatsby-highlight {
+  @apply mb-3 leading-7;
+}
+/* 
+.btn,
+a.btn {
+  @apply focus:no-underline no-underline mx-2 inline-flex text-center items-center py-2 px-3 text-sm rounded-sm  focus:ring-4 focus:outline-none;
+}
+.btn-primary,
+a.btn-primary {
+  @apply btn font-medium  text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-50 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+}
+
+.btn-secondary,
+a.btn-secondary {
+  @apply btn text-gray-700 bg-gray-100 hover:text-gray-800  border-gray-200 hover:border-gray-800 hover:bg-gray-200;
+}
+
+.heading {
+  @apply text-gray-800 mb-4 leading-4 font-bold;
 }
 
 a {
@@ -57,16 +79,6 @@ a {
 
 .text-muted {
   @apply text-gray-400;
-}
-.btn {
-  @apply no-underline hover:no-underline shadow-sm rounded py-2 px-5 mx-2 transition-all inline-block  border;
-}
-.btn-primary {
-  @apply btn text-red-700 bg-red-100 hover:text-red-800  border-red-200 hover:border-red-800 hover:bg-red-200;
-}
-
-.btn-secondary {
-  @apply btn text-gray-700 bg-gray-100 hover:text-gray-800  border-gray-200 hover:border-gray-800 hover:bg-gray-200;
 }
 
 .pagination-item {
@@ -147,3 +159,4 @@ blockquote {
 thead tr th {
   text-align: center;
 }
+*/

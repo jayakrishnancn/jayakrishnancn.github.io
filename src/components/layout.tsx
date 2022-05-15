@@ -1,34 +1,25 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import Footer from "./Footer"
-import Bio from "./bio"
 
 interface LayoutProps {
   children: any
-  showBio?: boolean
+  hideToTop?: boolean
 }
 
-const Layout = ({ children, showBio = false }: LayoutProps) => {
+const Layout = ({ children, hideToTop = false }: LayoutProps) => {
   return (
-    <div className="max-w-screen-sm	container">
+    <div className="min-h-screen flex flex-col justify-between">
       <div id="page-top"></div>
-      <header className="flex justify-between py-8">
-        <Link className="text-primary" to="/portfolio">
-          Jayakrishnan C N
-        </Link>
-        <Link className="text-primary" to="/">
-          Articles
-        </Link>
-      </header>
+      <div className="bg-blue-600 relative h-64 w-full "></div>
       <main>{children}</main>
-
-      <p className="text-center text-sm">
-        <strong>
-          <a href="#page-top">⬆ Back to Top</a>
-        </strong>
-      </p>
-
-      {showBio && <Bio />}
+      {!hideToTop && (
+        <p className="text-center mt-11 text-sm">
+          <strong>
+            <a href="#page-top">⬆ Back to Top</a>
+          </strong>
+        </p>
+      )}
+      <div className="flex-grow"></div>
       <Footer />
     </div>
   )
