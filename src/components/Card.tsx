@@ -11,20 +11,20 @@ interface Props {
 const Card = (props: React.PropsWithChildren<Props>) => {
   const { heading, content, footer, image, title } = props
   return (
-    <div className="bg-white p-4 mx-auto max-content-w border rounded-md border-gray-300 shadow-lg">
+    <div className="bg-white mb-5 p-4 mx-auto max-content-w border rounded-md border-gray-300 shadow-lg">
       {heading && <h1 className="text-center">{heading}</h1>}
-      <div className="mt-5 flex justify-between items-start">
+      <div className="flex justify-between items-start">
         {image && (
-          <div className="w-56 mt-10 flex-shrink-0 flex-col  items-center flex justify-center">
+          <div className="w-56 flex-shrink-0 flex-col  items-center flex justify-center">
             {image}
           </div>
         )}
         <div className="px-5">
           {title && <h2 className="font-bold mb-3">{title}</h2>}
           {content ?? props.children ?? ""}
+          <div className="text-right">{footer}</div>
         </div>
       </div>
-      <div className="text-right">{footer}</div>
     </div>
   )
 }

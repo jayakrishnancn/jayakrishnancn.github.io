@@ -4,7 +4,7 @@ import Card from "../components/Card"
 import { AiFillGithub } from "@react-icons/all-files/ai/AiFillGithub"
 import { FiExternalLink } from "@react-icons/all-files/fi/FiExternalLink"
 import timeZoneImage from "../images/time-zones.png"
-import { Link } from "gatsby"
+import keepIcon from "../images/note.png"
 
 const Projects = () => {
   const projects = [
@@ -27,6 +27,29 @@ const Projects = () => {
         },
         {
           to: "https://jayakrishnancn.github.io/timezones",
+          content: (
+            <>
+              <FiExternalLink /> &nbsp;Live Demo
+            </>
+          ),
+        },
+      ],
+    },
+    {
+      title: "Keep Notes",
+      content: `Note keeping app. created using reactjs and firebase. used reCaptch for spam blocking. deployed via netlify and version control using git (github)`,
+      image: { src: keepIcon, alt: "Keep Notes icon" },
+      links: [
+        {
+          to: "https://github.com/jayakrishnancn/keep-notes",
+          content: (
+            <>
+              <AiFillGithub /> &nbsp;Github
+            </>
+          ),
+        },
+        {
+          to: "https://keep-notes-web.netlify.app/",
           content: (
             <>
               <FiExternalLink /> &nbsp;Live Demo
