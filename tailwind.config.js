@@ -8,8 +8,10 @@ module.exports = {
     },
     extend: {
       textColor: ["visited"],
+      screens: {
+        xs: "540px", // min-width
+      },
     },
-
     container: {
       center: true,
     },

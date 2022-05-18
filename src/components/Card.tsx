@@ -15,7 +15,7 @@ const Card = (props: React.PropsWithChildren<Props>) => {
       {heading && <h1 className="mb-4 font-bold text-center">{heading}</h1>}
       <div className="flex justify-between items-stretch ">
         {image && (
-          <div className="w-56 flex-shrink-0 flex-col  items-center flex justify-center">
+          <div className="w-56 flex-shrink-0 flex-col hidden items-center xs:flex justify-center">
             {image}
           </div>
         )}

@@ -25,6 +25,7 @@ a.selected-nav {
   margin: auto;
 }
 .max-content-w {
+  width: 96%;
   @apply max-w-4xl mx-auto;
 }
 .btn-grp {
