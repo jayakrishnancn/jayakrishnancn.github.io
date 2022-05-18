@@ -3,28 +3,55 @@ import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import Layout from "../components/Layout"
 import Card from "../components/Card"
+import { SiLeetcode } from "@react-icons/all-files/si/SiLeetcode"
+import { AiFillGithub } from "@react-icons/all-files/ai/AiFillGithub"
+import { FaBlog } from "@react-icons/all-files/fa/FaBlog"
+import { MdPlaylistAddCheck } from "@react-icons/all-files/md/MdPlaylistAddCheck"
 
 const Home = () => {
   return (
     <Layout hideToTop={true}>
       <Card
         footer={
-          <div className="text-center">
+          <div className="text-center mt-5">
             <div className="btn-grp" role="group">
               <Link
                 to="/projects"
                 type="button"
                 className="border-r-0 rounded-l-lg btn"
               >
-                Projects
+                <MdPlaylistAddCheck />
+                &nbsp;Projects
               </Link>
               <Link
                 to="/blog"
                 type="button"
                 className="border-l-0 rounded-r-lg btn"
               >
-                Blog
+                <FaBlog />
+                &nbsp;Blog
               </Link>
+
+              <a
+                href="https://github.com/jayakrishnancn"
+                target="_blank"
+                rel="noreferrer"
+                type="button"
+                className="border-l-0 rounded-r-lg btn"
+              >
+                <AiFillGithub />
+                &nbsp;GitHub
+              </a>
+              <a
+                href="https://leetcode.com/jayakrishnancn/  "
+                target="_blank"
+                rel="noreferrer"
+                type="button"
+                className="border-l-0 rounded-r-lg btn"
+              >
+                <SiLeetcode />
+                &nbsp;Leetcode
+              </a>
             </div>
           </div>
         }
@@ -39,22 +66,14 @@ const Home = () => {
           />
         }
       >
-        <div>
+        <div className="pt-6">
           <p>
-            JavaScript enthusiast and Software Engineer with more than 4 years
-            of experience in ReactJs and Java.
-          </p>
-          <p>
-            Hello Sapiens, <br /> Welcome to my blog. Let me introduce myself,I
-            am Jayakrishnan. I am from India. Trying consistantly to improve
-            myself. I am currently working as a full-stack developer (JavaScript
-            & Java). I like TypeScript a lot, you might see more
-            JavaScript/TypeScript related posts quiet often here. I try to #tag
-            all the posts and I will try to keep the contents up to date and
-            releavnt.
-            <br />
-            <br />
-            Thank You
+            Hello,
+            <br />I am Jayakrishnan, Welcome to my blog.
+            <br /> I am currently working as a full-stack developer (ReactJS &
+            Java). I like TypeScript a lot. You will see posts realted to
+            JavaScript/TypeScript here. checkout my projects and blog posts.
+            Thanks.
           </p>
         </div>
       </Card>
