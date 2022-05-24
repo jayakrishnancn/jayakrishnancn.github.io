@@ -2,6 +2,10 @@ import { Link } from "gatsby"
 import * as React from "react"
 import Footer from "./Footer"
 import { GrLinkTop } from "@react-icons/all-files/gr/GrLinkTop"
+import { FaBlog } from "@react-icons/all-files/fa/FaBlog"
+import { MdPlaylistAddCheck } from "@react-icons/all-files/md/MdPlaylistAddCheck"
+import { AiFillInfoCircle } from "@react-icons/all-files/ai/AiFillInfoCircle"
+
 interface LayoutProps {
   children: any
   hideToTop?: boolean
@@ -29,7 +33,7 @@ const Layout = ({
                 className="btn"
                 activeClassName="selected-nav"
               >
-                About
+                <AiFillInfoCircle /> &nbsp;About
               </Link>
               <Link
                 to="/projects"
@@ -37,7 +41,8 @@ const Layout = ({
                 className="btn"
                 activeClassName="selected-nav"
               >
-                Projects
+                <MdPlaylistAddCheck />
+                &nbsp;Projects
               </Link>
               <Link
                 to="/blog"
@@ -45,7 +50,7 @@ const Layout = ({
                 className="btn"
                 activeClassName="selected-nav"
               >
-                Blog
+                <FaBlog /> &nbsp;Blog
               </Link>
             </div>
           </div>
