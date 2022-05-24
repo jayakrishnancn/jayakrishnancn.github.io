@@ -58,8 +58,9 @@ const Home = () => {
         heading="Jayakrishnan C N"
         image={
           <StaticImage
-            src="../images/selfi.jpg"
+            src="../images/pic-sq.jpg"
             width={150}
+            quality={80}
             height={150}
             alt="profile pic"
             className="w-50 h-50 p-1 rounded-full ring-4 ring-gray-200 dark:ring-gray-500 "
