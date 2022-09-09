@@ -15,7 +15,7 @@ import taxCalculator from "../images/taxCalc.png"
 const Projects = () => {
   const projects = [
     {
-      title: "https://simpletax.netlify.app/",
+      title: "Simple Tax",
       content:
         "A simple tax calulator for salared individuals under 60. This Income tax calculator is an easy-to-use online tool that helps you estimate your taxes based on your income.",
       image: { src: taxCalculator, alt: "Simple tax Icon" },
