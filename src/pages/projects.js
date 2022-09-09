@@ -10,9 +10,34 @@ import homeIcon from "../images/home.png"
 import travelIcon from "../images/travel.png"
 import proxyIcon from "../images/proxy.png"
 import ezFood from "../images/food2.png"
+import taxCalculator from "../images/taxCalc.png"
 
 const Projects = () => {
   const projects = [
+    {
+      title: "https://simpletax.netlify.app/",
+      content:
+        "A simple tax calulator for salared individuals under 60. This Income tax calculator is an easy-to-use online tool that helps you estimate your taxes based on your income.",
+      image: { src: taxCalculator, alt: "Simple tax Icon" },
+      links: [
+        {
+          to: "https://simpletax.netlify.app",
+          content: (
+            <>
+              <AiFillGithub /> &nbsp;GitHub
+            </>
+          ),
+        },
+        {
+          to: "https://github.com/jayakrishnancn/easytax",
+          content: (
+            <>
+              <FiExternalLink /> &nbsp;Live
+            </>
+          ),
+        },
+      ],
+    },
     {
       title: "Time Zones (2022)",
       content: `Time Zones is a convenient world clock, a time zone converter, and
