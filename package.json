@@ -2,7 +2,7 @@
   "name": "jayakrishnan",
   "private": true,
   "description": "Personal blog by Jayakrishnan C N",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Jayakrishnan C N <jayakrishnancn@gmail.com>",
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
