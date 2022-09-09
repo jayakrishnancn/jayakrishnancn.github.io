@@ -21,7 +21,7 @@ const Projects = () => {
       image: { src: taxCalculator, alt: "Simple tax Icon" },
       links: [
         {
-          to: "https://simpletax.netlify.app",
+          to: "https://github.com/jayakrishnancn/easytax",
           content: (
             <>
               <AiFillGithub /> &nbsp;GitHub
@@ -29,7 +29,7 @@ const Projects = () => {
           ),
         },
         {
-          to: "https://github.com/jayakrishnancn/easytax",
+          to: "https://simpletax.netlify.app",
           content: (
             <>
               <FiExternalLink /> &nbsp;Live
