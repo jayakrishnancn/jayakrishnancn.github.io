@@ -11,9 +11,100 @@ import travelIcon from "../images/travel.png"
 import proxyIcon from "../images/proxy.png"
 import ezFood from "../images/food2.png"
 import taxCalculator from "../images/taxCalc.png"
+import budget from "../images/budget.png"
+import tree from "../images/tree.png"
+import shopping from "../images/mobile-shopping.png"
+import health from "../images/better-health.png"
 
 const Projects = () => {
-  const projects = [
+  const projects = [{
+    title: "Budget tracker(2024)",
+    content:
+      "Flutter Budget tracking application",
+    image: { src: budget, alt: "Budget Tracker app Icon" },
+    links: [
+      {
+        to: "https://github.com/jayakrishnancn/budget_tracker",
+        content: (
+          <>
+            <AiFillGithub /> &nbsp;GitHub (private repo)
+          </>
+        ),
+      },
+
+    ],
+  },{
+    title: "Family tree(2024)",
+    content:
+      "Visualize family tree and share with friends. Login with google authentication.",
+    image: { src: tree, alt: "Tree  Icon" },
+    links: [
+      {
+        to: "https://github.com/jayakrishnancn/family-tree",
+        content: (
+          <>
+            <AiFillGithub /> &nbsp;GitHub
+          </>
+        ),
+      },
+      {
+        to: "https://simple-family-tree.netlify.app/",
+        content: (
+          <>
+            <FiExternalLink /> &nbsp;Live
+          </>
+        ),
+      },
+    ],
+  },
+{
+    title: "shoppinglist (2024)",
+    content:
+      "Manage shopping list along with an estimate amount and status.",
+    image: { src: shopping, alt: "Health Icon" },
+    links: [
+      {
+        to: "https://github.com/jayakrishnancn/shoppinglist",
+        content: (
+          <>
+            <AiFillGithub /> &nbsp;GitHub
+          </>
+        ),
+      },
+      {
+        to: "https://shoppinglist-jk.netlify.app/",
+        content: (
+          <>
+            <FiExternalLink /> &nbsp;Live
+          </>
+        ),
+      },
+    ],
+  },
+   {
+    title: "Health is wealth (2023)",
+    content:
+      "A simple application to calculate different health indicaors like BMI, based on parameters like age, height, weight etc.",
+    image: { src: health, alt: "Health Icon" },
+    links: [
+      {
+        to: "https://github.com/jayakrishnancn/health-is-wealth",
+        content: (
+          <>
+            <AiFillGithub /> &nbsp;GitHub
+          </>
+        ),
+      },
+      {
+        to: "https://quick-health.netlify.app/",
+        content: (
+          <>
+            <FiExternalLink /> &nbsp;Live
+          </>
+        ),
+      },
+    ],
+  },
     {
       title: "Simple Tax",
       content:
