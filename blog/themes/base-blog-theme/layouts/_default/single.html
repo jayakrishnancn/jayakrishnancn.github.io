@@ -1,14 +1,15 @@
 {{ define "main" }}
-<h1>
-  {{ .Title }}
-  {{ if .Draft }}
-    <span class="badge">DRAFT</span>
-  {{ end }}
-</h1>
+    <div style="margin:1rem 0; ">
+      <a class="back" href="/projects">&larr; Back</a>
+      <h1 style="margin:0">{{ .Title }}</h1>
+      {{ if .Draft }}
+        <span class="badge">DRAFT</span>
+      {{ end }}
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+    </div>
 
-{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{
-$dateHuman := .Date | time.Format ":date_long" }}
-<time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-
-{{ .Content }} {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }} {{
+<div class="content">
+  {{ .Content }} 
+</div>
+{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }} {{
 end }}
