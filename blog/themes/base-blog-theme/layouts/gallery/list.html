@@ -1,0 +1,42 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+{{ $galleryPath := "static/images/gallery" }}
+
+{{ range (readDir $galleryPath) }}
+    {{ if .IsDir }}
+        <h2>{{ .Name }}</h2>  <!-- Year -->
+        {{ $year := .Name }}
+        {{ $yearPath := printf "%s/%s" $galleryPath $year }}
+
+        {{ range (readDir $yearPath) }}
+            {{ if .IsDir }}
+                <h3>{{ .Name }}</h3>  <!-- Month -->
+                {{ $month := .Name }}
+                {{ $monthPath := printf "%s/%s" $yearPath $month }}
+
+                {{ range (readDir $monthPath) }}
+                    {{ if .IsDir }}
+                        <h4>{{ .Name }}</h4>  <!-- Day -->
+                        {{ $day := .Name }}
+                        {{ $dayPath := printf "%s/%s" $monthPath $day }}
+
+                        <div class="gallery">
+                            {{ range (readDir $dayPath) }}
+                                {{ if not .IsDir }}
+                                    <img src="/images/gallery/{{ $year }}/{{ $month }}/{{ $day }}/{{ .Name }}" alt="{{ .Name }}">
+                                {{ end }}
+                            {{ end }}
+                        </div>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+<style>
+    .gallery img { width: 200px; margin: 10px; border-radius: 10px; }
+</style>
+
+{{ end }}

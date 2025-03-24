@@ -57,7 +57,7 @@ h5,
 h6 {
   font-family: var(--font-main);
   color: var(--heading-color);
-  line-height: 1em;
+  line-height: 1.1em;
 }
 
 /* Default Heading Styles */
@@ -354,4 +354,7 @@ time {
 }
 .prev-next .next{
   margin-left: auto;
+}
+.project-summary p{
+  margin: 0
 }
