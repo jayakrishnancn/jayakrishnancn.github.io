@@ -1,0 +1,8 @@
+
+{{ $icon := printf "icons/%s.svg" (.Get 0) }}
+{{ $svg := resources.Get $icon }}
+{{ $size := .Get 1 | default "12px" }}
+
+<span  style="display:inline-block;margin-right:4px;font-size: {{$size}};width: {{$size}};height: {{$size}}">
+    {{ $svg.Content | safeHTML }}
+</span>

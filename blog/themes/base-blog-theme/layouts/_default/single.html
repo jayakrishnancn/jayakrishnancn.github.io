@@ -1,0 +1,32 @@
+{{ define "main" }}
+    <div style="margin:1rem 0; ">
+      <a class="back" href="{{ .Parent.Permalink }}">&larr; Back</a>
+      <h1 style="margin:0">{{ .Title }}</h1>
+      {{ if .Draft }}
+        <span class="badge">DRAFT</span>
+      {{ end }}
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+    </div>
+
+    <div class="content">
+      {{ .Content }} 
+    </div>
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+
+    {{ $pages := .CurrentSection.Pages.ByWeight }}
+    <div class="prev-next">
+        {{ with $pages.Prev . }}
+          <a href="{{ .RelPermalink }}" class="prev">
+              &larr;
+              {{ .LinkTitle }}
+          </a>
+        {{ end }}
+
+        {{ with $pages.Next . }}
+          <a href="{{ .RelPermalink }}" class="next">
+              {{ .LinkTitle }}
+              &rarr;
+          </a>
+        {{ end }}
+    </div>
+{{ end }}

@@ -1,0 +1,25 @@
+
+  <div class="post-list">
+  <!--{{ $pages := where site.RegularPages "Type" "posts" }} -->
+  {{ $pages := .pages | default (where .page.Site.RegularPages "Type" "posts") }}
+  {{ $paginator := .page.Paginate ($pages.ByTitle) 7 }}
+
+  {{ range $paginator.Pages }}
+    <div class="post">
+      <div class="post-title">
+          <h2>
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            {{ if .Draft }}
+              <span class="badge">DRAFT</span>
+            {{ end }}
+        </h2>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      </div>
+      <div>
+        {{ .Summary }}
+      </div>
+    </div>
+  {{ end }}
+  {{ template "_internal/pagination.html" .page }}
+
+</div>
