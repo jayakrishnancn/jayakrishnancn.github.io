@@ -2,7 +2,7 @@
 {{ define "main" }}
   <article class="project">
     <div style="margin:1rem 0; ">
-      <a class="back" href="/projects">&larr; Back</a>
+      <a class="back" href="{{ .Parent.Permalink }}">&larr; Back</a>
       <h1 style="margin:0">{{ .Title }}</h1>
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
     </div>
