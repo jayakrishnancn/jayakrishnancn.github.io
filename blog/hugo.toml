@@ -16,22 +16,26 @@ name = 'Projects'
 pageRef = '/projects'
 weight = 2
 
-
 [[menus.main]]
 name = 'Blog Posts'
 pageRef = '/posts'
 weight = 3
 
 [[menus.main]]
+name = 'Gallery'
+pageRef = '/gallery'
+weight = 4
+
+[[menus.main]]
 name = 'LinkedIn'
 url = 'https://www.linkedin.com/in/jayakrishnancn/'
-weight = 4
+weight = 5
 params.new_tab = true
 
 [[menus.main]]
 name = 'GitHub'
 url = 'https://github.com/jayakrishnancn/'
-weight = 5
+weight = 6
 params.new_tab = true
 
 [markup]
