@@ -1,6 +1,8 @@
 +++
 date = '2024-10-24T15:55:33+05:30'
 title = 'Possible Ways to Create Objects in Javascript'
+tags = ['blog' , 'javascript', 'web-development']
+
 +++
 
 In this article, we’ll explore different techniques for creating objects in JavaScript, ranging from traditional constructor functions to modern ES6 classes.
