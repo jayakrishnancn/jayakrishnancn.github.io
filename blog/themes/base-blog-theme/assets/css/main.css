@@ -276,10 +276,19 @@ time {
   align-items: center;
   margin-bottom: 1em;
 }
+
+.project-title h2{
+  margin: 0;
+  padding: 0;
+}
+.project-title a{
+  color: var(--heading-color)
+}
+
 .project-summary img {
   width: 100px;
   height: 100px;
-  margin-right: 20px;
+  margin-right: 30px;
 }
 
 .align-right {

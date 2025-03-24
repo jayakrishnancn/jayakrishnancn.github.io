@@ -10,8 +10,8 @@
         {{ end }}
 
         <div>
-          <div style="margin:1rem 0; ">
-            <h2 style="margin: 0"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <div class="project-title" style="margin:1rem 0; ">
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
           </div>
 
