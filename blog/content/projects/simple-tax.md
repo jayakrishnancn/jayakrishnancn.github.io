@@ -1,7 +1,7 @@
 +++
 date = '2022-07-24T02:31:13+05:30'
 title = 'Simple Tax'
-poster = 'https://jayakrishnancn.netlify.app/static/taxCalc-c24f1474a770c2f88fb2958d8ac4c3e4.png'
+poster = '/images/taxCalc.png'
 [[links]]
 title = "GitHub Repo"
 href = "https://github.com/jayakrishnancn/easytax"

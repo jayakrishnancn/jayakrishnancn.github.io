@@ -1,7 +1,7 @@
 +++
 date = '2022-03-16T14:39:48+05:30'
 title = 'Time Zones'
-poster = 'https://jayakrishnancn.netlify.app/static/time-zones-bd85ef50ee8e9c7ab42f71d78d2754ae.png'
+poster = '/images/time-zones.png'
 [[links]]
 href = 'https://github.com/jayakrishnancn/timezones'
 title = 'GitHub Repo'
