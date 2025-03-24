@@ -8,8 +8,25 @@
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
     </div>
 
-<div class="content">
-  {{ .Content }} 
-</div>
-{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }} {{
-end }}
+    <div class="content">
+      {{ .Content }} 
+    </div>
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+
+    {{ $pages := .CurrentSection.Pages.ByWeight }}
+    <div class="prev-next">
+        {{ with $pages.Prev . }}
+          <a href="{{ .RelPermalink }}" class="prev">
+              &larr;
+              {{ .LinkTitle }}
+          </a>
+        {{ end }}
+
+        {{ with $pages.Next . }}
+          <a href="{{ .RelPermalink }}" class="next">
+              {{ .LinkTitle }}
+              &rarr;
+          </a>
+        {{ end }}
+    </div>
+{{ end }}

@@ -98,6 +98,7 @@ a, a:visited {
   margin-right: 0.6em;
   fill: var(--link-color);
   position: relative;
+  font-weight: bold;
 }
 
 a:hover {
@@ -333,10 +334,6 @@ time {
   text-align: right;
 }
 
-.back {
-  font-size: 12px;
-}
-
 .content p{
   margin: 10px 0;
 }
@@ -347,4 +344,14 @@ time {
 
 .mt-3{
   margin-top: 3em;
+}
+
+.prev-next{
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.prev-next .next{
+  margin-left: auto;
 }
