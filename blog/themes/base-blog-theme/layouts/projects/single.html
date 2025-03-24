@@ -1,0 +1,23 @@
+
+{{ define "main" }}
+  <article class="project">
+    <div style="margin:1rem 0; ">
+      <a class="back" href="/projects">&larr; Back</a>
+      <h1 style="margin:0">{{ .Title }}</h1>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+    </div>
+
+    {{ with .Params.poster }}
+      <div style="text-align: center">
+          <img src="{{ . }}" height="200px" alt="{{ $.Title }} Poster" class="project-poster">
+      </div>
+    {{ end }}
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    {{ partial "project-summary.html" . }}
+
+  </article>
+{{ end }}

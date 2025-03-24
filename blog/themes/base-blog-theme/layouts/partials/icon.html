@@ -1,0 +1,21 @@
+{{- $iconName := . }}
+{{- $size := "12px" }} <!-- Default value if not passed -->
+
+{{- if reflect.IsMap . }}
+  {{- $iconName = .name }}
+  {{- with .size }}
+    {{- $size = . }}
+  {{- end }}
+{{- else if gt (len .) 1 }}
+  {{- $iconName = index . 0 }}
+  {{- $size = index . 1 }}
+{{- end }}
+
+{{- $icon := resources.Get (printf "icons/%s.svg" $iconName) }}
+
+
+{{- if $icon }}
+  <span style="display:inline-block;margin-right:4px;font-size:{{$size}};width:{{$size}};height:{{$size}}">
+    {{ $icon.Content | safeHTML }}
+  </span>
+{{- end }}

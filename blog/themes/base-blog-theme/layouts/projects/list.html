@@ -1,0 +1,28 @@
+
+{{ define "main" }}
+  <section class="project-list">
+    <h1>Projects</h1>
+
+    {{ range .Pages }}
+      <article class="project-summary">
+        {{ with .Params.poster }}
+          <img src="{{ . }}" height="100px" width="100px" alt="{{ $.Title }} Poster" class="project-poster">
+        {{ end }}
+
+        <div>
+          <div style="margin:1rem 0; ">
+            <h2 style="margin: 0"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          </div>
+
+          <div>{{ .Content }}</div>
+
+          {{ partial "project-summary.html" . }}
+
+        </div>
+
+      </article>
+    {{ end }}
+
+  </section>
+{{ end }}
