@@ -4,7 +4,7 @@
     <h1>Projects</h1>
 
     {{ range .Pages }}
-      <article class="project-summary">
+      <article class="df">
         {{ with .Params.poster }}
           <img src="{{ . }}" height="100px" width="100px" alt="{{ $.Title }} Poster" class="project-poster">
         {{ end }}
@@ -17,7 +17,7 @@
 
           <div>{{ .Content }}</div>
 
-          {{ partial "project-summary.html" . }}
+          {{ partial "project-links.html" . }}
 
         </div>
 
