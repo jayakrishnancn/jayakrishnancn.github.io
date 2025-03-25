@@ -2,6 +2,7 @@ baseURL = 'https://jayakrishnancn.netlify.app/'
 languageCode = 'en-us'
 title = 'Jayakrishnan C N'
 theme = "base-blog-theme"
+params.author = 'jayakrishnan'
 
 summaryLength = 15
 
