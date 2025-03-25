@@ -1,7 +1,8 @@
 +++
 date =  2021-10-25T15:33:23+05:30
 title = "Keep Notes"
-poster = '/images/note.png'
+poster = 'sprite1'
+poster_sprite_offset = '-250px -130px'
 [[links]]
 href = 'https://github.com/jayakrishnancn/keep-notes'
 title = 'GitHub Repo'

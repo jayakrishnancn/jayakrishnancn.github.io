@@ -1,7 +1,8 @@
 +++
 date =  2023-12-28T19:39:46+05:30
 title = "Health Is Wealth"
-poster = '/images/healthcare.png'
+poster = 'sprite1'
+poster_sprite_offset = '-10px -130px'
 [[links]]
 href = 'https://github.com/jayakrishnancn/health-is-wealth'
 title = 'GitHub Repo'

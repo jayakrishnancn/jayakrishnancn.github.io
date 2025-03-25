@@ -1,7 +1,8 @@
 +++
 date =  2024-09-18T19:33:10+05:30
 title = "Family Tree"
-poster = '/images/family-tree.png'
+poster = 'sprite1'
+poster_sprite_offset = '-10px -10px'
 [[links]]
 href = 'https://github.com/jayakrishnancn/family-tree'
 title = 'GitHub Repo'

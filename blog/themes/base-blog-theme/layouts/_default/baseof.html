@@ -2,8 +2,9 @@
 <html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
 <head>
   {{ partial "head.html" . }}
+  {{ block "style" . }} {{ end}}
 </head>
-<body style="display:flex; flex-direction: column;height: 100%">
+<body>
   <header>
     {{ partial "header.html" . }}
   </header>

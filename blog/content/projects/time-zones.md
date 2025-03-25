@@ -1,7 +1,8 @@
 +++
 date = '2022-03-16T14:39:48+05:30'
 title = 'Time Zones'
-poster = '/images/time-zones.png'
+poster = 'sprite1'
+poster_sprite_offset = '-250px -250px'
 [[links]]
 href = 'https://github.com/jayakrishnancn/timezones'
 title = 'GitHub Repo'

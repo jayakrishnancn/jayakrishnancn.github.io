@@ -2,6 +2,7 @@ baseURL = 'https://jayakrishnancn.netlify.app/'
 languageCode = 'en-us'
 title = 'Jayakrishnan C N'
 theme = "base-blog-theme"
+params.author = 'jayakrishnan'
 
 summaryLength = 15
 
@@ -29,20 +30,20 @@ weight = 4
 [[menus.main]]
 name = 'Journals'
 pageRef = '/journals'
-weight = 4
+weight = 5
 
 [[menus.main]]
 name = 'LinkedIn'
 url = 'https://www.linkedin.com/in/jayakrishnancn/'
-weight = 5
+weight = 6
 params.new_tab = true
 
 [[menus.main]]
 name = 'GitHub'
 url = 'https://github.com/jayakrishnancn/'
-weight = 6
+weight = 7
 params.new_tab = true
 
 [markup]
 [minify]
-minifyOutput = true
+minifyOutput = false

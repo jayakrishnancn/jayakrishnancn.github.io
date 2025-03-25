@@ -1,9 +1,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
+<meta name="description" content="Personal blog and portfolio of {{ .Site.Params.Author }}.">
+<meta name="author" content="{{.Site.Params.Author }}">
+<meta name="keywords" content="blog, portfolio, personal, {{ .Site.Params.Author }}">
+<meta name="robots" content="index, follow">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com/" >
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 <style>
 {{- (resources.Get "css/main.css"   | resources.Minify).Content | safeCSS -}}
 </style>
-<!-- {{ partialCached "head/css.html" . }} -->
-<!-- {{ partialCached "head/google-fonts.html" . }} -->
-<!-- {{ partialCached "head/js.html" . }} -->

@@ -1,7 +1,8 @@
 +++
 date =  2025-01-16T19:24:57+05:30
 title = "Filesync"
-poster = '/images/refresh.png'
+poster = 'sprite1'
+poster_sprite_offset = '-130px -130px'
 [[links]]
 href = 'https://github.com/jayakrishnancn/filesync'
 title = 'GitHub Repo'
