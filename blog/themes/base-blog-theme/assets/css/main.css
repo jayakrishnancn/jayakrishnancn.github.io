@@ -92,6 +92,9 @@ nav li {
   margin: 0;
   display: inline-block;
 }
+nav a {
+  margin-right: 20px;
+}
 
 time {
   font-family: monospace;
