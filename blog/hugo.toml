@@ -27,6 +27,11 @@ pageRef = '/gallery'
 weight = 4
 
 [[menus.main]]
+name = 'Journals'
+pageRef = '/journals'
+weight = 4
+
+[[menus.main]]
 name = 'LinkedIn'
 url = 'https://www.linkedin.com/in/jayakrishnancn/'
 weight = 5
