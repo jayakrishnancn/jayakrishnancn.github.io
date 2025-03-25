@@ -9,6 +9,3 @@
 <style>
 {{- (resources.Get "css/main.css"   | resources.Minify).Content | safeCSS -}}
 </style>
-{{ range .Site.Pages }}
-  <link rel="prefetch" href="{{ .RelPermalink }}">
-{{ end }}
