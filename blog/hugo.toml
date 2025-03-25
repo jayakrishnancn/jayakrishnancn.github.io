@@ -46,4 +46,4 @@ params.new_tab = true
 
 [markup]
 [minify]
-minifyOutput = false
+minifyOutput = true
