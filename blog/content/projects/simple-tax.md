@@ -1,7 +1,8 @@
 +++
 date = '2022-07-24T02:31:13+05:30'
 title = 'Simple Tax'
-poster = '/images/taxCalc.png'
+poster = 'sprite1'
+poster_sprite_offset = '-250px -10px'
 [[links]]
 title = "GitHub Repo"
 href = "https://github.com/jayakrishnancn/easytax"

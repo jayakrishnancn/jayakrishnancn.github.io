@@ -1,7 +1,8 @@
 +++
 date =  2016-03-24T15:45:35+05:30
 title = "College Campus Portal"
-poster = '/images/clg.png'
+poster = 'sprite1'
+poster_sprite_offset = '-130px -10px'
 [[links]]
 href = 'https://github.com/jayakrishnancn/College-Management-System'
 title = 'GitHub Repo'

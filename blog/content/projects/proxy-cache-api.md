@@ -1,7 +1,8 @@
 +++
 date =  2021-12-15T14:47:38+05:30
 title = "Proxy Cache Api"
-poster = '/images/proxy.png'
+poster = 'sprite1'
+poster_sprite_offset = '-370px -130px'
 [[links]]
 href = 'https://github.com/jayakrishnancn/proxy-cache-api'
 title = 'GitHub Repo'

@@ -198,6 +198,11 @@ time {
 /** pagination end **/
 
 .project-poster {
+  width: 100px; 
+  height: 100px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  background: url('/images/css_sprites.png') -10px -10px;
   margin-right: 1em;
 }
 
@@ -239,3 +244,5 @@ time {
 .prev-next .next{
   margin-left: auto;
 }
+
+ 
