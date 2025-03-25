@@ -5,6 +5,7 @@
 <meta name="keywords" content="blog, portfolio, personal, {{ .Site.Params.Author }}">
 <meta name="robots" content="index, follow">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com/" >
+<link rel="prefetch" href="/images/css_sprites.png" as="image">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 <style>
 {{- (resources.Get "css/main.css"   | resources.Minify).Content | safeCSS -}}
