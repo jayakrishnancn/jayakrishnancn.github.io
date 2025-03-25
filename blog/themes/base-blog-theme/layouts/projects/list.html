@@ -6,18 +6,15 @@
     {{ range .Pages }}
       <article class="df">
        
-        {{
-          $sprite :=  .Params.poster
-        }}
+        {{ $sprite :=  .Params.poster }}
         {{ with .Params.poster_sprite_offset }}
-       
           {{/*  <img src="{{ . }}" height="100px" width="100px" alt="{{ $.Title }} Poster" class="project-poster">  */}}
           <div class="project-poster  {{$sprite}}" style="background-position: {{.}}"></div>
         {{ end }}
 
         <div>
           <div class="project-title" style="margin:1rem 0; ">
-            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <h2>{{ .Title }}</h2>
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
           </div>
 

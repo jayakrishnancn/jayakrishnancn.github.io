@@ -7,11 +7,10 @@
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
     </div>
 
-    {{ with .Params.poster }}
-      <div style="text-align: center">
-          <img src="{{ . }}" height="200px" alt="{{ $.Title }} Poster" class="project-poster">
-      </div>
-    {{ end }}
+        {{ $sprite :=  .Params.poster }}
+        {{ with .Params.poster_sprite_offset }}
+          <div class="project-poster  {{$sprite}}" style="background-position: {{.}};"></div>
+        {{ end }}
 
     <div class="content">
       {{ .Content }}
