@@ -1,0 +1,133 @@
+{{ define "main" }}
+<div class="journal-timeline">
+    <h1 class="page-title">{{ .Title }}</h1>
+ 
+    <div class="timeline">
+        {{ range .Pages }}
+        <div class="timeline-item">
+         
+            <div class="timeline-marker"></div>
+            
+            <div class="timeline-content">
+                <div class="timeline-header df">
+                    <h2 class="timeline-title">
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    </h2>
+                    
+                    {{ if .Date }}
+                    <div class="timeline-date">
+                        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                            {{ .Date.Format "January 2, 2006" }}
+                        </time>
+                    </div>
+                    {{ end }}
+                </div>
+                <div class="timeline-body">
+                
+                    {{/*  {{ if .Params.author }}
+                    <div class="timeline-author">By {{ .Params.author }}</div>
+                    {{ end }}
+                      */}}
+                    {{ if .Params.cover }}
+                    <div class="timeline-cover">
+                        <img src="{{ .Params.cover }}" alt="{{ .Title }}" />
+                    </div>
+                    {{ end }}
+                    
+                    {{ if .Summary }}
+                    <div class="timeline-summary">
+                        {{ .Summary }}
+                    </div>
+                    {{ end }}
+                </div>
+                <div class="timeline-footer align-right">
+                    <a href="{{ .Permalink }}" class="read-more">Read more &rarr;</a>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<style>
+/* Timeline styling */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #e0e0e0;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 60px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--link-color);
+    top: 15px;
+}
+.timeline time {
+    font-size: 12px;
+
+}
+.timeline-body, .timeline-header, .timeline-footer{
+    padding: 6px 1em;
+    border-bottom: 1px solid #ccc;
+}
+.timeline-content {
+    position: relative;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+} 
+
+.timeline-author{
+    font-size: 12px;
+    color:  #999;
+}
+
+/* Add arrow pointing to timeline marker */
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: inherit;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    top: 15px;  /* Align with the marker */
+    left: -7px;
+    transform: rotate(45deg); /* Create arrow pointing left */
+}
+ 
+.timeline-title{
+    margin: 0;
+    padding: 0;
+}
+ 
+.timeline-cover img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 4px;
+}
+  
+</style>
+{{ end }}
