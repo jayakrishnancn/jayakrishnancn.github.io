@@ -1,4 +1,9 @@
-<p>Copyright {{ now.Year }}. All rights reserved.</p>
+<div class="flex" style="padding:5px">
+  Copyright {{ now.Year }}. All rights reserved.
+  <div id="toggleTheme" class="flex" style="cursor: pointer;">
+    {{ partial "icon.html" (slice "circle-half" "16px") }}
+  </div>
+</div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const links = document.querySelectorAll("a");
@@ -29,5 +34,15 @@
         }
       });
     });
+  });
+
+  
+  document.documentElement.classList.toggle('dark', localStorage.getItem('theme') === 'dark');
+
+  document.getElementById('toggleTheme').addEventListener('click', function() {
+    document.documentElement.classList.toggle('dark');
+    
+    // Save the theme to localStorage
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
   });
 </script>

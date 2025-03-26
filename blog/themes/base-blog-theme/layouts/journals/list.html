@@ -65,7 +65,7 @@
     content: '';
     position: absolute;
     width: 2px;
-    background-color: #e0e0e0;
+    background-color: var(--timeline-color);
     top: 0;
     bottom: 0;
     left: 20px;
@@ -83,7 +83,7 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: var(--link-color);
+    background-color: var(--timeline-color);
     top: 15px;
 }
 .timeline time {
@@ -94,20 +94,18 @@
 }
 .timeline-body, .timeline-header, .timeline-footer{
     padding: 6px 1em;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--timeline-color)
+}
+.timeline time{
+    color: var(--text-color);
 }
 .timeline-content {
     position: relative;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #fff;
+    border: 1px solid var(--timeline-color);
+    background-color: var(--background-color);
 } 
-
-.timeline-author{
-    font-size: 12px;
-    color:  #999;
-}
-
+ 
 /* Add arrow pointing to timeline marker */
 .timeline-content::before {
     content: '';
@@ -115,8 +113,8 @@
     width: 12px;
     height: 12px;
     background-color: inherit;
-    border-left: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-left: 1px solid var(--timeline-color);
+    border-bottom: 1px solid var(--timeline-color);
     top: 15px;  /* Align with the marker */
     left: -7px;
     transform: rotate(45deg); /* Create arrow pointing left */
