@@ -8,7 +8,6 @@
        
         {{ $sprite :=  .Params.poster }}
         {{ with .Params.poster_sprite_offset }}
-          {{/*  <img src="{{ . }}" height="100px" width="100px" alt="{{ $.Title }} Poster" class="project-poster">  */}}
           <div class="project-poster" style="background-position: {{.}}"></div>
         {{ end }}
 

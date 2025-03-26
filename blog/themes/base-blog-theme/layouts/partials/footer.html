@@ -1,32 +1,33 @@
 <p>Copyright {{ now.Year }}. All rights reserved.</p>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const links = document.querySelectorAll('a');
-        const currentDomain = window.location.hostname;
-        const prefetched = new Set();
-        
-        links.forEach(link => {
-            // Skip links without href
-            if (!link.href) return;
-            
-            // Add mouseover event listener to each link
-            link.addEventListener('mouseover', function() {
-                // Skip if already prefetched
-                if (prefetched.has(link.href)) return;
-                
-                try {
-                    const url = new URL(link.href);
-                    // Only prefetch same-domain links
-                    if (url.hostname === currentDomain) {
-                        prefetched.add(link.href);
-                        const prefetchLink = document.createElement('link');
-                        prefetchLink.rel = 'prefetch';
-                        prefetchLink.href = link.href;
-                        document.head.appendChild(prefetchLink);
-                    }
-                } catch (e) {
-                    console.error(e);
-                }
-            }); 
-        });
-    });</script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll("a");
+    const currentDomain = window.location.hostname;
+    const prefetched = new Set();
+
+    links.forEach((link) => {
+      // Skip links without href
+      if (!link.href) return;
+
+      // Add mouseover event listener to each link
+      link.addEventListener("mouseover", function () {
+        // Skip if already prefetched
+        if (prefetched.has(link.href)) return;
+
+        try {
+          const url = new URL(link.href);
+          // Only prefetch same-domain links
+          if (url.hostname === currentDomain) {
+            prefetched.add(link.href);
+            const prefetchLink = document.createElement("link");
+            prefetchLink.rel = "prefetch";
+            prefetchLink.href = link.href;
+            document.head.appendChild(prefetchLink);
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      });
+    });
+  });
+</script>
