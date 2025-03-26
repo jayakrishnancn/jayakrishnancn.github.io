@@ -1,4 +1,7 @@
-<a href="{{ "" | relURL }}" class="title">
-    <h2>{{ .Site.Title }}</h2>
-  </a>
+<h2>
+  <a href="{{ "" | relURL }}" class="title">
+  {{ .Site.Title }}
+</a>
+
+</h2>
 {{ partial "menu.html" (dict "menuID" "main" "page" .) }}

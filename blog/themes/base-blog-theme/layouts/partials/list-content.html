@@ -1,13 +1,13 @@
 
-  <div class="post-list">
+  <div>
   <!--{{ $pages := where site.RegularPages "Type" "posts" }} -->
   {{ $pages := .pages | default (where .page.Site.RegularPages "Type" "posts") }}
   {{ $paginator := .page.Paginate ($pages.ByTitle) 7 }}
 
   {{ range $paginator.Pages }}
-    <div class="post">
-      <div class="post-title">
-          <h2>
+    <div>
+      <div>
+          <h2 style="margin:0">
             <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
             {{ if .Draft }}
               <span class="badge">DRAFT</span>

@@ -1,7 +1,7 @@
 {{ with .Params.links }}
-<div style="text-align: right">
+<div class="flex-end">
   {{ range . }}
-  <a class="mr-3" href="{{ .href }}" target="_blank" rel="noopener noreferrer">{{ partial "icon.html" (slice .icon "12px") }} {{ .title }}</a>
+  <a href="{{ .href }}" target="_blank" rel="noopener noreferrer">{{ partial "icon.html" (slice .icon "12px") }} {{ .title }}</a>
   {{ end }}
 </div>
 {{ end }}
