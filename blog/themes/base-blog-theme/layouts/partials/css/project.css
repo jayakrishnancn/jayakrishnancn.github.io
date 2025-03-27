@@ -1,0 +1,16 @@
+
+
+.project p {
+    margin-top: 0.25em;
+  }
+  
+  .project h2{
+    margin: 0;
+  }
+  
+  .project-poster {
+  background:url(/images/css_sprites.png) -10px -10px;
+  flex:0 0 auto;
+  height:100px;
+  width:100px
+  }
