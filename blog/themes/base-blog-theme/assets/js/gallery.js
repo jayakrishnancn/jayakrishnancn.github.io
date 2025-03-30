@@ -70,7 +70,7 @@
     box.addEventListener("click",e=>{if(e.target===box)closeBox()},{passive:true});
     
     // Preload first 3 images
-    for(let i=0;i<Math.min(3,imgs.length);i++)preloadImage(imgs[i].largeSrc);
+    // for(let i=0;i<Math.min(3,imgs.length);i++)preloadImage(imgs[i].largeSrc);
   }
 
   function preloadImage(src){
