@@ -1,6 +1,7 @@
 (function() {
   // Only run if gallery-container exists
-  if (!document.querySelector('.gallery-container')) return;
+  const gallery = document.querySelector(".gallery-container");
+  if (!gallery) return;
 
   // Inject lightbox HTML if not already present
   if (!document.getElementById('lightbox')) {
@@ -20,7 +21,8 @@
   }
 
   // Initialize lightbox functionality
-  const MAX=2,grid=document.querySelector(".gallery-grid"),extra=document.querySelector(".extra-images"),box=document.getElementById("lightbox"),img=document.getElementById("lightbox-img"),desc=document.getElementById("img-description"),thumbs=document.getElementById("thumbnail-container"),prev=document.getElementById("prev-btn"),next=document.getElementById("next-btn"),close=document.querySelector(".close-btn");
+  const MAX = gallery.dataset.max ? parseInt(gallery.dataset.max) : 2;
+  const grid=document.querySelector(".gallery-grid"),extra=document.querySelector(".extra-images"),box=document.getElementById("lightbox"),img=document.getElementById("lightbox-img"),desc=document.getElementById("img-description"),thumbs=document.getElementById("thumbnail-container"),prev=document.getElementById("prev-btn"),next=document.getElementById("next-btn"),close=document.querySelector(".close-btn");
   let idx=0,imgs=[],imgCache={};
 
   function init(){

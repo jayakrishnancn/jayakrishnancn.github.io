@@ -1,4 +1,4 @@
-<div class="gallery-container">
+<div class="gallery-container" {{ with .Get "max" }} data-max="{{ . }}" {{ end }}>
   <div class="gallery-grid">
     {{ .Inner | safeHTML }}
     <div class="extra-images"></div>
