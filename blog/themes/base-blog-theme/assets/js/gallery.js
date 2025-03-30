@@ -20,6 +20,14 @@
     document.body.insertAdjacentHTML('beforeend', lightboxHTML);
   }
 
+  const SMALL_IMAGES = "x300" 
+  const LARGE_IMAGES = "x1024" 
+
+  // Helper function to transform image paths
+  function getImagePath(src, size) {
+    return src.replace("/gallery/x300/", `/gallery/${size}/`);
+  }
+
   // Initialize lightbox functionality
   const MAX = gallery.dataset.max ? parseInt(gallery.dataset.max) : 2;
   const grid=document.querySelector(".gallery-grid"),extra=document.querySelector(".extra-images"),box=document.getElementById("lightbox"),img=document.getElementById("lightbox-img"),desc=document.getElementById("img-description"),thumbs=document.getElementById("thumbnail-container"),prev=document.getElementById("prev-btn"),next=document.getElementById("next-btn"),close=document.querySelector(".close-btn");
@@ -27,8 +35,17 @@
 
   function init(){
     const all=grid.querySelectorAll("img");
-    imgs=Array.from(all).map(i=>({src:i.src,description:i.alt}));
-    
+    imgs=Array.from(all).map(i=>({
+      originalSrc: i.src,
+      smallSrc: getImagePath(i.src, SMALL_IMAGES),
+      largeSrc: getImagePath(i.src, LARGE_IMAGES),
+      description: i.alt
+    }));
+
+    all.forEach((img, index) => {
+      img.src = imgs[index].smallSrc;
+    });
+
     if(all.length>MAX){
       for(let n=MAX;n<all.length;n++)all[n].style.display="none";
       extra.textContent="+"+(all.length-MAX);
@@ -53,7 +70,7 @@
     box.addEventListener("click",e=>{if(e.target===box)closeBox()},{passive:true});
     
     // Preload first 3 images
-    for(let i=0;i<Math.min(3,imgs.length);i++)preloadImage(imgs[i].src);
+    for(let i=0;i<Math.min(3,imgs.length);i++)preloadImage(imgs[i].largeSrc);
   }
 
   function preloadImage(src){
@@ -69,9 +86,9 @@
     createThumbs();
     
     // Preload adjacent images
-    preloadImage(imgs[idx].src);
-    if(idx>0)preloadImage(imgs[idx-1].src);
-    if(idx<imgs.length-1)preloadImage(imgs[idx+1].src);
+    preloadImage(imgs[idx].largeSrc);
+    if(idx>0)preloadImage(imgs[idx-1].largeSrc);
+    if(idx<imgs.length-1)preloadImage(imgs[idx+1].largeSrc);
     
     update();
     box.classList.remove("hidden");
@@ -79,7 +96,7 @@
   }
 
   function update(){
-    img.src=imgs[idx].src;
+    img.src=imgs[idx].largeSrc;
     desc.textContent=imgs[idx].description;
     
     // Update thumbnails
@@ -96,7 +113,7 @@
     const fragment=document.createDocumentFragment();
     for(let n=0;n<imgs.length;n++){
       const t=document.createElement("img");
-      t.src=imgs[n].src;
+      t.src=imgs[n].smallSrc;
       t.className="thumb-img"+(n===idx?" active":"");
       t.loading="lazy";
       t.addEventListener("click",()=>open(n),{passive:true});
