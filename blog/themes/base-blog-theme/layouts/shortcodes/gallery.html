@@ -1,6 +1,6 @@
 <div class="gallery-container">
   <div class="gallery-grid">
-    {{ .Inner | markdownify }}
+    {{ .Inner | safeHTML }}
     <div class="extra-images"></div>
   </div>
 </div>
