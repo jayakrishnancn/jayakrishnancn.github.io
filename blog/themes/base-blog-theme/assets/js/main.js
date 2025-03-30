@@ -1,90 +1,134 @@
-const MAX = 3,
-  grid = document.querySelector(".gallery-grid"),
-  extra = document.querySelector(".extra-images"),
-  box = document.getElementById("lightbox"),
-  img = document.getElementById("lightbox-img"),
-  desc = document.getElementById("img-description"),
-  thumbs = document.getElementById("thumbnail-container"),
-  prev = document.getElementById("prev-btn"),
-  next = document.getElementById("next-btn"),
-  close = document.querySelector(".close-btn");
-let idx = 0,
-  imgs = [];
+(function() {
+  // Only run if gallery-container exists
+  if (!document.querySelector('.gallery-container')) return;
 
-function init() {
-  const all = grid.querySelectorAll("img");
-  imgs = Array.from(all).map((i) => ({ src: i.src, description: i.alt }));
+  // Inject lightbox HTML if not already present
+  if (!document.getElementById('lightbox')) {
+    const lightboxHTML = `
+      <div id="lightbox" class="lightbox hidden">
+        <span class="close-btn">&times;</span>
+        <div class="lightbox-content">
+          <div class="lightbox-img-container"><img id="lightbox-img" src="" alt="Preview"></div>
+          <div class="lightbox-description" id="img-description"></div>
+        </div>
+        <div class="lightbox-thumbs" id="thumbnail-container"></div>
+        <button class="nav-btn prev-btn" id="prev-btn">&#10094;</button>
+        <button class="nav-btn next-btn" id="next-btn">&#10095;</button>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', lightboxHTML);
+  }
 
-  if (all.length > MAX) {
-    all.forEach((i, n) => {
-      if (n >= MAX) i.style.display = "none";
-    });
-    extra.textContent = "+" + (all.length - MAX);
-    extra.style.display = "flex";
-    extra.addEventListener("click", () => open(MAX));
-  } else extra.style.display = "none";
+  // Initialize lightbox functionality
+  const MAX=2,grid=document.querySelector(".gallery-grid"),extra=document.querySelector(".extra-images"),box=document.getElementById("lightbox"),img=document.getElementById("lightbox-img"),desc=document.getElementById("img-description"),thumbs=document.getElementById("thumbnail-container"),prev=document.getElementById("prev-btn"),next=document.getElementById("next-btn"),close=document.querySelector(".close-btn");
+  let idx=0,imgs=[],imgCache={};
 
-  all.forEach((i, n) => {
-    if (n < MAX) i.addEventListener("click", () => open(n));
-  });
+  function init(){
+    const all=grid.querySelectorAll("img");
+    imgs=Array.from(all).map(i=>({src:i.src,description:i.alt}));
+    
+    if(all.length>MAX){
+      for(let n=MAX;n<all.length;n++)all[n].style.display="none";
+      extra.textContent="+"+(all.length-MAX);
+      extra.style.display="flex";
+      extra.addEventListener("click",()=>open(MAX),{passive:true});
+    }else{
+      extra.style.display="none";
+    }
+    
+    // Use event delegation for gallery images
+    grid.addEventListener("click",e=>{
+      if(e.target.tagName==="IMG"){
+        const i=Array.from(all).indexOf(e.target);
+        if(i<MAX)open(i);
+      }
+    },{passive:true});
+    
+    prev.addEventListener("click",()=>nav(-1),{passive:true});
+    next.addEventListener("click",()=>nav(1),{passive:true});
+    close.addEventListener("click",closeBox,{passive:true});
+    img.addEventListener("click",zoom,{passive:true});
+    box.addEventListener("click",e=>{if(e.target===box)closeBox()},{passive:true});
+    
+    // Preload first 3 images
+    for(let i=0;i<Math.min(3,imgs.length);i++)preloadImage(imgs[i].src);
+  }
 
-  prev.addEventListener("click", () => nav(-1));
-  next.addEventListener("click", () => nav(1));
-  close.addEventListener("click", closeBox);
-  img.addEventListener("click", zoom);
-  box.addEventListener("click", (e) => {
-    if (e.target === box) closeBox();
-  });
+  function preloadImage(src){
+    if(!imgCache[src]){
+      const img=new Image();
+      img.src=src;
+      imgCache[src]=img;
+    }
+  }
 
-  createThumbs();
-}
+  function open(i){
+    idx=i;
+    createThumbs();
+    
+    // Preload adjacent images
+    preloadImage(imgs[idx].src);
+    if(idx>0)preloadImage(imgs[idx-1].src);
+    if(idx<imgs.length-1)preloadImage(imgs[idx+1].src);
+    
+    update();
+    box.classList.remove("hidden");
+    document.addEventListener("keydown",keys);
+  }
 
-function open(i) {
-  idx = i;
-  update();
-  box.classList.remove("hidden");
-  document.addEventListener("keydown", keys);
-}
+  function update(){
+    img.src=imgs[idx].src;
+    desc.textContent=imgs[idx].description;
+    
+    // Update thumbnails
+    const thumbImgs=thumbs.querySelectorAll(".thumb-img");
+    for(let i=0;i<thumbImgs.length;i++){
+      thumbImgs[i].classList.toggle("active",i===idx);
+    }
+  }
 
-function update() {
-  img.src = imgs[idx].src;
-  desc.textContent = imgs[idx].description;
-  document
-    .querySelectorAll(".thumb-img")
-    .forEach((t, i) => t.classList.toggle("active", i === idx));
-}
+  function createThumbs(){
+    // Only create thumbnails once
+    if(thumbs.children.length>0)return;
+    
+    const fragment=document.createDocumentFragment();
+    for(let n=0;n<imgs.length;n++){
+      const t=document.createElement("img");
+      t.src=imgs[n].src;
+      t.className="thumb-img"+(n===idx?" active":"");
+      t.loading="lazy";
+      t.addEventListener("click",()=>open(n),{passive:true});
+      fragment.appendChild(t);
+    }
+    
+    thumbs.appendChild(fragment);
+  }
 
-function createThumbs() {
-  thumbs.innerHTML = "";
-  imgs.forEach((i, n) => {
-    const t = document.createElement("img");
-    t.src = i.src;
-    t.className = "thumb-img" + (n === idx ? " active" : "");
-    t.addEventListener("click", () => open(n));
-    thumbs.appendChild(t);
-  });
-}
+  function nav(d){
+    idx=(idx+d+imgs.length)%imgs.length;
+    update();
+  }
 
-function nav(d) {
-  idx = (idx + d + imgs.length) % imgs.length;
-  update();
-}
+  function closeBox(){
+    box.classList.add("hidden");
+    img.style.transform="scale(1)";
+    document.removeEventListener("keydown",keys);
+  }
 
-function closeBox() {
-  box.classList.add("hidden");
-  img.style.transform = "scale(1)";
-  document.removeEventListener("keydown", keys);
-}
+  function zoom(){
+    img.style.transform=img.style.transform==="scale(1.5)"?"scale(1)":"scale(1.5)";
+  }
 
-function zoom() {
-  img.style.transform =
-    img.style.transform === "scale(1.5)" ? "scale(1)" : "scale(1.5)";
-}
+  function keys(e){
+    if(e.key==="Escape")closeBox();
+    else if(e.key==="ArrowLeft")nav(-1);
+    else if(e.key==="ArrowRight")nav(1);
+  }
 
-function keys(e) {
-  if (e.key === "Escape") closeBox();
-  else if (e.key === "ArrowLeft") nav(-1);
-  else if (e.key === "ArrowRight") nav(1);
-}
-
-document.addEventListener("DOMContentLoaded", init);
+  // Initialize when page is ready
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",init);
+  }else{
+    init();
+  }
+})();
