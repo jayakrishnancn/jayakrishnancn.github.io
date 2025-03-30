@@ -1,180 +1,19 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-
-  {{ $galleryPath := "static/images/gallery" }}
-
-  {{ if not (fileExists $galleryPath) }}
-    <p>No images found in the gallery.</p>
-  {{ else }}
-    <div class="timeline-container">
-      {{ $allImages := slice }}
-      
-      {{ range (readDir $galleryPath) }}
-        {{ if .IsDir }}
-          {{ $year := .Name }}
-          {{ $yearPath := printf "%s/%s" $galleryPath $year }}
-          
-          {{ range (readDir $yearPath) }}
-            {{ if .IsDir }}
-              {{ $month := .Name }}
-              {{ $monthPath := printf "%s/%s" $yearPath $month }}
-              
-              {{ range (readDir $monthPath) }}
-                {{ if .IsDir }}
-                  {{ $day := .Name }}
-                  {{ $dayPath := printf "%s/%s" $monthPath $day }}
-                  
-                  {{ range (readDir $dayPath) }}
-                    {{ if not .IsDir }}
-                      {{ $dateStr := printf "%s-%s-%s" $year $month $day }}
-                      {{ $imagePath := printf "/images/gallery/%s/%s/%s/%s" $year $month $day .Name }}
-                      {{ $nameWithoutExt := replaceRE "\\.[^.]+$" "" .Name }}
-                      
-                      {{ $title := $nameWithoutExt }}
-                      
-                      {{ $parts := split $nameWithoutExt "_" }}
-                      {{ if ge (len $parts) 1 }}
-                        {{ $title = index $parts 0 }}
-                      {{ end }}
-
-                      {{ $imageData := dict "path" $imagePath "date" $dateStr   "title" $title "filename" .Name }}
-                      {{ $allImages = $allImages | append $imageData }}
-                    {{ end }}
-                  {{ end }}
-                {{ end }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
-
-
-    
-
-      <!-- Group images by date -->
-      {{ $groupedByDate := dict }}
-      {{ range $image := $allImages }}
-        {{ $date := $image.date }}
-        {{ $imagesForDate := index $groupedByDate $date | default slice }}
-        {{ $groupedByDate = merge $groupedByDate (dict $date ($imagesForDate | append $image)) }}
-      {{ end }}
-
-        <!-- Get all dates and sort them in descending order -->
-      {{ $dates := slice }}
-      {{ range $date, $images := $groupedByDate }}
-        {{ $dates = $dates | append $date }}
-      {{ end }}
-      {{ $sortedDates := sort $dates "value" "desc" }} 
-      
-      <div class="timeline">
-        {{ $prevYear := "" }}
-        {{ range $index, $date := $sortedDates }}
-          {{ $images := index $groupedByDate $date }}
-          {{ $dateParts := split $date "-" }}
-          {{ $year := index $dateParts 0 }}
-          
-          
-          {{ if ne $year $prevYear }}
-            <div class="timeline-year">{{ $year }}</div>
-            {{ $prevYear = $year }}
-          {{ end }}
-          
-          <div class="timeline-item">
-            <div class="timeline-date">{{ $date }}</div>
-            <div class="images-row">
-              {{ range $image := $images }}
-                <div class="image-tile">
-                  <img src="{{ $image.path }}" alt="{{ $image.title }}">
-                </div>
-              {{ end }}
-            </div>
-          </div>
-        {{ end }}
-      </div>
-    </div>
-    
-    
-  {{ end }}
+ {{ .Content }}
 {{ end }}
 
-{{define "style"}}
-<style>
-  .timeline-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .timeline {
-    position: relative;
-    padding: 20px 0;
-  }
-  
-  .timeline:before {
-    content: '';
-    position: absolute;
-    left: 120px;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: #ddd;
-    z-index: -1;
-  }
-  
-  .timeline-year {
-    background: #3498db;
-    color: white;
-    border-radius: 20px;
-    padding: 5px 15px;
-    display: inline-block;
-    margin: 20px 0 20px 80px;
-    font-weight: bold;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-  
-  .timeline-item {
-    display: flex;
-    margin-bottom: 30px;
-    align-items: flex-start;
-  }
-  
-  .timeline-date {
-    min-width: 100px;
-    text-align: right;
-    padding-right: 30px;
-    font-weight: bold;
-    color: #666;
-    padding-top: 10px;
-  }
-  
-  .images-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  
-  .image-tile {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    width: 250px;
-    height: 250px;
-  }
-  
-  .image-tile:hover {
-    transform: scale(1.02);
-    z-index: 10;
-  }
-  
-  .image-tile img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-</style>
-{{end}}
+
+{{ define "footer-js" }}
+    {{- with resources.Get "js/gallery.js" }}
+        {{- if eq hugo.Environment "development" }}
+            {{- with . | js.Build }}
+            <script src="{{ .RelPermalink }}"></script>
+            {{- end }}
+        {{- else }}
+            {{- $opts := dict "minify" true }}
+            {{- with . | js.Build $opts | fingerprint }}
+            <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}
