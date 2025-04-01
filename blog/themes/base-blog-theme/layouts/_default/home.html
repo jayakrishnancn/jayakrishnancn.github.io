@@ -1,4 +1,4 @@
 {{ define "main" }} {{ .Content }} 
   <h1 style="margin-top: 3em">Posts</h1>
-  {{ partial "list-content.html" (dict "pages" (where site.RegularPages "Type" "posts") "page" .) }}
+  {{ partial "list-content.html" (dict "pages" (where site.RegularPages "Type" "ne" "projects") "page" .) }}
 {{ end }}

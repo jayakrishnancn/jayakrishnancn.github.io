@@ -14,6 +14,12 @@
             {{ end }}
         </h2>
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          <!-- show page.Site.RegularPages type -->
+          {{ if .Type }}
+            <span class="badge">{{ .Type }}</span>
+          {{ end }}
+
+          
       </div>
       <div>
         {{ .Summary }}

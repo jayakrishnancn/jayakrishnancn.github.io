@@ -15,7 +15,8 @@ a:hover,a:active,a:focus,a:focus-visible{border-bottom-color:var(--link-color)}
 nav ul,nav li{display:inline-block;margin:0;padding:0}
 nav ul{flex-wrap:wrap;justify-content:flex-start!important}
 nav a{white-space:nowrap}
-time{color:#666;font:12px monospace}
+time,.badge{color:#666;font:12px monospace}
+.badge{border: 1px solid #aaa;padding: 2px;font-size:11px; border-radius: 4px;}
 main{flex:1}
 table{width:100%}
 hr{border:0;border-top:1px dashed}
