@@ -53,8 +53,8 @@
     const all = grid.querySelectorAll("img");
     imgs = Array.from(all).map((i) => ({
       originalSrc: i.src,
-      smallSrc: getImagePath(i.src, SMALL_IMAGES),
-      largeSrc: getImagePath(i.src, LARGE_IMAGES),
+      smallSrc: (i && i.getAttribute("data-small-src")) ??  getImagePath(i.src, SMALL_IMAGES),
+      largeSrc: (i && i.getAttribute("data-large-src")) ?? getImagePath(i.src, LARGE_IMAGES),
       description: i.alt,
     }));
 
