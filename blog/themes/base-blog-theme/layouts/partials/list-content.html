@@ -7,7 +7,7 @@
   {{ range $paginator.Pages }}
     <div>
       <div>
-          <h2 style="margin:0">
+          <h2 style="margin:0;margin-top:2em">
             <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
             {{ if .Draft }}
               <span class="badge">DRAFT</span>
