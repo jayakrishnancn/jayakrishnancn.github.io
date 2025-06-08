@@ -1,6 +1,5 @@
 +++
 date = '2025-05-08T13:43:49+05:30'
-draft = false
 title = 'Casual shots taken on my phone [MAY]'
 +++
 

@@ -2,7 +2,7 @@
   <div>
   <!--{{ $pages := where site.RegularPages "Type" "posts" }} -->
   {{ $pages := .pages | default (where .page.Site.RegularPages "Type" "posts") }}
-  {{ $paginator := .page.Paginate ($pages.ByTitle) 7 }}
+  {{ $paginator := .page.Paginate ($pages.ByDate.Reverse) 4 }}
 
   {{ range $paginator.Pages }}
     <div>
