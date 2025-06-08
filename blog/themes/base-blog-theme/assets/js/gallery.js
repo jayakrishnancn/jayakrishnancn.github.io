@@ -155,46 +155,74 @@
     document.addEventListener("keydown", keys);
   }
 
+  // Cache for parsed location data to avoid re-parsing
+  const locationCache = new Map();
+  
+  function parseLocation(location) {
+    if (locationCache.has(location)) {
+      return locationCache.get(location);
+    }
+    
+    let mapUrl, displayText = location;
+    
+    // Check if it's a full URL (e.g., specific maps link)
+    if (location.startsWith('http://') || location.startsWith('https://')) {
+      mapUrl = location;
+      displayText = location.includes('maps.google.com') ? 'View on Google Maps' : 'View Location';
+    }
+    // Check if it's lat,lng coordinates (e.g., "40.7128,-74.0060" or "40.7128, -74.0060")
+    else if (/^-?\d+\.?\d*\s*,\s*-?\d+\.?\d*$/.test(location.trim())) {
+      const coords = location.trim().replace(/\s/g, '');
+      mapUrl = `https://maps.google.com/maps?q=${coords}`;
+      displayText = `📍 ${location}`;
+    }
+    // Default: treat as location name/address
+    else {
+      mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(location)}`;
+    }
+    
+    const result = { mapUrl, displayText };
+    locationCache.set(location, result);
+    return result;
+  }
+
+  let currentActiveThumb = null; // Track current active thumbnail
+
   function update() {
-    lightboxEl.spinner.classList.remove("hidden");
-    lightboxEl.img.onload = lightboxEl.img.onerror = () => lightboxEl.spinner.classList.add("hidden");
-    lightboxEl.img.src = imgs[idx].largeSrc;
-    lightboxEl.title.textContent = imgs[idx].title;
+    const currentImg = imgs[idx];
+    
+    // Only show spinner if image isn't cached
+    if (!cache[currentImg.largeSrc] || !cache[currentImg.largeSrc].complete) {
+      lightboxEl.spinner.classList.remove("hidden");
+    }
+    
+    // Use cached image if available
+    if (cache[currentImg.largeSrc] && cache[currentImg.largeSrc].complete) {
+      lightboxEl.img.src = currentImg.largeSrc;
+      lightboxEl.spinner.classList.add("hidden");
+    } else {
+      lightboxEl.img.onload = lightboxEl.img.onerror = () => lightboxEl.spinner.classList.add("hidden");
+      lightboxEl.img.src = currentImg.largeSrc;
+    }
+    
+    lightboxEl.title.textContent = currentImg.title;
     
     // Make location clickable and link to Google Maps
-    const location = imgs[idx].location;
-    if (location) {
-      let mapUrl, displayText = location;
-      
-      // Check if it's a full URL (e.g., specific maps link)
-      if (location.startsWith('http://') || location.startsWith('https://')) {
-        mapUrl = location;
-        // Extract a display name from URL or use generic text
-        displayText = location.includes('maps.google.com') ? 'View on Google Maps' : 'View Location';
-      }
-      // Check if it's lat,lng coordinates (e.g., "40.7128,-74.0060" or "40.7128, -74.0060")
-      else if (/^-?\d+\.?\d*\s*,\s*-?\d+\.?\d*$/.test(location.trim())) {
-        const coords = location.trim().replace(/\s/g, '');
-        mapUrl = `https://maps.google.com/maps?q=${coords}`;
-        displayText = `📍 ${location}`;
-      }
-      // Default: treat as location name/address
-      else {
-        mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(location)}`;
-      }
-      
+    if (currentImg.location) {
+      const { mapUrl, displayText } = parseLocation(currentImg.location);
       lightboxEl.location.innerHTML = `<a href="${mapUrl}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; cursor: pointer;">${displayText}</a>`;
     } else {
       lightboxEl.location.textContent = "";
     }
     
-    lightboxEl.desc.textContent = imgs[idx].description;
+    lightboxEl.desc.textContent = currentImg.description;
     
-    // More efficient thumbnail active state update
-    const thumbImgs = lightboxEl.thumbs.children;
-    for (let i = 0; i < thumbImgs.length; i++) {
-      thumbImgs[i].classList.toggle("active", i === idx);
+    // More efficient thumbnail active state update - only change what's needed
+    if (currentActiveThumb !== null) {
+      lightboxEl.thumbs.children[currentActiveThumb].classList.remove("active");
     }
+    lightboxEl.thumbs.children[idx].classList.add("active");
+    currentActiveThumb = idx;
   }
 
   function nav(d) {
