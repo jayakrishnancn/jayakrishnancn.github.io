@@ -1,7 +1,8 @@
 (function() {
-  const gallery = document.querySelector(".gallery-container");
-  if (!gallery) return;
+  const galleries = document.querySelectorAll(".gallery-container");
+  if (!galleries.length) return;
 
+  // Create shared lightbox if it doesn't exist
   if (!document.getElementById("lightbox")) {
     document.body.insertAdjacentHTML("beforeend", `
       <div id="lightbox" class="lightbox hidden">
@@ -11,7 +12,13 @@
             <div id="loading-spinner" class="hidden"><div class="spinner"></div></div>
             <img id="lightbox-img" src="" alt="Preview">
           </div>
-          <div class="lightbox-description" id="img-description"></div>
+          <div class="lightbox-info">
+            <div class="lightbox-title-info">
+              <div class="lightbox-title" id="img-title"></div>
+              <div class="lightbox-location" id="img-location"></div>
+            </div>
+            <div class="lightbox-description" id="img-description"></div>
+          </div>
         </div>
         <div class="lightbox-thumbs" id="thumbnail-container"></div>
         <button class="nav-btn prev-btn" id="prev-btn">&#10094;</button>
@@ -21,14 +28,14 @@
   }
 
   const SMALL = "x300", LARGE = "x1024";
-  const MAX = gallery.dataset.max ? parseInt(gallery.dataset.max) : 2;
   
-  const el = {
-    spinner: document.getElementById("loading-spinner"),
-    grid: document.querySelector(".gallery-grid"),
-    extra: document.querySelector(".extra-images"),
+  // Shared lightbox elements
+  const lightboxEl = {
     box: document.getElementById("lightbox"),
+    spinner: document.getElementById("loading-spinner"),
     img: document.getElementById("lightbox-img"),
+    title: document.getElementById("img-title"),
+    location: document.getElementById("img-location"),
     desc: document.getElementById("img-description"),
     thumbs: document.getElementById("thumbnail-container"),
     prev: document.getElementById("prev-btn"),
@@ -36,51 +43,63 @@
     close: document.querySelector(".close-btn")
   };
   
+  let currentGallery = null;
   let idx = 0, imgs = [], cache = {};
 
   function getPath(src, size) {
     return src.replace(`/gallery/${SMALL}/`, `/gallery/${size}/`);
   }
 
-  function init() {
-    const images = el.grid.querySelectorAll("img");
+  function initGallery(gallery) {
+    const MAX = gallery.dataset.max ? parseInt(gallery.dataset.max) : 2;
+    const grid = gallery.querySelector(".gallery-grid");
+    const extraEl = gallery.querySelector(".extra-images");
     
-    imgs = [...images].map(img => ({
+    if (!grid) return;
+    
+    const images = grid.querySelectorAll("img");
+    
+    const galleryImgs = [...images].map(img => ({
       smallSrc: img.dataset.smallSrc || getPath(img.src, SMALL),
       largeSrc: img.dataset.largeSrc || getPath(img.src, LARGE),
-      description: img.alt
+      title: img.dataset.title || "",
+      location: img.dataset.location || "",
+      description: img.dataset.caption || img.alt || ""
     }));
 
-    images.forEach((img, i) => { img.src = imgs[i].smallSrc; });
+    images.forEach((img, i) => { img.src = galleryImgs[i].smallSrc; });
 
     // Handle max images display
-    if (images.length > MAX) {
+    if (images.length > MAX && extraEl) {
       [...images].slice(MAX).forEach(img => { img.style.display = "none"; });
-      el.extra.textContent = "+" + (images.length - MAX);
-      el.extra.style.display = "flex";
-      el.extra.addEventListener("click", () => open(MAX), {passive: true});
-    } else {
-      el.extra.style.display = "none";
+      extraEl.textContent = "+" + (images.length - MAX);
+      extraEl.style.display = "flex";
+      extraEl.addEventListener("click", () => openLightbox(galleryImgs, MAX), {passive: true});
+    } else if (extraEl) {
+      extraEl.style.display = "none";
     }
 
-    el.grid.addEventListener("click", e => {
+    grid.addEventListener("click", e => {
       if (e.target.tagName === "IMG") {
         const i = [...images].indexOf(e.target);
-        if (i < MAX) open(i);
+        if (i !== -1 && (i < MAX || images.length <= MAX)) {
+          openLightbox(galleryImgs, i);
+        }
       }
     }, {passive: true});
 
-    el.prev.addEventListener("click", () => nav(-1), {passive: true});
-    el.next.addEventListener("click", () => nav(1), {passive: true});
-    el.close.addEventListener("click", closeBox, {passive: true});
-    el.img.addEventListener("click", zoom, {passive: true});
-    el.box.addEventListener("click", e => { 
-      if (e.target === el.box) closeBox();
-    }, {passive: true});
+    // Preload first few images with requestIdleCallback for better performance
+    const preloadImages = () => {
+      for (let i = 0; i < Math.min(3, galleryImgs.length); i++) {
+        preload(galleryImgs[i].largeSrc);
+      }
+    };
 
-    setTimeout(() => {
-      for (let i = 0; i < Math.min(3, imgs.length); i++) preload(imgs[i].largeSrc);
-    }, 500);
+    if (window.requestIdleCallback) {
+      requestIdleCallback(preloadImages, { timeout: 1000 });
+    } else {
+      setTimeout(preloadImages, 500);
+    }
   }
 
   function preload(src) {
@@ -91,15 +110,27 @@
     }
   }
 
-  function createThumbs() {
-    if (el.thumbs.children.length) return;
+  function openLightbox(galleryImgs, startIndex = 0) {
+    imgs = galleryImgs;
+    currentGallery = galleryImgs;
+    open(startIndex);
+  }
 
-    el.thumbs.addEventListener("click", e => {
-      if (e.target.tagName === "IMG") {
-        const index = +e.target.dataset.index;
-        if (!isNaN(index)) open(index);
-      }
-    }, {passive: true});
+  let thumbsEventListenerAdded = false;
+
+  function createThumbs() {
+    lightboxEl.thumbs.innerHTML = "";
+
+    // Add event listener only once
+    if (!thumbsEventListenerAdded) {
+      lightboxEl.thumbs.addEventListener("click", e => {
+        if (e.target.tagName === "IMG") {
+          const index = +e.target.dataset.index;
+          if (!isNaN(index)) open(index);
+        }
+      }, {passive: true});
+      thumbsEventListenerAdded = true;
+    }
     
     const frag = document.createDocumentFragment();
     for (let n = 0; n < imgs.length; n++) {
@@ -110,7 +141,7 @@
       t.dataset.index = n;
       frag.appendChild(t);
     }
-    el.thumbs.appendChild(frag);
+    lightboxEl.thumbs.appendChild(frag);
   }
 
   function open(i) {
@@ -120,19 +151,50 @@
     if (idx > 0) preload(imgs[idx - 1].largeSrc);
     if (idx < imgs.length - 1) preload(imgs[idx + 1].largeSrc);
     update();
-    el.box.classList.remove("hidden");
+    lightboxEl.box.classList.remove("hidden");
     document.addEventListener("keydown", keys);
   }
 
   function update() {
-    el.spinner.classList.remove("hidden");
-    el.img.onload = el.img.onerror = () => el.spinner.classList.add("hidden");
-    el.img.src = imgs[idx].largeSrc;
-    el.desc.textContent = imgs[idx].description;
+    lightboxEl.spinner.classList.remove("hidden");
+    lightboxEl.img.onload = lightboxEl.img.onerror = () => lightboxEl.spinner.classList.add("hidden");
+    lightboxEl.img.src = imgs[idx].largeSrc;
+    lightboxEl.title.textContent = imgs[idx].title;
     
-    el.thumbs.querySelectorAll("img").forEach((t, i) => {
-      t.classList.toggle("active", i === idx);
-    });
+    // Make location clickable and link to Google Maps
+    const location = imgs[idx].location;
+    if (location) {
+      let mapUrl, displayText = location;
+      
+      // Check if it's a full URL (e.g., specific maps link)
+      if (location.startsWith('http://') || location.startsWith('https://')) {
+        mapUrl = location;
+        // Extract a display name from URL or use generic text
+        displayText = location.includes('maps.google.com') ? 'View on Google Maps' : 'View Location';
+      }
+      // Check if it's lat,lng coordinates (e.g., "40.7128,-74.0060" or "40.7128, -74.0060")
+      else if (/^-?\d+\.?\d*\s*,\s*-?\d+\.?\d*$/.test(location.trim())) {
+        const coords = location.trim().replace(/\s/g, '');
+        mapUrl = `https://maps.google.com/maps?q=${coords}`;
+        displayText = `📍 ${location}`;
+      }
+      // Default: treat as location name/address
+      else {
+        mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(location)}`;
+      }
+      
+      lightboxEl.location.innerHTML = `<a href="${mapUrl}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; cursor: pointer;">${displayText}</a>`;
+    } else {
+      lightboxEl.location.textContent = "";
+    }
+    
+    lightboxEl.desc.textContent = imgs[idx].description;
+    
+    // More efficient thumbnail active state update
+    const thumbImgs = lightboxEl.thumbs.children;
+    for (let i = 0; i < thumbImgs.length; i++) {
+      thumbImgs[i].classList.toggle("active", i === idx);
+    }
   }
 
   function nav(d) {
@@ -143,19 +205,36 @@
   }
 
   function closeBox() {
-    el.box.classList.add("hidden");
-    el.img.style.transform = "scale(1)";
+    lightboxEl.box.classList.add("hidden");
+    lightboxEl.img.style.transform = "scale(1)";
     document.removeEventListener("keydown", keys);
   }
 
   function zoom() {
-    el.img.style.transform = el.img.style.transform === "scale(1.5)" ? "scale(1)" : "scale(1.5)";
+    lightboxEl.img.style.transform = lightboxEl.img.style.transform === "scale(1.5)" ? "scale(1)" : "scale(1.5)";
   }
 
   function keys(e) {
     if (e.key === "Escape") closeBox();
     else if (e.key === "ArrowLeft") nav(-1);
     else if (e.key === "ArrowRight") nav(1);
+  }
+
+  // Initialize lightbox event listeners once
+  function initLightboxEvents() {
+    lightboxEl.prev.addEventListener("click", () => nav(-1), {passive: true});
+    lightboxEl.next.addEventListener("click", () => nav(1), {passive: true});
+    lightboxEl.close.addEventListener("click", closeBox, {passive: true});
+    lightboxEl.img.addEventListener("click", zoom, {passive: true});
+    lightboxEl.box.addEventListener("click", e => { 
+      if (e.target === lightboxEl.box) closeBox();
+    }, {passive: true});
+  }
+
+  // Initialize all galleries
+  function init() {
+    initLightboxEvents();
+    galleries.forEach(gallery => initGallery(gallery));
   }
 
   document.readyState === "loading" 

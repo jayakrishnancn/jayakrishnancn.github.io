@@ -1,4 +1,4 @@
-:root{--background-color:#fff;--code-background-color:#272822;--code-color:#CCC;--font-main:Verdana,sans-serif;--font-scale:1em;--link-color:#3273dc;--text-color:#111;--width:720px;--timeline-color:#ccc;--dark:#000;--light:#fff;--gray:#f4f4f4;--radius:5px;--gap:8px}
+:root{--background-color:#fff;--code-background-color:#272822;--code-color:#CCC;--font-main:Verdana,sans-serif;--font-scale:1em;--link-color:#3273dc;--text-color:#111;--width:720px;--timeline-color:#ccc;--dark:#000;--light:#fff;--gray:#f4f4f4;--radius:5px;--gap:8px;--text-color-light:#666}
 html.dark{--background-color:#140f2b;--link-color:#ff9800;--text-color:#e0e0e0;--timeline-color:#ff9800}
 @media (prefers-color-scheme: dark) {
 :root{--background-color:#140f2b;--link-color:#ff9800;--text-color:#e0e0e0;--timeline-color:#ff9800}
@@ -43,7 +43,7 @@ footer{font-size:.8em;text-align:center}
 .lightbox-content{display:flex;width:90%;max-height:80%;background:var(--light);border-radius:var(--radius);overflow:hidden}
 .lightbox-img-container{flex:3;display:flex;align-items:center;justify-content:center;background:var(--dark);overflow:hidden;max-height:720px}
 #lightbox-img{max-width:100%;max-height:100%;min-height:400px;min-width:100px;cursor:zoom-in;transition:transform .2s}
-.lightbox-description{flex:1;padding:20px;background:var(--gray)}
+.lightbox-info{flex:1;background:var(--gray)}
 .lightbox-thumbs{display:flex;gap:5px;margin-top:10px;max-width:100%;overflow-x:auto}
 .thumb-img{width:60px;height:40px;object-fit:cover;cursor:pointer;border:2px solid transparent;border-radius:4px;flex-shrink:0}
 .thumb-img.active{border-color:var(--light)}
@@ -77,4 +77,22 @@ figure figcaption p {
     margin-bottom: 6px;
     text-align: center;
     box-sizing: border-box
+}
+
+.lightbox-info {
+    font-size: 0.9rem;
+}
+.lightbox-title-info{
+    font-size: 1.2rem;
+    color: var(--text-color);
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+.lightbox-location {
+    font-size: 10px;
+    color: var(--text-color-light);
+}
+.lightbox-description{
+   padding: 1rem;
+    color: var(--text-color-light);
 }
