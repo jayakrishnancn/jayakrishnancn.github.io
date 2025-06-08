@@ -62,9 +62,9 @@
     const galleryImgs = [...images].map(img => ({
       smallSrc: img.dataset.smallSrc || getPath(img.src, SMALL),
       largeSrc: img.dataset.largeSrc || getPath(img.src, LARGE),
-      title: img.dataset.title || "",
+      title: img.dataset.title || img.alt || "",
       location: img.dataset.location || "",
-      description: img.dataset.caption || img.alt || ""
+      description: img.dataset.caption ||  img.dataset.title ?  img.alt : "" || ""
     }));
 
     images.forEach((img, i) => { img.src = galleryImgs[i].smallSrc; });
