@@ -4,7 +4,7 @@ title = 'A Trip to Andaman and Nicobar Islands'
 +++
 
 ### An Unforgettable Trip to Andaman with My Beautiful Wife
-{{< gallery max="5">}}
+{{< gallery max="3">}}
     <img loading="lazy" src="/images/gallery/x300/chidiya-tapu.webp" alt="Chidiya tapu">
     <img loading="lazy" src="/images/gallery/x300/kayaking.webp" alt="Kayaking, North Bay Island" >
     <img loading="lazy" src="/images/gallery/x300/scuba-dress.webp" alt="Havelck Island Scuba diving preprations">

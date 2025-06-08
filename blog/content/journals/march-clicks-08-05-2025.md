@@ -4,7 +4,7 @@ title = 'Casual shots taken on my phone [MAY]'
 +++
 
 
-{{< gallery max="5">}}
+{{< gallery max="3">}}
     <img loading="lazy" src="/images/gallery/x300/IMG_3066.webp" alt="Blackberry, or Rubus , was snapped during a trip to Vattavada, Idukki, Kerala." data-title="Blackberry" data-location="Vattavada, Idukki, Kerala" />
 
     
