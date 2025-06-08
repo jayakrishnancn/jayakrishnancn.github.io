@@ -10,7 +10,7 @@ layout: "gallery"
     <img loading="lazy" src="/images/gallery/x300/IMG_0648.webp" alt="Power of water" >
     <img loading="lazy" src="/images/gallery/x300/IMG_1996.webp" alt="Home Sweethome" >
     <img loading="lazy" src="/images/gallery/x300/IMG_3066.webp" alt="Berry" >
-    <img loading="lazy" src="/images/gallery/x300/IMG_1764 copy.webp" alt="alien arrival" >
+    <img loading="lazy" src="/images/gallery/x300/IMG_1764 copy.webp" alt="Alien arrival" >
     <img loading="lazy" src="/images/gallery/x300/20250427_155920_Original Copy.webp" alt="A sleepy afternoon" >
     <img loading="lazy" src="/images/gallery/x300/01-02-2025-1.webp" alt="Havelock Island Scuba Diving" >
     <img loading="lazy" src="/images/gallery/x300/01-02-2025-2.webp" alt="Radhanagar Beach">
