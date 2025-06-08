@@ -1,10 +1,9 @@
 +++
-date = '2025-03-08T11:43:52+05:30'
+date = '2025-04-08T11:43:52+05:30'
 draft = false
-title = 'March Clicks 08 03 2025'
+title = 'Casual shots taken on my phone [APRIL]'
 +++
 
-# March Clicks
 {{< gallery max="5">}}
     <img loading="lazy" src="/images/gallery/x300/20250427_155920_Original Copy.webp" alt="This photo of a sleeping parrot was taken during a visit to Prani, an exotic pet sanctuary in Bangalore." data-title="A sleepy afternoon" data-location="Prani - The Pet Sanctuary, Bengaluru, Karnataka" />
 
